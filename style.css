@@ -165,15 +165,6 @@
     font-weight: 600;
 }
 
-
-.carrossel__botao {
-    display: none;
-}
-.carrossel__lojas .lojas__carrossel {
-    width: 100%;
-    height: 212px;
-}
-
-#lojas__imagem {
-    background-size: cover;
+.carrossel__lojas .loja__imagem {
+    border-radius: 12px;
 }
