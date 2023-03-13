@@ -1,0 +1,56 @@
+@import url("../../assets/styles/config.css");
+
+/* Deixa as bolinhas ficarem laranjas */
+.carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+}
+
+.carousel-indicators [data-bs-target].active {
+    background-color: var(--cor-icone) !important;
+}
+
+/* Config dos cards */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--cor-menu);
+    padding: 12px 0;
+}
+
+.cards__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__box {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background-color: var(--verde);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.card__description {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 16px;
+    font-weight: 700;
+    width: 100px;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__icon{
+    font-size: 2em;
+    color: var(--cor-icone);
+}
