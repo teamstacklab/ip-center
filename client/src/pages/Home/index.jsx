@@ -8,10 +8,10 @@ import {
   Shop,
   CalendarWeek,
   PeopleFill,
-  ArrowLeft,
-  ArrowRepeat,
   ArrowRight
 } from 'react-bootstrap-icons'
+
+const HomeRoute = '/';
 
 const Home = () => {
   return (
@@ -26,7 +26,7 @@ const Home = () => {
               <img className="carousel-inicio__image" src={Arte1} alt="Arte do Shopping" />
             </Carousel.Item>
             <Carousel.Item className="carousel-inicio__item">
-              <img className="carousel-inicio__image"src={Arte1} alt="Arte do Shopping" />
+              <img className="carousel-inicio__image" src={Arte1} alt="Arte do Shopping" />
             </Carousel.Item>
           </Carousel>
         </div>
@@ -64,14 +64,14 @@ const Home = () => {
         </div>
         <div className="lojas__carrossel--container">
           <Carousel className="lojas__carousel">
-          <Carousel.Item className="lojas__carousel__item">
-              <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
-            </Carousel.Item>
             <Carousel.Item className="lojas__carousel__item">
               <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
             </Carousel.Item>
             <Carousel.Item className="lojas__carousel__item">
-              <img className="lojas__carousel__image"src={Arte2} alt="Arte do Shopping" />
+              <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
+            </Carousel.Item>
+            <Carousel.Item className="lojas__carousel__item">
+              <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
             </Carousel.Item>
           </Carousel>
         </div>
@@ -81,3 +81,4 @@ const Home = () => {
 }
 
 export default Home;
+export { HomeRoute };

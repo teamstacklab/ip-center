@@ -42,13 +42,24 @@
     z-index: 999;
     box-shadow: 0 0 8px var(--shadow);
 }
+
 .nav-bar__logo {
     height: 3.35em;
     padding: 0;
 }
+
 .menu__links {
     margin-top: 1px;
 }
+
+.menu__link {
+    color: var(--marrom);
+    gap: 6px;
+}
+.menu__link__icon {
+    font-size: 1.15em;
+}
+
 :is(.menu.show, .menu.collapsing) .menu__link {
     border: 1px solid var(--marrom-2);
     margin-top: -1px;

@@ -5,18 +5,27 @@ import NavBar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
+// Routes
+import { HomeRoute } from "../../pages/Home";
+import { LojasRoute } from "../../pages/Lojas";
+import { EventosRoute } from "../../pages/Eventos";
+
+// Router
+import { Link } from "react-router-dom";
+
 // Icones
 import {
   Whatsapp,
   Instagram,
-  List,
-  ArrowRight
-} from 'react-bootstrap-icons'
+  ArrowRight,
+  House,
+  Shop,
+  CalendarWeek
+} from 'react-bootstrap-icons';
 
 const NavigationBar = () => {
   return (
     <React.Fragment>
-
       <header className="header-bar">
         <div className="header-bar__social">
           <a href="#" className="social__link whatsapp__link">
@@ -26,9 +35,9 @@ const NavigationBar = () => {
             <Instagram className="social__icon insta__icon" />
           </a>
         </div>
-        <a className="header-bar__trabalhe" href="#">
+        <Link to={HomeRoute} className='header-bar__trabalhe'>
           Trabalhe conosco <ArrowRight className="trabalhe__icon" />
-        </a>
+        </Link>
       </header>
 
       <NavBar className="nav-bar m-0 p-0" expand="lg">
@@ -42,9 +51,15 @@ const NavigationBar = () => {
           <NavBar.Collapse className="menu p-0 m-0" id="menuList">
             <Nav className="menu__links me-auto d-flex">
               {/* Aqui vem os links das rotas do site */}
-              <Nav.Link className="menu__link px-3 py-2 w-100 d-flex" href="#">Home</Nav.Link>
-              <Nav.Link className="menu__link px-3 py-2 w-100 d-flex" href="#">Lojas</Nav.Link>
-              <Nav.Link className="menu__link px-3 py-2 w-100 d-flex" href="#">Eventos</Nav.Link>
+              <Link to={HomeRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
+                <House className="menu__link__icon" />Home
+              </Link>
+              <Link to={LojasRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
+                <Shop className="menu__link__icon" />Lojas
+              </Link>
+              <Link to={EventosRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
+                <CalendarWeek className="menu__link__icon" />Eventos
+              </Link>
             </Nav>
           </NavBar.Collapse>
         </Container>
