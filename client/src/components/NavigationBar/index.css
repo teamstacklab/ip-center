@@ -55,7 +55,7 @@
     color: var(--marrom);
 }
 
-.menu__button:is(:hover, :active, :focus) {
+.menu__button:is(:hover) {
     background-color: var(--shadow-2);
     box-shadow: none !important;
     border: 0;

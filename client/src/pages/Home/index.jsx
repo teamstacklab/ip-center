@@ -67,10 +67,10 @@ const Home = () => {
           <Carousel.Item className="lojas__carousel__item">
               <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
             </Carousel.Item>
-            <Carousel.Item className="carousel-inicio__item">
+            <Carousel.Item className="lojas__carousel__item">
               <img className="lojas__carousel__image" src={Arte2} alt="Arte do Shopping" />
             </Carousel.Item>
-            <Carousel.Item className="carousel-inicio__item">
+            <Carousel.Item className="lojas__carousel__item">
               <img className="lojas__carousel__image"src={Arte2} alt="Arte do Shopping" />
             </Carousel.Item>
           </Carousel>
