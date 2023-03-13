@@ -11,6 +11,18 @@
     background-color: var(--cor-icone) !important;
 }
 
+/* Config do inicio */
+.carousel-inicio__item {
+    height: 312px;
+    width: 100%;
+}
+
+.carousel-inicio__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Config dos cards */
 .cards {
     display: flex;
@@ -53,4 +65,81 @@
 .card__icon{
     font-size: 2em;
     color: var(--cor-icone);
+}
+
+#lojas {
+    padding: 12px 16px;
+    background-color: var(--marrom);
+}
+
+.lojas--container {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 9px 0;
+}
+
+.lojas__title--container {
+    display: flex;
+    text-align: center;
+    gap: 9px;
+}
+
+.lojas__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cor-menu);
+}
+
+.lojas__title--icon {
+    font-size: 1.4em;
+    color: var(--cor-icone);
+}
+
+.container__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-menu);
+    gap: 11px;
+    margin-top: -10px;
+}
+
+.loja__container .link__imagem {
+    width: 16px;
+    height: 12px;
+}
+
+.link__titulo {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+.carrossel__botao {
+    display: none;
+}
+.carrossel__lojas .lojas__carrossel {
+    width: 100%;
+    height: 212px;
+}
+
+#lojas__imagem {
+    background-size: cover;
+}
+
+/* Config do carousel das lojas */
+.lojas__carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.lojas__carousel__item {
+    height: 280px;
+    width: 100%;
+}
+
+.lojas__carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
