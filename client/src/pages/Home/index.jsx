@@ -47,7 +47,7 @@ const Home = () => {
             <div className="card__box">
               <PeopleFill className="card__icon people__icon" />
             </div>
-            <p className="card__description">Trabalhe Conosco</p>
+            <p className="card__description">Trabalhe<br />Conosco</p>
           </div>
         </div>
       </section>

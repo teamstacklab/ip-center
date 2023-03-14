@@ -9,6 +9,7 @@ import Eventos from './pages/Eventos';
 
 // Components
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 // React Navigator
 import {
@@ -40,6 +41,7 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <AppRoutes />
+      <Footer />
     </BrowserRouter>
   );
 }
