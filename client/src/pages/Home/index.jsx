@@ -76,6 +76,30 @@ const Home = () => {
           </Carousel>
         </div>
       </section>
+      <section id="eventos">
+        <div className="eventos__container">
+          <CalendarWeek className="container__calendario"/>
+          <h2 className="container__title">Eventos</h2>
+        </div>
+        <div className="eventos__descricao">
+          <p className="descricao__text">
+          O Shopping Ipê Center conta também com um <span className="text__bold">salão exclusivo de eventos</span> onde podem ser realizados aniversários, confraternizações e muito mais!
+          </p>
+        </div>
+        <div className="eventos__carrossel">
+          <Carousel className="eventos__carousel">
+            <Carousel.Item className="eventos__carousel__item">
+              <img className="eventos__carousel__image" src={Arte2} alt="Arte do Shopping" />
+            </Carousel.Item>
+            <Carousel.Item className="eventos__carousel__item">
+              <img className="eventos__carousel__image" src={Arte2} alt="Arte do Shopping" />
+            </Carousel.Item>
+            <Carousel.Item className="eventos__carousel__item">
+              <img className="eventos__carousel__image" src={Arte2} alt="Arte do Shopping" />
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </section>
     </main>
   );
 }

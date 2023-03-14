@@ -26,7 +26,7 @@
 /* Config dos cards */
 .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: var(--cor-menu);
     padding: 12px 0;
 }
@@ -68,7 +68,7 @@
 }
 
 #lojas {
-    padding: 12px 16px;
+    padding: 12px 23px;
     background-color: var(--marrom);
 }
 
@@ -115,15 +115,6 @@
     font-weight: 600;
 }
 
-
-.carrossel__botao {
-    display: none;
-}
-.carrossel__lojas .lojas__carrossel {
-    width: 100%;
-    height: 212px;
-}
-
 #lojas__imagem {
     background-size: cover;
 }
@@ -138,8 +129,53 @@
     width: 100%;
 }
 
-.lojas__carousel__image {
+.lojas__carousel__image, .eventos__carousel__image{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+/*Seção de eventos*/
+
+#eventos {
+    padding: 0 21px 12px;
+    background-color: var(--cor-menu);
+}
+
+.eventos__carousel__item {
+    width: 100%;
+    height: 280px;
+}
+
+.container__calendario {
+    font-size: 1.4em;
+    color: var(--marrom-3);
+}
+
+.eventos__container {
+    padding-top: 15px;
+    display: flex;
+    gap: 7px;
+}
+
+.container__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--marrom-3);
+}
+
+.descricao__text {
+    font-weight: 500;
+    color: var(--marrom-3);
+}
+
+.text__bold {
+    font-weight: 700;
+}
+
+.eventos__carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
