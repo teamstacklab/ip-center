@@ -1,0 +1,8 @@
+.social {
+    display: flex;
+    align-items: center;
+}
+.footer-bar {
+    display: flex;
+    justify-content: space-evenly;
+}
