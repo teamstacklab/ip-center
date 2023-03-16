@@ -184,6 +184,8 @@
 
 .title__agenda {
     margin: 0 0 12px 2px;
+    font-weight: 700;
+    color: var(--marrom);
 }
 
 .calendario__imagem {
