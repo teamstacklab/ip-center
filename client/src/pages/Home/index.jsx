@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import Arte1 from '../../assets/images/arte1.png';
 import Arte2 from '../../assets/images/arte2.jpg';
+import agenda from '../../assets/images/calendario.svg';
 
 import './index.css';
 import {
@@ -99,6 +100,14 @@ const Home = () => {
             </Carousel.Item>
           </Carousel>
         </div>
+        <div className="agenda">
+        <div className="agenda__title">
+          <h2 className="title__agenda">Agenda</h2>
+        </div>
+        <div className="agenda__calendario">
+          <img src={agenda} className="calendario__imagem" alt="" />
+        </div>
+      </div>
       </section>
     </main>
   );

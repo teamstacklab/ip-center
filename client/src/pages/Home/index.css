@@ -177,4 +177,16 @@
     overflow: hidden;
 }
 
+.agenda {
+    padding-top: 12px;
+    background-color: var(--cor-menu);
+}
+
+.title__agenda {
+    margin: 0 0 12px 2px;
+}
+
+.calendario__imagem {
+    width: 100%;
+}
 

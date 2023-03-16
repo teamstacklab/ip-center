@@ -41,7 +41,6 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <AppRoutes />
-      <Footer />
     </BrowserRouter>
   );
 }
