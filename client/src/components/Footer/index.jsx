@@ -54,20 +54,24 @@ const Footer = () => {
       <div className="footer__info">
         <p className="info__meta">&copy;023 - Shopping Ipê Center. Todos os direitos reservados.</p>
         <div className="info__data">
-          <span className="data__trabalho">
+          <div className="data__trabalho">
             <PeopleFill className="data__icon" />
             <Link to={HomeRoute}>Trabalhe conosco</Link>
-          </span>
-          <span className="data__horarios">
-            <span>
+          </div>
+          <div className="data__horarios">
+            <div className="data__elementos-horarios">
               <ClockFill className="data__icon" />
               <p className="data__title">Horários de funcionamento</p>
-            </span>
+            </div>
             <ul className="data__list">
-              <li className="list__item"></li>
-              <li className="list__item"></li>
+              <li className="list__item">De segunda a quarta: <span className="item--negreto">das 08:00h às 20:00h</span></li>
+              <li className="list__item">Da quita ao domingo: <span className="item--negreto">das 08:00h às 22:00h</span></li>
             </ul>
-          </span>
+          </div>
+          <div className="data__endereco">
+            <GeoAltFill className="data__icon"/>
+            <p className="data__text">Rua Santo Antônio, No. 60 <br />Araripe, Ceará</p>
+          </div>
         </div>
       </div>
     </footer>

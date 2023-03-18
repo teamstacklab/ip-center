@@ -47,3 +47,14 @@ footer {
 .info__meta {
     color: var(--cor-menu);
 }
+
+.data__elementos-horarios {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.data__icon {
+    width: 19px;
+    height: 19px;
+}
