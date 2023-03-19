@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
+:root {
+    --verde: #255F23;
+    --preto: #000;
+    --cor-menu: #FFF4DB;
+    --cor-texto: #FFCE77;
+    --cor-icone: #F7A107;
+    --marrom: #403a36;
+    --marrom-2: rgb(204, 185, 173);
+    --marrom-3: #706158;
+    --shadow: rgba(64, 58, 54, 0.35);
+    --shadow-2: rgba(64, 58, 54, 0.1);
+    --fonte-principal:'Inter';
+}

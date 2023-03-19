@@ -1,0 +1,195 @@
+@import url("../../assets/styles/config.css");
+
+/* Deixa as bolinhas ficarem laranjas */
+.carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+}
+
+.carousel-indicators [data-bs-target].active {
+    background-color: var(--cor-icone) !important;
+}
+
+/* Config do inicio */
+.carousel-inicio__item {
+    height: 312px;
+    width: 100%;
+}
+
+.carousel-inicio__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Config dos cards */
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--cor-menu);
+    padding: 12px 0;
+}
+
+.cards__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__box {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background-color: var(--verde);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.card__description {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 16px;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__icon{
+    font-size: 2em;
+    color: var(--cor-icone);
+}
+
+#lojas {
+    padding: 12px 23px;
+    background-color: var(--marrom);
+}
+
+.lojas--container {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0 0 9px 0;
+}
+
+.lojas__title--container {
+    display: flex;
+    text-align: center;
+    gap: 9px;
+}
+
+.lojas__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cor-menu);
+}
+
+.lojas__title--icon {
+    font-size: 1.4em;
+    color: var(--cor-icone);
+}
+
+.container__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-menu);
+    gap: 11px;
+    margin-top: -10px;
+}
+
+.loja__container .link__imagem {
+    width: 16px;
+    height: 12px;
+}
+
+.link__titulo {
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--cor-menu);
+}
+
+#lojas__imagem {
+    background-size: cover;
+}
+
+/* Config do carousel das lojas */
+.lojas__carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.lojas__carousel__item {
+    height: 280px;
+    width: 100%;
+}
+
+.lojas__carousel__image, .eventos__carousel__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Seção de eventos*/
+
+#eventos {
+    padding: 12px 21px 12px;
+    background-color: var(--cor-menu);
+}
+
+.eventos__carousel__item {
+    width: 100%;
+    height: 280px;
+}
+
+.container__calendario {
+    font-size: 1.4em;
+    color: var(--marrom-3);
+}
+
+.eventos__container {
+    display: flex;
+    gap: 7px;
+}
+
+.container__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--marrom-3);
+}
+
+.descricao__text {
+    font-weight: 500;
+    color: var(--marrom-3);
+}
+
+.text__bold {
+    font-weight: 700;
+}
+
+.eventos__carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.agenda {
+    padding-top: 12px;
+    background-color: var(--cor-menu);
+}
+
+.title__agenda {
+    margin: 0 0 12px 2px;
+    font-weight: 700;
+    color: var(--marrom);
+}
+
+.calendario__imagem {
+    width: 100%;
+}
+
