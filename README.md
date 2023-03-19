@@ -4,8 +4,8 @@ Site empresarial de um shopping da cidade de Araripe - CE
 
 ## Tecnologias
 
-- Node
-- JS
+- Javascript
+- NodeJS
 - React
 - MongoDB
 - CSS
