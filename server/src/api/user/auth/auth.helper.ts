@@ -27,6 +27,10 @@ export class AuthHelper {
     return this.jwt.decode(token, null);
   }
 
+  public isPasswordValid(password: string, userPassword: string): boolean {
+    return bcrypt.compareSync(password, userPassword);
+  }
+
   // Obtem o usuario pelo id da func. decode()
   public async validateUser(decoded: any): Promise<User> {
     return this.repository.findOne(decoded.id);
