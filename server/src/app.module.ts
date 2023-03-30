@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import { ApiModule } from './api/api.module';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 import { getEnviromentPath } from './common/helper/env.helper';
-import { User } from './api/user/user.entity';
 
 const envFilePath: string = getEnviromentPath(`${__dirname}/common/envs`);
 

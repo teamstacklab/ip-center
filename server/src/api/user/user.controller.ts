@@ -1,13 +1,11 @@
 import { JwtAuthGuard } from '@/api/user/auth/auth.guard';
 import { UserService } from './user.service';
 import { UpdateNameDto } from './user.dto'
-import { User } from './user.entity';
 import { Request } from 'express';
 import {
   Body,
   Controller,
   Inject,
-  Post,
   ClassSerializerInterceptor,
   UseInterceptors,
   UseGuards,
