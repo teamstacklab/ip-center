@@ -25,7 +25,6 @@ let TypeOrmProvider = class TypeOrmProvider {
                 'dist/**/migrations/**/*.{js, ts}'
             ],
             logger: 'file',
-            synchronize: true,
         };
     }
 };

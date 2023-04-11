@@ -19,7 +19,6 @@ export class TypeOrmProvider implements TypeOrmOptionsFactory {
         'dist/**/migrations/**/*.{js, ts}'
       ],
       logger: 'file',
-      synchronize: true,
     }
   }
 }

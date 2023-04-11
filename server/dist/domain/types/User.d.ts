@@ -1,3 +1,3 @@
-import IUser from "domain/interfaces/IUser";
-type User = IUser;
-export default User;
+import { IUser } from "domain/interfaces/IUser";
+declare type User = IUser;
+export { User };

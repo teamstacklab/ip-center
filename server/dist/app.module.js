@@ -9,15 +9,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
-const dbproviders_module_1 = require("./infrastructure/database/providers/dbproviders.module");
+const database_module_1 = require("./infrastructure/database/database.module");
 const environments_1 = require("./infrastructure/environments");
+const User_module_1 = require("./infrastructure/ioc/User.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_1.ConfigModule.forRoot({ envFilePath: (0, environments_1.getEnvFilePath)(), isGlobal: true }),
-            dbproviders_module_1.DatabaseProvidersModule,
+            config_1.ConfigModule.forRoot({
+                envFilePath: (0, environments_1.getEnvFilePath)(),
+                isGlobal: true,
+            }),
+            database_module_1.DatabaseModule,
+            User_module_1.UserModule
         ],
     })
 ], AppModule);

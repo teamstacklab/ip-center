@@ -1,5 +1,5 @@
-import IUser from "domain/interfaces/IUser";
+import { IUser } from "domain/interfaces/IUser";
 
 type User = IUser;
 
-export default User;
+export { User };
