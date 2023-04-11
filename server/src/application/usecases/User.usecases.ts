@@ -22,8 +22,8 @@ export class UserUseCases {
     return await this.userRepository.find();
   }
 
-  async findOne(key: User): Promise<User> {
-    return this.userRepository.findOneBy({ ...key });
+  async getByUsername(username: string): Promise<User> {
+    return this.userRepository.findOneBy({ username });
   }
 
   // Pega um usuário pelo ID
