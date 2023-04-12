@@ -5,24 +5,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
-const common_1 = require("@nestjs/common");
-const Database_module_1 = require("./infrastructure/ioc/Database.module");
-const Auth_module_1 = require("./infrastructure/ioc/Auth.module");
-const User_module_1 = require("./infrastructure/ioc/User.module");
-const Env_module_1 = require("./infrastructure/ioc/Env.module");
-let AppModule = class AppModule {
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [
-            Env_module_1.EnvModule,
-            Database_module_1.DatabaseModule,
-            User_module_1.UserModule,
-            Auth_module_1.AuthModule
-        ],
-    })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnvConfig = void 0;
+const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
+let EnvConfig = class EnvConfig {
+    constructor(config) {
+        this.config = config;
+    }
+    getVariable(variable) {
+        return this.config.get(variable);
+    }
+};
+EnvConfig = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [config_1.ConfigService])
+], EnvConfig);
+exports.EnvConfig = EnvConfig;
+//# sourceMappingURL=EnvConfig.js.map

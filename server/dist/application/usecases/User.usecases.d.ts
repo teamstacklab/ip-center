@@ -7,7 +7,7 @@ export declare class UserUseCases {
     constructor(userRepository: Repository<User>);
     private readonly logger;
     getAllUsers(): Promise<User[]>;
-    findOne(key: User): Promise<User>;
+    getByUsername(username: string): Promise<User>;
     getUserById(id: number): Promise<User>;
     createUser(userDto: CreateUserDto): Promise<User>;
     updateUser(id: number, values: UpdateUserDto): Promise<User>;

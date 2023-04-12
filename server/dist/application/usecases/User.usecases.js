@@ -11,6 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var UserUseCases_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserUseCases = void 0;
@@ -27,8 +38,13 @@ let UserUseCases = UserUseCases_1 = class UserUseCases {
         this.logger.log('Find all users');
         return await this.userRepository.find();
     }
-    async findOne(key) {
-        return this.userRepository.findOneBy(Object.assign({}, key));
+    async getByUsername(username) {
+        this.logger.log(`Find an user with username`);
+        const user = await this.userRepository.findOneBy({ username });
+        if (!user) {
+            throw new common_1.NotFoundException(`Usuário ${username} não encontrado"`);
+        }
+        return user;
     }
     async getUserById(id) {
         this.logger.log(`Find an user with id: ${id}`);
@@ -44,6 +60,7 @@ let UserUseCases = UserUseCases_1 = class UserUseCases {
         if (userExists) {
             throw new common_1.ConflictException(`O usuário de username: ${userDto.username} já existe.`);
         }
+        const { password } = userDto, others = __rest(userDto, ["password"]);
         const user = this.userRepository.create(Object.assign({}, userDto));
         return await this.userRepository.save(user);
     }

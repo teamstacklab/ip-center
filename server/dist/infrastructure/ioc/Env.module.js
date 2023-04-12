@@ -6,21 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModule = void 0;
+exports.EnvModule = void 0;
 const common_1 = require("@nestjs/common");
-const typeorm_1 = require("@nestjs/typeorm");
-const User_usecases_1 = require("../../application/usecases/User.usecases");
-const User_entity_1 = require("../../domain/models/User.entity");
-const User_controller_1 = require("../../presentation/controllers/User.controller");
-let UserModule = class UserModule {
+const config_1 = require("@nestjs/config");
+const environments_1 = require("../environments");
+const EnvService_1 = require("../environments/EnvService");
+let EnvModule = class EnvModule {
 };
-UserModule = __decorate([
+EnvModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([User_entity_1.User])],
-        controllers: [User_controller_1.UserControler],
-        providers: [User_usecases_1.UserUseCases],
-        exports: [typeorm_1.TypeOrmModule, User_usecases_1.UserUseCases]
+        imports: [
+            config_1.ConfigModule.forRoot({
+                envFilePath: (0, environments_1.getEnvFilePath)(),
+                isGlobal: true,
+            })
+        ],
+        providers: [EnvService_1.EnvService],
+        exports: [EnvService_1.EnvService]
     })
-], UserModule);
-exports.UserModule = UserModule;
-//# sourceMappingURL=User.module.js.map
+], EnvModule);
+exports.EnvModule = EnvModule;
+//# sourceMappingURL=Env.module.js.map

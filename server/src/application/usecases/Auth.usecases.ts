@@ -1,12 +1,12 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UserUseCases } from "./User.usecases";
 
 @Injectable()
 export class AuthUseCases {
   constructor(
-    private userUseCases: UserUseCases,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private userUseCases: UserUseCases
   ) { }
   async signIn(username: string, pass: string): Promise<any> {
     const user = await this.userUseCases.getByUsername(username);

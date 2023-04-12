@@ -1,0 +1,1 @@
+//# sourceMappingURL=AuthPattern.js.map

@@ -8,7 +8,7 @@ import { UserControler } from "presentation/controllers/User.controller";
     imports: [TypeOrmModule.forFeature([User])],
     controllers: [UserControler],
     providers: [UserUseCases],
-    exports: [TypeOrmModule]
+    exports: [TypeOrmModule, UserUseCases]
 })
 
 export class UserModule {}

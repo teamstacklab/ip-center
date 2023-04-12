@@ -6,21 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModule = void 0;
+exports.DatabaseModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const User_usecases_1 = require("../../application/usecases/User.usecases");
 const User_entity_1 = require("../../domain/models/User.entity");
-const User_controller_1 = require("../../presentation/controllers/User.controller");
-let UserModule = class UserModule {
+const typeorm_provider_1 = require("../database/providers/typeorm/typeorm.provider");
+let DatabaseModule = class DatabaseModule {
 };
-UserModule = __decorate([
+DatabaseModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([User_entity_1.User])],
-        controllers: [User_controller_1.UserControler],
-        providers: [User_usecases_1.UserUseCases],
-        exports: [typeorm_1.TypeOrmModule, User_usecases_1.UserUseCases]
+        providers: [typeorm_provider_1.TypeOrmProvider],
+        imports: [
+            typeorm_1.TypeOrmModule.forRootAsync({ useClass: typeorm_provider_1.TypeOrmProvider }),
+            typeorm_1.TypeOrmModule.forFeature([User_entity_1.User])
+        ],
     })
-], UserModule);
-exports.UserModule = UserModule;
-//# sourceMappingURL=User.module.js.map
+], DatabaseModule);
+exports.DatabaseModule = DatabaseModule;
+//# sourceMappingURL=database.module.js.map

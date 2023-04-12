@@ -1,17 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from 'infrastructure/database/database.module';
-import { getEnvFilePath } from 'infrastructure/environments';
+import { DatabaseModule } from 'infrastructure/ioc/Database.module';
+import { AuthModule } from 'infrastructure/ioc/Auth.module';
 import { UserModule } from 'infrastructure/ioc/User.module';
+import { EnvModule } from 'infrastructure/ioc/Env.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
-      envFilePath: getEnvFilePath(),
-      isGlobal: true,
-    }),
+    EnvModule,
     DatabaseModule,
-    UserModule
+    UserModule,
+    AuthModule
   ],
 })
 

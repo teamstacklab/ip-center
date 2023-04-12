@@ -23,7 +23,12 @@ export class UserUseCases {
   }
 
   async getByUsername(username: string): Promise<User> {
-    return this.userRepository.findOneBy({ username });
+    this.logger.log(`Find an user with username`);
+    const user = await this.userRepository.findOneBy({ username });
+    if (!user) {
+      throw new NotFoundException(`Usuário ${username} não encontrado"`);
+    }
+    return user;
   }
 
   // Pega um usuário pelo ID

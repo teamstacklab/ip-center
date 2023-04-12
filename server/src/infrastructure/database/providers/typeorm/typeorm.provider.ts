@@ -1,17 +1,18 @@
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { getEnv } from 'infrastructure/environments';
+import { EnvService } from 'infrastructure/environments/EnvService';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
+  constructor(private readonly envService: EnvService) {}
   public createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
     return {
       type: "postgres",
-      host: getEnv('DB_HOST'),
-      port: parseInt(getEnv('DB_PORT')),
-      username: getEnv('DB_USER'),
-      password: getEnv('DB_PASS'),
-      database: getEnv('DB_NAME'),
+      host: this.envService.getVariable('DB_HOST'),
+      port: parseInt(this.envService.getVariable('DB_PORT')),
+      username: this.envService.getVariable('DB_USER'),
+      password: this.envService.getVariable('DB_PASS'),
+      database: this.envService.getVariable('DB_NAME'),
       entities: [
         'dist/**/*.entity.{js, ts}'
       ],
