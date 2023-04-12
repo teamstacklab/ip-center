@@ -11,17 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 var UserUseCases_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserUseCases = void 0;
@@ -56,13 +45,18 @@ let UserUseCases = UserUseCases_1 = class UserUseCases {
     }
     async createUser(userDto) {
         this.logger.log(`Save a new user`);
-        const userExists = await this.userRepository.findOneBy({ username: userDto.username });
-        if (userExists) {
-            throw new common_1.ConflictException(`O usuário de username: ${userDto.username} já existe.`);
+        try {
+            const { name, username, email, password, isAdmin } = userDto;
+            const userExists = await this.userRepository.findOneBy({ username: userDto.username });
+            if (userExists) {
+                throw new common_1.ConflictException(`O usuário de username: ${userDto.username} já existe.`);
+            }
+            const user = this.userRepository.create(Object.assign({}, userDto));
+            return await this.userRepository.save(user);
         }
-        const { password } = userDto, others = __rest(userDto, ["password"]);
-        const user = this.userRepository.create(Object.assign({}, userDto));
-        return await this.userRepository.save(user);
+        catch (_a) {
+            throw new common_1.InternalServerErrorException(`Informações insuficientes`);
+        }
     }
     async updateUser(id, values) {
         this.logger.log(`Updating an user by id: ${id}`);

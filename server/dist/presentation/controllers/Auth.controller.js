@@ -14,24 +14,48 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthControler = void 0;
 const common_1 = require("@nestjs/common");
-const signIn_dto_1 = require("../../application/dto/signIn.dto");
 const Auth_usecases_1 = require("../../application/usecases/Auth.usecases");
+const partialUser_dto_1 = require("../../application/dto/partialUser.dto");
+const Auth_guard_1 = require("../../infrastructure/guards/Auth.guard");
+const User_entity_1 = require("../../domain/models/User.entity");
 let AuthControler = class AuthControler {
     constructor(authUseCases) {
         this.authUseCases = authUseCases;
     }
-    signIn(account) {
-        return this.authUseCases.signIn(account.username, account.password);
+    login(account) {
+        return this.authUseCases.login(account.username, account.password);
+    }
+    register(user) {
+        return this.authUseCases.register(user);
+    }
+    getProfile(req) {
+        return req.user;
     }
 };
 __decorate([
-    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
+    (0, common_1.UseGuards)(Auth_guard_1.AuthGuard),
     (0, common_1.Post)('/login'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [signIn_dto_1.SignInDto]),
+    __metadata("design:paramtypes", [partialUser_dto_1.PartialUser]),
     __metadata("design:returntype", Object)
-], AuthControler.prototype, "signIn", null);
+], AuthControler.prototype, "login", null);
+__decorate([
+    (0, common_1.UseGuards)(Auth_guard_1.AuthGuard),
+    (0, common_1.Post)('/register'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [User_entity_1.User]),
+    __metadata("design:returntype", Object)
+], AuthControler.prototype, "register", null);
+__decorate([
+    (0, common_1.UseGuards)(Auth_guard_1.AuthGuard),
+    (0, common_1.Get)('/profile'),
+    __param(0, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Object)
+], AuthControler.prototype, "getProfile", null);
 AuthControler = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [Auth_usecases_1.AuthUseCases])

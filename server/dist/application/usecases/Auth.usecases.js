@@ -8,6 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthUseCases = void 0;
 const common_1 = require("@nestjs/common");
@@ -18,15 +29,27 @@ let AuthUseCases = class AuthUseCases {
         this.jwtService = jwtService;
         this.userUseCases = userUseCases;
     }
-    async signIn(username, pass) {
-        const user = await this.userUseCases.getByUsername(username);
-        if ((user === null || user === void 0 ? void 0 : user.password) !== pass) {
-            throw new common_1.UnauthorizedException();
-        }
+    async login(username, password) {
+        const user = await this.validateUser(username, password);
         const payload = { username: user.username, sub: user.id };
-        return {
-            acess_token: await this.jwtService.signAsync(payload)
-        };
+        return await this.generateJwtToken(payload);
+    }
+    async register(userDto) {
+        const user = await this.userUseCases.createUser(userDto);
+        const payload = { username: user.username, sub: user.id };
+        const token = await this.generateJwtToken(payload);
+        return { user, token };
+    }
+    async validateUser(username, password) {
+        const user = await this.userUseCases.getByUsername(username);
+        if (user.password === password) {
+            const { password } = user, partialUser = __rest(user, ["password"]);
+            return partialUser;
+        }
+        throw new common_1.UnauthorizedException('Senha incorreta!');
+    }
+    async generateJwtToken(payload) {
+        return { acess_token: await this.jwtService.signAsync(payload) };
     }
 };
 AuthUseCases = __decorate([

@@ -2,8 +2,8 @@ import { Module } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
 import { AuthUseCases } from "application/usecases/Auth.usecases";
-import { EnvService } from "infrastructure/environments/EnvService";
 import { AuthControler } from "presentation/controllers/Auth.controller";
+import { AuthGuard } from "infrastructure/guards/Auth.guard";
 import { EnvModule } from "./Env.module";
 import { UserModule } from "./User.module";
 
@@ -19,7 +19,13 @@ const config = new ConfigService();
       signOptions: { expiresIn: config.get("JWT_EXPIRES") }
     })
   ],
-  providers: [AuthUseCases],
+  providers: [
+    {
+      provide: 'APP_GUARD',
+      useClass: AuthGuard,
+    },
+    AuthUseCases
+  ],
   controllers: [AuthControler],
   exports: [AuthUseCases]
 })

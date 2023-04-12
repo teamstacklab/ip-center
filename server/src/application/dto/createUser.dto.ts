@@ -1,7 +1,9 @@
+import { NotEquals } from "class-validator";
+
 export class CreateUserDto {
-    name: string;
-    username: string;
-    password: string;
-    email: string;
-    isAdmin: boolean;
+    @NotEquals(null) name: string;
+    @NotEquals(null) username: string;
+    @NotEquals(null) password: string;
+    @NotEquals(null) email: string;
+    @NotEquals(null) isAdmin: boolean;
 }

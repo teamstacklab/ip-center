@@ -12,6 +12,7 @@ const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const Auth_usecases_1 = require("../../application/usecases/Auth.usecases");
 const Auth_controller_1 = require("../../presentation/controllers/Auth.controller");
+const Auth_guard_1 = require("../guards/Auth.guard");
 const Env_module_1 = require("./Env.module");
 const User_module_1 = require("./User.module");
 const config = new config_1.ConfigService();
@@ -28,7 +29,13 @@ AuthModule = __decorate([
                 signOptions: { expiresIn: config.get("JWT_EXPIRES") }
             })
         ],
-        providers: [Auth_usecases_1.AuthUseCases],
+        providers: [
+            {
+                provide: 'APP_GUARD',
+                useClass: Auth_guard_1.AuthGuard,
+            },
+            Auth_usecases_1.AuthUseCases
+        ],
         controllers: [Auth_controller_1.AuthControler],
         exports: [Auth_usecases_1.AuthUseCases]
     })
