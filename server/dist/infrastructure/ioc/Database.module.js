@@ -26,7 +26,7 @@ DatabaseModule = __decorate([
             }),
             typeorm_1.TypeOrmModule.forFeature([User_entity_1.User])
         ],
-        exports: [typeorm_provider_1.TypeOrmProvider, EnvService_1.EnvService]
+        exports: [typeorm_provider_1.TypeOrmProvider]
     })
 ], DatabaseModule);
 exports.DatabaseModule = DatabaseModule;

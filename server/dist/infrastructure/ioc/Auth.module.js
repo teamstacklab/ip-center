@@ -12,6 +12,7 @@ const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const Auth_usecases_1 = require("../../application/usecases/Auth.usecases");
 const Auth_controller_1 = require("../../presentation/controllers/Auth.controller");
+const Env_module_1 = require("./Env.module");
 const User_module_1 = require("./User.module");
 const config = new config_1.ConfigService();
 let AuthModule = class AuthModule {
@@ -20,9 +21,10 @@ AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
             User_module_1.UserModule,
+            Env_module_1.EnvModule,
             jwt_1.JwtModule.register({
                 global: true,
-                secret: ("JWT_SECRET"),
+                secret: config.get("JWT_SECRET"),
                 signOptions: { expiresIn: config.get("JWT_EXPIRES") }
             })
         ],

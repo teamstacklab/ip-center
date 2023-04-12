@@ -6,7 +6,7 @@ import { TypeOrmProvider } from "../database/providers/typeorm/typeorm.provider"
 import { EnvModule } from "./Env.module";
 
 @Module({
-  providers: [TypeOrmProvider],
+  providers: [TypeOrmProvider, EnvService],
   imports: [
     TypeOrmModule.forRootAsync({ 
       useClass: TypeOrmProvider,
