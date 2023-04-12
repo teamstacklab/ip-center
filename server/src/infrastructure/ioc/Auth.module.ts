@@ -6,12 +6,15 @@ import { AuthControler } from "presentation/controllers/Auth.controller";
 import { AuthGuard } from "infrastructure/guards/Auth.guard";
 import { EnvModule } from "./Env.module";
 import { UserModule } from "./User.module";
+import { DemandUseCases } from "application/usecases/Demand.usecases";
+import { DemandModule } from "./Demand.module";
 
 const config = new ConfigService();
 
 @Module({
   imports: [
     UserModule,
+    DemandModule,
     EnvModule,
     JwtModule.register({
       global: true,
@@ -20,10 +23,7 @@ const config = new ConfigService();
     })
   ],
   providers: [
-    {
-      provide: 'APP_GUARD',
-      useClass: AuthGuard,
-    },
+    AuthGuard,
     AuthUseCases
   ],
   controllers: [AuthControler],

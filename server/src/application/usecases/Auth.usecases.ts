@@ -1,14 +1,18 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { PartialUser } from "application/dto/partialUser.dto";
-import { User } from "domain/models/User.entity";
+import { PartialUserDto } from "application/dto/PartialUser.dto";
 import { UserUseCases } from "./User.usecases";
+import { DemandUseCases } from "./Demand.usecases";
+import { CreateDemandDto } from "application/dto/createDemand.dto";
+import { EncryptionAdapter } from "application/adapters/Encryption";
 
 @Injectable()
 export class AuthUseCases {
   constructor(
     private jwtService: JwtService,
-    private userUseCases: UserUseCases
+    private userUseCases: UserUseCases,
+    private demandUseCases: DemandUseCases,
+    private encryption: EncryptionAdapter
   ) { }
 
   // Faz o login do usuário
@@ -20,25 +24,31 @@ export class AuthUseCases {
   }
 
   // Registra um novo usuário
-  async register(userDto: User): Promise<any> {
-    const user = await this.userUseCases.createUser(userDto);
-    const payload = { username: user.username, sub:user.id }
-    const token = await this.generateJwtToken(payload);
+  async register(demandDto: CreateDemandDto): Promise<any> {
+    await this.demandUseCases.createDemand(demandDto);
 
-    return { user, token }
+    const { password, ...partialDemand } = demandDto;
+
+    return partialDemand;
+
+    // const user = await this.userUseCases.createUser(userDto);
+    // const payload = { username: user.username, sub:user.id }
+    // const token = await this.generateJwtToken(payload);
+
+    // return { user, token }
   }
 
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this.userUseCases.getByUsername(username);
     if (user.password === password) {
-      const { password, ...partialUser } = user;
-      return partialUser;
+      const { password, ...partialUserDto } = user;
+      return partialUserDto;
     }
     throw new UnauthorizedException('Senha incorreta!');
   }
 
   // Gera o token JWT
-  async generateJwtToken(payload: PartialUser): Promise<any> {
+  async generateJwtToken(payload: PartialUserDto): Promise<any> {
     return { acess_token: await this.jwtService.signAsync(payload) };
   }
 }

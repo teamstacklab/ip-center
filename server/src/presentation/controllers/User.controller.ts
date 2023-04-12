@@ -3,7 +3,6 @@ import { CreateUserDto } from "application/dto/createUser.dto";
 import { UpdateUserDto } from "application/dto/updateUserDto";
 import { UserUseCases } from "application/usecases/User.usecases";
 import { User } from "domain/models/User.entity";
-import { DeepPartial } from "typeorm";
 
 @Controller('users')
 export class UserControler {

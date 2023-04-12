@@ -1,7 +1,7 @@
 import { User } from 'domain/models/User.entity'
 import { ConflictException, Injectable, InternalServerErrorException, Logger, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, FindOneOptions } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CreateUserDto } from 'application/dto/createUser.dto';
 import { UpdateUserDto } from 'application/dto/updateUserDto';
 

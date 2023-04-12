@@ -1,9 +1,7 @@
-export interface IDemand  {
-    id: number;
+export class CreateDemandDto {
     cpf: string;
     name: string;
     username: string;
     email: string;
     password: string;
-    createdAt: Date;
 }

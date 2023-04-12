@@ -4,6 +4,7 @@ import { User } from "domain/models/User.entity";
 import { EnvService} from "infrastructure/environments/EnvService"
 import { TypeOrmProvider } from "../database/providers/typeorm/typeorm.provider";
 import { EnvModule } from "./Env.module";
+import { Demand } from "domain/models/Demand.entity";
 
 @Module({
   providers: [TypeOrmProvider, EnvService],
@@ -13,7 +14,7 @@ import { EnvModule } from "./Env.module";
       imports: [EnvModule],
       inject: [EnvService],
     }),
-    TypeOrmModule.forFeature([User])
+    TypeOrmModule.forFeature([User, Demand])
   ],
   exports: [TypeOrmProvider]
 })

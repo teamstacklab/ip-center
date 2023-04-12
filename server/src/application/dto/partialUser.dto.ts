@@ -1,3 +1,3 @@
 import { UpdateUserDto } from "./updateUserDto";
 
-export class PartialUser extends UpdateUserDto {}
+export class PartialUserDto extends UpdateUserDto {}
