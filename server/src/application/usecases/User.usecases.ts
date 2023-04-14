@@ -1,7 +1,7 @@
 import { User } from 'domain/models/User.entity'
-import { ConflictException, Injectable, UnsupportedMediaTypeException, Logger, NotFoundException } from "@nestjs/common";
+import { ConflictException, Injectable, UnsupportedMediaTypeException, Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Any, Repository } from 'typeorm';
 import { CreateUserDto } from 'application/dto/User/createUser.dto';
 import { UpdateUserDto } from 'application/dto/User/updateUser.dto';
 import { EncryptionAdapter } from 'application/adapters/Encryption.adapter';
@@ -59,13 +59,13 @@ export class UserUseCases {
   async createUser(userDto: CreateUserDto): Promise<User> {
     this.logger.log(`Save a new user`);
 
-    const { name, username, email, password, isAdmin }: any = userDto;
+    const { name, username, email, password, isAdmin } = userDto;
 
     if (
-      name === null ||
-      username === null ||
-      email === null ||
-      password === null ||
+      name == null ||
+      username == null ||
+      email == null ||
+      password == null ||
       isAdmin == null
     ) {
       const error = `Informações insuficientes. User = { name, username, email, password, isAdmin }`;
@@ -107,20 +107,25 @@ export class UserUseCases {
 
     const { password, ...partialUser } = values;
 
-    if (password) {
-      const newPassword = await this.encryption.hash(password);
-      await this.userRepository.update({ id }, { ...partialUser, password: newPassword });
+
+    if (Object.values(partialUser).length == 0) {
+      throw new InternalServerErrorException("Nenhum valor foi passado. User={name,username,email,password,isAdmin}")
+    } else {
+
+      await this.userRepository.update({ id }, { ...partialUser });
+
+      if (password) {
+        const newPassword = await this.encryption.hash(password);
+        await this.userRepository.update({ id }, { ...partialUser, password: newPassword });
+      }
     }
-
-    await this.userRepository.update({ id }, { ...partialUser });
-
     return await this.userRepository.findOneBy({ id });
   }
 
   // Deleta um usuário
   async deleteUser(id: number): Promise<User> {
     this.logger.log(`Deleting an user by id: ${id}`);
-    const user = this.userRepository.findOneBy({ id });
+    const user = await this.userRepository.findOneBy({ id });
 
     if (!user) {
       throw new NotFoundException(`O usuário de Id: ${id} não foi encontrado.`);

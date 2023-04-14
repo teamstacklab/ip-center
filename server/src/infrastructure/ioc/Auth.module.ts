@@ -19,7 +19,9 @@ const config = new ConfigService();
     UserModule,
     DemandModule,
     EnvModule,
-    PassportModule,
+    PassportModule.register({
+      session: true
+    }),
     JwtModule.register({
       global: true,
       secret: config.get("JWT_SECRET"),

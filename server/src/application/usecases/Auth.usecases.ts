@@ -19,6 +19,7 @@ export class AuthUseCases {
   // Faz o login do usuário
   async login(username: string, password: string): Promise<any> {
     const user = await this.validateUser(username, password)
+
     const payload: PayloadDto = {
       username: user.username,
       isAdmin: user.isAdmin,
@@ -40,14 +41,9 @@ export class AuthUseCases {
     const { password, ...partialDemand } = demandDto;
 
     return partialDemand;
-
-    // const user = await this.userUseCases.createUser(userDto);
-    // const payload = { username: user.username, sub:user.id }
-    // const token = await this.generateJwtToken(payload);
-
-    // return { user, token }
   }
-
+  
+  // Valida um usuário
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this.userUseCases.getByUsername(username);
     

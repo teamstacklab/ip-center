@@ -11,6 +11,9 @@ async function bootstrap() {
 
   let sess = {
     secret: config.get("SESSION_SECRET"),
+    cookie: {
+      maxAge: 6000 * 10
+    },
     resave: false,
     saveUninitialized: false,
   }

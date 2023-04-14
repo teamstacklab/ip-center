@@ -1,4 +1,4 @@
-import { ConflictException, InternalServerErrorException, Injectable } from "@nestjs/common";
+import { ConflictException, InternalServerErrorException, Injectable, NotFoundException } from "@nestjs/common";
 import { Demand } from "domain/models/Demand.entity";
 import { CreateDemandDto } from "application/dto/Demand/createDemand.dto";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -95,7 +95,13 @@ export class DemandUseCases {
   async getDemandById(id: number): Promise<Demand> {
     this.logger.log(`Get demand by id: ${id}`)
 
-    return this.demandRepository.findOneBy({ id });
+    const demand = await this.demandRepository.findOneBy({ id });
+
+    if (!demand) {
+      throw new NotFoundException("Demanda não encontrada!")
+    }
+    
+    return demand;
   }
 
   async getDemandBy(filter: PartialDemandDto): Promise<Demand> {
@@ -106,7 +112,11 @@ export class DemandUseCases {
 
   async deleteDemandById(id: number): Promise<Demand> {
     const demand = await this.getDemandById(id);
-    await this.demandRepository.delete(demand);
+    if (!demand) {
+      throw new NotFoundException("Demanda não encontrada!")
+    }
+    await this.demandRepository.delete({ id });
+
     return demand;
   }
 }
