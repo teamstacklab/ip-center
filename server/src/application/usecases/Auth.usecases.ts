@@ -1,10 +1,11 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { PartialUserDto } from "application/dto/PartialUser.dto";
+import { PartialUserDto } from "application/dto/User/partialUser.dto";
 import { UserUseCases } from "./User.usecases";
 import { DemandUseCases } from "./Demand.usecases";
-import { CreateDemandDto } from "application/dto/createDemand.dto";
-import { EncryptionAdapter } from "application/adapters/Encryption";
+import { CreateDemandDto } from "application/dto/Demand/createDemand.dto";
+import { EncryptionAdapter } from "application/adapters/Encryption.adapter";
+import { PayloadDto } from "application/dto/Auth/payload.dto";
 
 @Injectable()
 export class AuthUseCases {
@@ -18,9 +19,18 @@ export class AuthUseCases {
   // Faz o login do usuário
   async login(username: string, password: string): Promise<any> {
     const user = await this.validateUser(username, password)
-    const payload = { username: user.username, sub: user.id };
+    const payload: PayloadDto = {
+      username: user.username,
+      isAdmin: user.isAdmin,
+      sub: user.id,
+    };
 
-    return await this.generateJwtToken(payload);
+    const token = await this.generateJwtToken(payload);
+
+    return {
+      user: user,
+      ...token
+    }
   }
 
   // Registra um novo usuário
@@ -40,7 +50,8 @@ export class AuthUseCases {
 
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this.userUseCases.getByUsername(username);
-    if (user.password === password) {
+    
+    if (await this.encryption.compare(password, user.password)) {
       const { password, ...partialUserDto } = user;
       return partialUserDto;
     }

@@ -1,6 +1,6 @@
 import { Controller, Param, Get, Post, Body, Delete } from "@nestjs/common";
-import { CreateUserDto } from "application/dto/createUser.dto";
-import { UpdateUserDto } from "application/dto/updateUserDto";
+import { CreateUserDto } from "application/dto/User/createUser.dto";
+import { UpdateUserDto } from "application/dto/User/updateUser.dto";
 import { UserUseCases } from "application/usecases/User.usecases";
 import { User } from "domain/models/User.entity";
 

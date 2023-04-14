@@ -1,26 +1,43 @@
-import { Body, Controller, Request, Get, Post, HttpCode, HttpStatus, UseGuards } from "@nestjs/common";
+import { Body, Controller, Request, Get, Post, UseGuards, Session, Req } from "@nestjs/common";
 import { AuthUseCases } from "application/usecases/Auth.usecases";
-import { PartialUserDto } from "application/dto/PartialUser.dto";
-import { AuthGuard } from "infrastructure/guards/Auth.guard";
-import { User } from "domain/models/User.entity";
+import { PartialUserDto } from "application/dto/User/partialUser.dto";
+import { LocalAuthGuard } from "infrastructure/guards/local.guard";
+import { AuthenticatedGuard } from "infrastructure/guards/authenticated.guard";
 import { Demand } from "domain/models/Demand.entity";
+import { JwtAuthGuard } from "infrastructure/guards/jwt.guard";
 
 @Controller('auth')
 export class AuthControler {
   constructor(private authUseCases: AuthUseCases) { }
 
+  @UseGuards(LocalAuthGuard)
   @Post('/login')
-  login(@Body() account: PartialUserDto): any {
-    return this.authUseCases.login(account.username, account.password);
+  async login(@Body() body: any): Promise<any> {
+    return await this.authUseCases.login(body.username, body.password);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/logout')
+  async logout(@Req() req: any): Promise<any>{
+    await this.authUseCases.logout(req.user);
+    return {
+      message: "Você saiu da sessão!",
+    }
+  }
+
+  @Get('/session')
+  async getSession(@Session() sess: Record<string, any>) {
+    return {...sess}
   }
 
   @Post('/register')
-  register(@Body() demand: Demand): any {
-    return this.authUseCases.register(demand);
+  async register(@Body() demand: Demand): Promise<any> {
+    return await this.authUseCases.register(demand);
   }
 
+  @UseGuards(AuthenticatedGuard)
   @Get('/profile')
-  getProfile(@Request() req: any): any {
+  getProfile(@Request() req: any): any{
     return req.user;
   }
 }

@@ -1,5 +1,5 @@
-import { IDemand } from "domain/interfaces/IRegisterDemand";
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { IDemand } from "domain/interfaces/IDemand";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 
 @Entity()
 export class Demand implements IDemand {
@@ -8,6 +8,9 @@ export class Demand implements IDemand {
 
     @Column({ nullable: false, length: 200 })
     cpf: string;
+
+    @Column({ nullable: false, length: 200})
+    loja: string;
 
     @Column({ nullable: false, length: 200 })
     name: string;
