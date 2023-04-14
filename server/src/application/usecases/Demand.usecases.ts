@@ -7,9 +7,6 @@ import { PartialDemandDto } from "application/dto/Demand/partialDemand.dto";
 import { UserUseCases } from "./User.usecases";
 import { EncryptionAdapter } from "application/adapters/Encryption.adapter";
 import { Logger } from "@nestjs/common";
-import { User } from "domain/models/User.entity";
-import { CreateUserDto } from "application/dto/User/createUser.dto";
-import { PartialUserDto } from "application/dto/User/partialUser.dto";
 
 
 @Injectable()

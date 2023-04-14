@@ -90,7 +90,9 @@ export class UserUseCases {
       isAdmin,
 
     });
+
     await this.userRepository.save(user)
+
 
     return user;
   }

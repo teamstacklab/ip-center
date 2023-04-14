@@ -6,5 +6,7 @@ export interface IUser {
   password: string;
   email: string;
   isAdmin: boolean; // <-- Set user permissions
+  createdAt: Date;
+  updatedAt: Date;
   
 }
