@@ -1,5 +1,4 @@
-export interface IEvent {
-  id: number;
+export class CreateEventDto {
   name: string;
   initialDate: Date;
   finalDate: Date;

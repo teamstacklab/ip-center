@@ -1,8 +1,10 @@
+import { IsNotEmpty } from "class-validator";
+
 export class CreateDemandDto {
-    cpf: string;
-    name: string;
-    loja: string;
-    username: string;
-    email: string;
-    password: string;
+    @IsNotEmpty() cpf: string;
+    @IsNotEmpty() name: string;
+    @IsNotEmpty() loja: string;
+    @IsNotEmpty() username: string;
+    @IsNotEmpty() email: string;
+    @IsNotEmpty() password: string;
 }
