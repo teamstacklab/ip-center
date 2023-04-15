@@ -1,4 +1,6 @@
+import { IsNotEmpty } from "class-validator";
+
 export class CreateComunicadoDto {
-  name: string;
-  description: string;
+  @IsNotEmpty() name: string;
+  @IsNotEmpty() description: string;
 }

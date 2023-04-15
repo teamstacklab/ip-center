@@ -5,6 +5,7 @@ import { AuthenticatedGuard } from "infrastructure/guards/authenticated.guard";
 import { Demand } from "domain/models/Demand.entity";
 import { JwtAuthGuard } from "infrastructure/guards/jwt.guard";
 import { Request } from "express";
+import { CreateDemandDto } from "application/dto/Demand/createDemand.dto";
 
 @Controller('auth')
 export class AuthControler {
@@ -37,13 +38,13 @@ export class AuthControler {
 
   // Vê informações da sessão
   @Get('/session')
-  async getSession(@Session() sess: Record<string, any>) {
+  async getSession(@Session() sess: Request) {
     return {...sess}
   }
 
   // Registra um usuário (cria uma demanda)
   @Post('/register')
-  async register(@Body() demand: Demand): Promise<any> {
+  async register(@Body() demand: CreateDemandDto): Promise<Demand> {
     return await this.authUseCases.register(demand);
   }
 

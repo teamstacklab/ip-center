@@ -22,32 +22,21 @@ export class DemandUseCases {
   // Seleciona todas as demandas
   async getAllDemands(): Promise<Demand[]> {
     this.logger.log("Get all demands")
-
+    
     return this.demandRepository.find();
   }
-
+  
   // Cria uma nova demanda de registro
   async createDemand(demandDto: CreateDemandDto): Promise<Demand> {
     this.logger.log("Creating a demand")
-    const {
-      email,
-      username,
-      name,
-      password,
-      loja,
-      cpf
-    } = demandDto;
-
-    if (!email || !username || !name || !password || !loja || !cpf) {
-      const error = `Informações insufucuentes. Demand = { email, username, name, password, loja }`
-      throw new InternalServerErrorException(error);
-    }
-
+    
+    const { password, ...partialDemand } = demandDto;
+    
     const existingDemand = {
-      byUsername: await this.getDemandBy({ username }),
-      byEmail: await this.getDemandBy({ email }),
-      byUserUsername: await this.userUseCases.getUserBy({ username }),
-      byUserEmail: await this.userUseCases.getUserBy({ username }),
+      byUsername: await this.getDemandBy({ username: demandDto.username }),
+      byEmail: await this.getDemandBy({ email: demandDto.email }),
+      byUserUsername: await this.userUseCases.getUserBy({ username: demandDto.username }),
+      byUserEmail: await this.userUseCases.getUserBy({ username: demandDto.username }),
     };
 
     if (
@@ -59,15 +48,12 @@ export class DemandUseCases {
       throw new ConflictException(`Demanda já existente!`)
     }
 
+
     const hashPass = await this.encryption.hash(password);
 
     const demand = this.demandRepository.create({
       password: hashPass,
-      email,
-      cpf,
-      username,
-      name,
-      loja,
+      ...partialDemand
     });
 
     //Cria a demanda em si

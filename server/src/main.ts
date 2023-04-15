@@ -19,10 +19,11 @@ async function bootstrap() {
     saveUninitialized: false,
   }
 
+  app.useGlobalPipes(new ValidationPipe())
+  
   app.use(session(sess));
   app.use(passport.initialize());
   app.use(passport.session());
-  app.useGlobalPipes(new ValidationPipe())
   
   await app.listen(5000);
 }

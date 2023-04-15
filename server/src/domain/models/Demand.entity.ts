@@ -16,6 +16,9 @@ export class Demand implements IDemand {
     name: string;
 
     @Column({ nullable: false, length: 200 })
+    whatsapp: string;
+
+    @Column({ nullable: false, length: 200 })
     username: string;
 
     @Column({ nullable: false, length: 200 })
