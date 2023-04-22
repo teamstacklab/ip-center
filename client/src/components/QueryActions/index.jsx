@@ -1,6 +1,5 @@
 import React from "react";
-import api from "../../api";
-import { ApiCategories } from '../../api/routes'
+
 import {
   Search,
   Filter
@@ -12,13 +11,6 @@ const QueryActions = (props) => {
   const [categorias, setCategorias] = React.useState([]);
   const [search, setSearch] = React.useState(false);
   const [filter, setFilter] = React.useState(false);
-
-  React.useEffect(() => {
-    api.get(ApiCategories.all).then((res) => {
-      console.log(res.data);
-      setCategorias(res.data);
-    })
-  }, [])
 
   const SearchAction = () => {
     if (props.forSearch) {

@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import api from '../../api';
-import { ApiLojas } from '../../api/routes';
+
+
 
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
@@ -23,18 +23,6 @@ const Loja = ({ match }) => {
   const [loja, setLoja] = React.useState(null);
   const { id } = useParams();
   const route = `${ApiLojas.all}/${id}`;
-  
-  console.log(route)
-  
-  React.useEffect(() => {
-    api.get(route).then((res) => {
-      setLoja(res.data)
-    })
-  }, [route])
-  
-  console.log(loja)
-
-  if (!loja) return null;
 
   return (
     <main className='content-box'>

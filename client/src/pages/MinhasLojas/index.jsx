@@ -3,9 +3,9 @@ import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 import CardLoja from "../../components/CardLoja"
 import { Plus, Shop } from 'react-bootstrap-icons'
-import { ApiLojas } from "../../api/routes";
+
 import Button from 'react-bootstrap/Button'
-import api from "../../api";
+
 import QueryActions from "../../components/QueryActions";
 import { Link } from "react-router-dom";
 import { CriarLojaRoute } from "../CriarLoja";

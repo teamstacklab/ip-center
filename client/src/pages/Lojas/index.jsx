@@ -3,12 +3,6 @@ import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 import CardLoja from "../../components/CardLoja"
 import { Plus, Shop } from 'react-bootstrap-icons'
-import { ApiLojas } from "../../api/routes";
-import Button from 'react-bootstrap/Button'
-import api from "../../api";
-import QueryActions from "../../components/QueryActions";
-import { Link } from "react-router-dom";
-import { CriarLojaRoute } from "../CriarLoja";
 
 const LojasRoute = '/lojas';
 const MinhasLojasRoute = '/lojas/minhas';
@@ -18,15 +12,6 @@ const Lojas = (props) => {
   const user = JSON.parse(sessionStorage.getItem('user'));
 
   const [lojas, setLojas] = React.useState([]);
-
-  React.useEffect(() => {
-    api.get(ApiLojas.all)
-      .then((res) => {
-        setLojas(res.data);
-      })
-      .catch(err => console.log(err))
-
-  }, [])
 
   return (
     <section className="home-lojas">

@@ -13,23 +13,15 @@ import {
   ArrowRight,
   InfoCircle,
 } from 'react-bootstrap-icons'
-import { ApiComunicados } from "../../api/routes";
+
 import QueryActions from "../../components/QueryActions";
 import CardComunicado from "../../components/CardComunicado";
-import api from "../../api";
+
 
 const EventosRoute = '/eventos';
 
 const Eventos = () => {
   const [comunicados, setComunicados] = React.useState([]);
-
-  React.useEffect(() => {
-    api.get(ApiComunicados.all).then((res)=> {
-      setComunicados(res.data);
-    })
-  }, [])
-
-  if (!comunicados) return null;
 
   return (
     <section className="home-eventos">

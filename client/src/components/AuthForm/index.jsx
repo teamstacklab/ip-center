@@ -3,8 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './CSS/mobile.css';
 import './CSS/desktop.css';
-import { ApiAuth } from "../../api/routes";
-import api from '../../api'
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 import { HomeRoute } from '../../pages/Home';
@@ -22,43 +20,11 @@ function RegisterForm() {
   const [confirmation, setConfirmation] = React.useState();
   const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (password !== confirmation) {
-      Swal.fire({
-        title: "Senhas não conferem!"
-      })
-    } else {
-      try {
-        const userDto = {
-          email,
-          name,
-          loja,
-          username,
-          password,
-          whatsapp,
-          cpf,
-        };
-
-        const response = await api.post(ApiAuth.register, userDto, { headers: { "Content-Type": "application/json" } })
-
-        console.log(response.data)
-
-        Swal.fire({
-          title: "O pedido foi realizado com sucesso!",
-          text: "Mande uma pensagem pelo whatsapp no canto superior esquerdo!"
-        })
-
-      } catch (err) {
-        console.log("Erro" + err)
-      }
-    }
-  }
   if (accessToken !== null) {
     return <h1>Você já está logado!</h1>
   } else {
     return (
-      <Form onSubmit={handleSubmit} className="auth__form" method="POST">
+      <Form className="auth__form" method="POST">
         <Form.Label className="auth__label">Nome:</Form.Label>
         <Form.Control onChange={e => setName(e.target.value)} className="auth__input" type="text" controlId="name" placeholder="Digite seu nome" required />
         <Form.Label className="auth__label">Username:</Form.Label>
@@ -95,47 +61,11 @@ function LoginForm() {
   const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const userDto = { username, password };
-      const response = await api.post(ApiAuth.login, userDto, { headers: { "Content-Type": "application/json" } })
-
-      if (response.data['user'] && response.data['access_token']) {
-        sessionStorage.setItem(
-          'user', JSON.stringify(response.data['user'])
-        );
-        sessionStorage.setItem(
-          'access_token', JSON.stringify(response.data['access_token'])
-        );
-
-        console.log(sessionStorage);
-
-        setUser(response.data.user);
-        navigate(HomeRoute);
-        Swal.fire({
-          title: "Login feito com sucesso!"
-        })
-      } else {
-        Swal.fire({
-          title: "Não foi possível fazer login!"
-        })
-      }
-    } catch (err) {
-      console.log(err.response.data.message);
-      const error = err.response.data.message;
-      Swal.fire({
-        title: `Erro: ${error}`
-      })
-    }
-  }
-
-
   if (accessToken !== null) {
     return <h1>Você já está logado!</h1>
   } else {
     return (
-      <Form onSubmit={handleSubmit} className="auth__form" method="POST">
+      <Form className="auth__form" method="POST">
         <Form.Label className="auth__label">Username:</Form.Label>
         <Form.Control onChange={e => setUsername(e.target.value)} className="auth__input" type="text" controlId="username" placeholder="Digite seu username" required />
         <Form.Label className="auth__label">Senha:</Form.Label>

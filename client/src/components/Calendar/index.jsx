@@ -9,8 +9,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import './CSS/mobile.css';
 import './CSS/desktop.css';
-import api from "../../api";
-import { ApiEventos } from "../../api/routes";
+
+
 
 const locales = {
   'pt-BR': ptBR
@@ -37,24 +37,6 @@ const localizer = dateFnsLocalizer({
 export const CalendarAgenda = ( props ) => {
   const [eventos, setEventos] = React.useState([]);
 
-  React.useEffect(() => {
-    api.get(ApiEventos.all).then((res) => {
-      setEventos(res.data);
-    })
-  },[])
-
-  if (!eventos) return null;
-
-  const formatedEventos = eventos.map(evento=>{
-    return {
-      id: evento.id,
-      title: evento.name,
-      start: new Date(evento.initialDate),
-      end: new Date(evento.finalDate)
-    }
-  })
-
-  console.log(formatedEventos)
   return (
     <div>
       <Calendar
@@ -65,7 +47,7 @@ export const CalendarAgenda = ( props ) => {
         className="calendar"
         views={['month']}
         popup={true}
-        events={formatedEventos}
+        events={eventos}
         {...props}
       />
     </div>

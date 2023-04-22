@@ -7,21 +7,10 @@ import {
   CheckLg,
   X
 } from 'react-bootstrap-icons'
-import api from "../../api"
-import { ApiDemandas } from "../../api/routes";
-import { useParams } from 'react-router-dom'
+
 
 const Demanda = (props) => {
-  const autorizar = () => {
-    api.post(`${ApiDemandas.authorizate}/${props.id}`).then((res) => {
-      console.log(res)
-    }).catch(err => console.log(err))
-  }
-  const deletar = () => {
-    api.post(`${ApiDemandas.delete}/${props.id}`).then((res) => {
-      console.log(res)
-    }).catch(err => console.log(err))
-  }
+  
   return (
     <section className="demandas--resgistro">
       <div className="demandas__dados">
@@ -42,10 +31,10 @@ const Demanda = (props) => {
       <div className="demandas__action">
         <h3 className="action__title">Autorizar?</h3>
         <div className="action__button">
-          <button onClick={autorizar} className="button--action button--action--aceitar">
+          <button className="button--action button--action--aceitar">
             <CheckLg className="button--action__icon" />
           </button>
-          <button onClick={deletar} className="button--action button--action--recusar" >
+          <button  className="button--action button--action--recusar" >
             <X className="button--action__icon" />
           </button>
         </div>

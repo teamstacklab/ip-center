@@ -24,14 +24,13 @@
     }
 
     .info__sloga {
-        font-size: 20px;
+        font-size: 1rem;
         margin-top: 42px;
         display: block;
     }
 
     .sloga-desktop {
         display: none;
-        
     }
 
     .logo__imagem {
