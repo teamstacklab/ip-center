@@ -30,10 +30,10 @@ const Footer = () => {
           <img src={logo} className="logo__imagem" alt="Logo Ipê Center" />
         </div>
         <div className="social__items">
-          <a href="#" className="item__link item__link--social">
+          <a rel="noreferrer noopener" href="https://api.whatsapp.com/send/?phone=%2B5588993808414&text&type=phone_number&app_absent=0" className="item__link item__link--social">
             <Whatsapp className="link__icon" />
           </a>
-          <a href="#" className="item__link item__link--social">
+          <a rel="noreferrer noopener" href="https://www.instagram.com/ipe_center/" className="item__link item__link--social">
             <Instagram className="link__icon" />
           </a>
         </div>
@@ -53,7 +53,7 @@ const Footer = () => {
       <hr className="footer__separator" />
       <section className="footer__info">
         <div className="info__data footer-left">
-          <p className="info__meta">&copy;2023 - Shopping Ipê Center. Todos os direitos reservados.</p>
+          <p className="info__meta"><b>&copy;{new Date().getFullYear()}</b> - Shopping Ipê Center. Todos os direitos reservados.</p>
           <div className="data__trabalho">
             <PeopleFill className="data__icon" />
             <Link className="data__link" to={HomeRoute}>Trabalhe conosco</Link>

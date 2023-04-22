@@ -18,11 +18,11 @@ footer {
 
 .social__items {
     display: flex;
-    gap: 13px;
+    gap: 20px;
 }
 
 .item__link {
-    padding: .2em;
+    z-index: 9;
 }
 
 .link__icon {
@@ -40,7 +40,6 @@ footer {
     text-decoration: none;
     font-weight: 400;
     padding: 4px 10px;
-    background-color: var(--marrom-3);
     border-radius: 8px;
 }
 
