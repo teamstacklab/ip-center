@@ -17,33 +17,20 @@ export class UserUseCases {
 
   private readonly logger = new Logger(UserUseCases.name);
 
-  // Seleciona todos os usuários
+
+  async findOneBy(values: PartialUserDto): Promise<User> {
+    return await this.userRepository.findOne({where: values})
+  }
+  
+  // --> Seleciona todos os usuários
   async getAllUsers(): Promise<User[]> {
     this.logger.log('Find all users');
 
-    // Verifica o banco e Retorna a lista de objetos
     return await this.userRepository.find();
   }
 
-  // Pega um usuário pelo ID
-  async getUserBy(value: PartialUserDto): Promise<User> {
-    this.logger.log(`Find an user with an value`);
-    return await this.userRepository.findOneBy(value);
-  }
 
-  // Seleciona pelo username
-  async getByUsername(username: string): Promise<User> {
-    this.logger.log(`Find an user with username`);
-    const user = await this.userRepository.findOneBy({ username });
-
-    if (!user) {
-      throw new NotFoundException(`Usuário ${username} não encontrado."`);
-    }
-
-    return user;
-  }
-
-  // Pega um usuário pelo ID
+  // --> Pega um usuário pelo ID
   async getUserById(id: number): Promise<User> {
     this.logger.log(`Find an user with id: ${id}`);
     const user = await this.userRepository.findOneBy({ id });
@@ -55,83 +42,70 @@ export class UserUseCases {
     return user;
   }
 
-  // Cria um novo usuário
-  async createUser(userDto: CreateUserDto): Promise<User> {
-    this.logger.log(`Save a new user`);
 
-    const { name, username, email, password, isAdmin } = userDto;
+  // --> Pega um por um valor
+  async getUserBy(values: PartialUserDto): Promise<User> {
+    this.logger.log(`Find an user with an value`);
 
-    if (
-      name == null ||
-      username == null ||
-      email == null ||
-      password == null ||
-      isAdmin == null
-    ) {
-      const error = `Informações insuficientes. User = { name, username, email, password, isAdmin }`;
-      throw new UnsupportedMediaTypeException(error);
+    const user = await this.userRepository.findOne({ where: values });
+
+    if (!user) {
+      throw new NotFoundException(`Usuário de valores {${values}} não encontrado.`)
     }
-
-    const userExists = {
-      byUsername: await this.userRepository.findOneBy({ username }),
-      byEmail: await this.userRepository.findOneBy({ email }),
-    };
-
-    if (userExists.byEmail || userExists.byUsername) {
-      throw new ConflictException(`Um usuário com mesmo username ou email já existe.`);
-    }
-
-    const user = this.userRepository.create({
-      // Senha Hash
-      password,
-      name,
-      username,
-      email,
-      isAdmin,
-
-    });
-
-    await this.userRepository.save(user)
-
 
     return user;
   }
 
-  // Atualiza um usuário
+
+  // --> Cria um novo usuário
+  async createUser(userDto: CreateUserDto): Promise<User> {
+    this.logger.log(`Creates a new user`);
+
+    const hasUsername = await this.userRepository.findOneBy({ username: userDto.username })
+    const hasEmail = await this.userRepository.findOneBy({ email: userDto.email });
+  
+    if (hasUsername) {
+      throw new ConflictException(`Usuário de username: ${userDto.username} já existe!`)
+    } else if (hasEmail) {
+      throw new ConflictException(`Usuário de email: ${userDto.email} já existe!`);
+    }
+
+    const { password, ...partialUser } = userDto;
+    const hashPass = await this.encryption.hash(password);
+    const user = this.userRepository.create({...partialUser, password: hashPass });
+
+    return await this.userRepository.save(user);
+  }
+
+
+  // --> Atualiza um usuário
   async updateUser(id: number, values: UpdateUserDto): Promise<User> {
     this.logger.log(`Updating an user by id: ${id}`);
 
-    const user = await this.userRepository.findOneBy({ id });
-
-    if (!user) {
-      throw new NotFoundException(`O usuário de Id: ${id} não foi encontrado.`);
-    }
+    await this.getUserById(id);
 
     const { password, ...partialUser } = values;
 
-
-    if (Object.values(partialUser).length == 0) {
-      throw new InternalServerErrorException("Nenhum valor foi passado. User={name,username,email,password,isAdmin}")
+    if (Object.values(values).length == 0) {
+      throw new InternalServerErrorException("Ao menos um dos valores precisa ser preenchido: { name, username, email, password, isAdmin }.");
     } else {
-
-      await this.userRepository.update({ id }, { ...partialUser });
-
       if (password) {
         const newPassword = await this.encryption.hash(password);
         await this.userRepository.update({ id }, { ...partialUser, password: newPassword });
+      } else {
+        await this.userRepository.update({ id }, { ...partialUser });
       }
     }
-    return await this.userRepository.findOneBy({ id });
+    
+    return await this.getUserById(id);
   }
 
-  // Deleta um usuário
-  async deleteUser(id: number): Promise<User> {
-    this.logger.log(`Deleting an user by id: ${id}`);
-    const user = await this.userRepository.findOneBy({ id });
 
-    if (!user) {
-      throw new NotFoundException(`O usuário de Id: ${id} não foi encontrado.`);
-    }
+  // --> Deleta um usuário
+  async deleteUser(id: number): Promise<User> {
+    this.logger.log(`Deleting the user with id: ${id}`);
+
+    const user = await this.getUserById(id);
     await this.userRepository.delete({ id });
 
     return user;

@@ -28,7 +28,7 @@ export class Loja implements ILoja {
   @Column('varchar', { nullable: false, length: 150 })
   slogan: string;
 
-  @Column('varchar', { nullable: false, length: 150, array: true })
+  @Column('text', { nullable: false, array: true })
   images: string[];
 
   @Column('text', { nullable: false })

@@ -3,33 +3,32 @@ import { Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { AuthenticatedGuard } from "infrastructure/guards/authenticated.guard";
 import { isAdminGuard } from "infrastructure/guards/isAdmin.guard";
 
-@Controller('demands')
+@Controller('api/demands')
 export class DemandController {
-  constructor(private demandUseCases: DemandUseCases) {}
+  constructor(private readonly demandUseCases: DemandUseCases) {}
 
-  // Obtem todas as demandas
-  @UseGuards(AuthenticatedGuard, isAdminGuard)
-  @Get('/')
-  // [Guardas]
+  // --> Pega todas as demandas
+  @Post('/')
+  // @UseGuards(AuthenticatedGuard, isAdminGuard)
   async getAllDemands(): Promise<any> {
     return await this.demandUseCases.getAllDemands();
   }
 
   
-  //Autoriza uma demanda
-  @UseGuards(AuthenticatedGuard, isAdminGuard)
+  // --> Autoriza uma demanda
   @Post('/authorizate/:id')
-  // [Guardas]
+  // @UseGuards(AuthenticatedGuard, isAdminGuard)
   async authorizateDemand(@Param('id') id: string): Promise<any> {
-    return await this.demandUseCases.authorizate(parseInt(id));
+    return await this.demandUseCases.authorizate(+id);
   }
 
-  // Deleta uma demanda
-  @UseGuards(AuthenticatedGuard, isAdminGuard)
-  // [Guardas]
-  @Post('/delete/:id')
-  async deleteDemand(@Param('id') id: number): Promise<any> {
-    return await this.demandUseCases.deleteDemandById(id);
+
+  
+  // --> Rejeita uma demanda
+  @Post('/reject/:id')
+  // @UseGuards(AuthenticatedGuard, isAdminGuard)
+  async rejectDemand(@Param('id') id: string): Promise<any> {
+    return await this.demandUseCases.deleteDemandById(+id);
   }
 
 }

@@ -7,18 +7,20 @@ import { JwtAuthGuard } from "infrastructure/guards/jwt.guard";
 import { Request } from "express";
 import { CreateDemandDto } from "application/dto/Demand/createDemand.dto";
 
-@Controller('auth')
-export class AuthControler {
-  constructor(private authUseCases: AuthUseCases) { }
 
-  // Loga um usuário na sessão
+@Controller('api/auth')
+export class AuthControler {
+  constructor(private readonly authUseCases: AuthUseCases) { }
+
+
+  // --> Loga um usuário na sessão
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   async login(@Body() body: any): Promise<any> {
     return await this.authUseCases.login(body.username, body.password);
   }
 
-  // Desloga o ousuário
+  // --> Desloga o ousuário
   @UseGuards(JwtAuthGuard)
   @Post('/logout')
   async logout(@Req() req: Request): Promise<any>{
@@ -36,19 +38,19 @@ export class AuthControler {
     }
   }
 
-  // Vê informações da sessão
+  // --> Vê informações da sessão
   @Get('/session')
   async getSession(@Session() sess: Request) {
     return {...sess}
   }
 
-  // Registra um usuário (cria uma demanda)
+  // --> Registra um usuário (cria uma demanda)
   @Post('/register')
   async register(@Body() demand: CreateDemandDto): Promise<Demand> {
     return await this.authUseCases.register(demand);
   }
 
-  // Vê o perfil passado na request
+  // --> Vê o perfil passado na request
   @UseGuards(JwtAuthGuard, AuthenticatedGuard)
   @Get('/profile')
   getProfile(@Req() req: any): any {

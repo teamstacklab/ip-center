@@ -4,7 +4,8 @@ import { User } from "domain/models/User.entity";
 
 export class CreateLojaDto {
   @IsNotEmpty() owner: User;
-  // Info da página
+
+  // -- Info da página
   @IsNotEmpty() name: string;
   @IsNotEmpty() slogan: string;
   @IsNotEmpty() images: string[];

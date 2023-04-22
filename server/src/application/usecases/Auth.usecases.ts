@@ -45,7 +45,7 @@ export class AuthUseCases {
   
   // Valida um usuário
   async validateUser(username: string, password: string): Promise<any> {
-    const user = await this.userUseCases.getByUsername(username);
+    const user = await this.userUseCases.getUserBy({ username });
     
     if (await this.encryption.compare(password, user.password)) {
       const { password, ...partialUserDto } = user;
