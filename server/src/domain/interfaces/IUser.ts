@@ -4,6 +4,7 @@ export interface IUser {
   name: string;
   username: string;
   password: string;
+  whatsapp: string;
   email: string;
   isAdmin: boolean; // <-- Verifica as permissões
   createdAt: Date;

@@ -19,7 +19,7 @@ async function bootstrap() {
     saveUninitialized: false,
   }
 
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
   
   app.use(session(sess));
   app.use(passport.initialize());

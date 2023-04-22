@@ -18,6 +18,9 @@ export class User implements IUser {
     @Column('varchar', { nullable: false, length: 200 })
     email: string;
 
+    @Column('varchar', { nullable: false, length: 200 })
+    whatsapp: string
+
     @Column('boolean', { nullable: false })
     isAdmin: boolean;
 

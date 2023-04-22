@@ -1,3 +1,7 @@
-import { UpdateUserDto } from "./updateUser.dto";
-
-export class PartialUserDto extends UpdateUserDto {}
+export class PartialUserDto {
+  name?: string;
+  username?: string;
+  password?: string;
+  email?: string;
+  isAdmin?: boolean;
+}

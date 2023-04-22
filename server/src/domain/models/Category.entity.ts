@@ -9,6 +9,6 @@ export class Category implements ICategory {
   @Column('varchar', { nullable: false, length: 100 })
   name: string;
 
-  @Column('varchar', { nullable: false, length: 300 })
-  tags: string;
+  @Column('text', { nullable: false, array: true })
+  tags: string[];
 }
