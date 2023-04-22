@@ -1,0 +1,89 @@
+@import url("../../../assets/styles/config.css");
+
+.home-eventos {
+    width: 100%;
+    /*A margin top de cada section deve ser a altura da nav */
+    margin-top: var(--mt-nav);
+    padding: 25px 15px 27px;
+}
+
+.eventos__navegation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--marrom);
+    padding: 0;
+}
+
+.navegation-eventos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.navegation-eventos__icons {
+    font-size: 30px;
+}
+
+.navegation-eventos__title {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.eventos__navegation__search {
+    display: none;
+}
+
+.eventos__navegation__btn {
+background-image: url("../../../assets/images/search.svg");
+    background-repeat: no-repeat;
+    background-size: 1.3em;
+    background-position: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid  var(--marrom-3);
+    border-radius: 8px;
+    background-color: var(--cor-menu);
+    outline: none;
+}
+
+/**/
+
+.eventos__infor {
+    padding-top: 1em;
+}
+
+.infor__calendar {
+    height: 380px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.infor-eventos__title {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 7px;
+    padding-top: 1.2em;
+}
+
+.title__icon {
+    font-size: 1.5em;
+}
+
+.title__nome {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.infor-eventos-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.eventos__navegation__btn {
+    display: none;
+}

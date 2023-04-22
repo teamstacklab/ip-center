@@ -1,0 +1,22 @@
+/* Resoluçoes mobile (320 - 520)*/
+
+/* Config() */
+@import url("../../../assets/styles/config.css");
+
+@media screen and (min-width: 1279px) {
+  #register {
+    margin-top: var(--mt-nav);
+    padding: 42px 0;
+  }
+  .auth__register {
+    flex-direction: row;
+    width: 60vw;
+    background-color: var(--cor-begue);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .register__group {
+    padding: 32px 24px;
+    gap: 20px;
+  }
+}

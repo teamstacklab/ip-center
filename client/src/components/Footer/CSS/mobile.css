@@ -1,0 +1,137 @@
+@import url("../../../assets/styles/config.css");
+
+footer {
+    padding: 12px;
+    background-color: var(--marrom);
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-bar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social__items {
+    display: flex;
+    gap: 13px;
+}
+
+.item__link {
+    padding: .2em;
+}
+
+.link__icon {
+    font-size: 1.7em;
+    color: var(--cor-texto);
+}
+
+.logo__imagem {
+    width: 120px;
+    height: 109px;
+}
+
+.footer__link {
+    color: var(--cor-menu);
+    text-decoration: none;
+    font-weight: 400;
+    padding: 4px 10px;
+    background-color: var(--marrom-3);
+    border-radius: 8px;
+}
+
+.footer__separator {
+    height: 3px;
+    background-color: var(--cor-menu);
+    margin: 9px 0 20px;
+}
+
+.info__meta {
+    color: var(--cor-menu);
+    margin-bottom: 1em;
+}
+
+.info__data {
+    font-size: 14px;
+}
+
+.data__elementos-horarios {
+   display: flex;
+   align-items: center;
+}
+
+.data__trabalho, .data__horarios {
+    margin-bottom: .8em;
+}
+
+.data__icon {
+    width: 19px;
+    height: 19px;
+    color: var(--cor-texto);
+}
+
+.data__title {
+    margin: 0;
+}
+
+.data__elementos-horarios, .data__endereco, .data__trabalho {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.data__text {
+    line-height: 16px;
+    text-decoration: none;
+    color: var(--cor-menu);
+}
+
+.data__link {
+    text-decoration: none;
+    color: var(--cor-menu);
+    border-bottom: 1px solid var(--cor-menu);
+}
+
+.data__title, .data__list {
+    color: var(--cor-menu);
+}
+
+.item-negrito {
+    color: var(--cor-texto);
+    font-weight: 500;
+}
+
+.item-negrito--hora {
+    font-weight: 700;
+}
+
+.data__list {
+    margin: 0;
+}
+
+.data__maps {
+    padding-top: 16px;
+}
+
+.mapa {
+    border-radius: 24px;
+}
+
+.info__sloga {
+    text-align: left;
+    font-weight: 600;
+    color: var(--cor-menu);
+    margin: 10px 0 0 0;
+    display: none;
+}
+
+.sloga-desktop {
+    text-align: left;
+    font-weight: 600;
+    color: var(--cor-menu);
+    margin: 10px 0 0 0;
+    text-align: center;
+}

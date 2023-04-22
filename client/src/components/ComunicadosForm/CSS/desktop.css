@@ -1,0 +1,44 @@
+
+@media screen and (min-width: 1440px) {
+    .formulario--comunicados {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .formulario--comunicados__title {
+        width: 210px;
+        text-align: end;
+        font-size: 1.2em;
+    }
+
+    .formulario--comunicados__input {
+        padding:  7px 10px;
+    }
+
+    .title__text {
+        font-size: 2em;
+    }
+
+    .title__icon {
+        font-size: 3em;
+    }
+
+    .comunicados__formulario--button {
+        margin-top: 1.5em;
+        width: 40%;
+        max-width: 200px;
+        transition: all .2s;
+    }
+
+    .comunicados__formulario--button:hover {
+        background: var(--verde-hover);
+    }
+
+    .formulario--button__text {
+        font-size: 1.2em;
+    }
+    
+    .formulario--button__icon {
+        font-size: 1.6em;
+    }
+}

@@ -1,0 +1,95 @@
+@import url("../../../assets/styles/config.css");
+
+.demandas--resgistro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .5em .7em;
+    background: var(--cor-menu);
+    border-radius: 6px;
+    border: 2px solid var(--shadow-2);
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.demandas__dados {
+    width: auto;
+}
+
+.dados__title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--marrom);
+    margin-bottom: .3em;
+}
+
+.infor__title {
+    font-size: 1em;
+}
+
+.dados__infor {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.infor__title {
+    margin: 0;
+    color: var(--marrom);
+    font-weight: 700;
+}
+
+.infor__name {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--marrom);
+}
+
+.action__title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--marrom);
+    margin-bottom: .8em;
+    text-align: center;
+}
+
+.action__button {
+    display: flex;
+    gap: 1em;
+}
+
+.button--action {
+    width: 50px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+}
+
+.button--action--aceitar {
+    background: var(--verde);
+    color: var(--cor-menu);
+    transition: all .2s;
+}
+
+.button--action--recusar {
+    background: var(--vermelho);
+    color: var(--cor-menu);
+    transition: all .2s;
+}
+
+.infor__title--cpf {
+    text-transform: uppercase;
+}
+
+.button--action__icon {
+    font-size: 2em;
+}
+
+@media screen and (max-width: 363px) {
+    .demandas--resgistro {
+        display: flex;
+        justify-content: center;
+    }
+}

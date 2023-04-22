@@ -1,0 +1,15 @@
+@import url("../../../assets/styles/config.css");
+
+
+.infor-comunicados__card {
+    width: 100%;
+    background: var(--cor-menu);
+    padding: 12px 10px 4px;
+    border-radius: 6px;
+    border: 1px solid var(--marrom-2);
+}
+
+.card__title {
+    margin-bottom: 8px;
+    font-size: 1.4em;
+}

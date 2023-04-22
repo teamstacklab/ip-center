@@ -1,0 +1,17 @@
+@media  screen and (min-width: 1440px) {
+    .demandas {
+        padding: 2em 2em 4em;
+    }
+
+    .demandas__title {
+        gap: 7px;
+    }
+
+    .title__icon {
+        font-size: 2em;
+    }
+
+    .title__text {
+        font-size: 1.5em;
+    }
+}
