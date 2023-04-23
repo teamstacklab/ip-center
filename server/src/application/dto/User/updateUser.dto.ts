@@ -15,4 +15,7 @@ export class UpdateUserDto {
 
     @IsOptional() @IsNotEmpty()
     isAdmin: boolean;
+
+    @IsOptional() @IsNotEmpty()
+    whatsapp: string;
 }

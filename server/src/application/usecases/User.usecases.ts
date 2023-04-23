@@ -87,7 +87,7 @@ export class UserUseCases {
     const { password, ...partialUser } = values;
 
     if (Object.values(values).length == 0) {
-      throw new InternalServerErrorException("Ao menos um dos valores precisa ser preenchido: { name, username, email, password, isAdmin }.");
+      throw new InternalServerErrorException("Ao menos um dos valores precisa ser preenchido: { name, username, email, password, isAdmin, whatsapp }.");
     } else {
       if (password) {
         const newPassword = await this.encryption.hash(password);
