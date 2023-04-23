@@ -6,7 +6,7 @@ import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import ptBR from "date-fns/locale/pt-BR";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
+import { EventsController } from "../../controllers/EventsController";
 import './CSS/mobile.css';
 import './CSS/desktop.css';
 
@@ -35,7 +35,34 @@ const localizer = dateFnsLocalizer({
 });
 
 export const CalendarAgenda = ( props ) => {
-  const [eventos, setEventos] = React.useState([]);
+  // --> Puxa o Controller de Eventos
+  const eventsController = new EventsController();
+
+  // --> Cria os estados
+  const [events, setEvents] = React.useState([]);
+
+  // --> Seta todos os <Eventos>
+  React.useEffect(() => {
+    eventsController.getAll()
+    .then((res) => setEvents(res.data))
+    .catch((err) => console.log(err));
+  },[]);
+
+  // --> Formata os eventos
+  const formatEvents = (eventsList) => {
+    const formatedList = [];
+    eventsList.forEach(event => {
+      formatedList.push({
+        id: event.id,
+        title: event.name,
+        start: new Date(event.initialDate),
+        end: new Date(event.finalDate),
+      })
+    });
+
+    return formatedList;
+  }
+
 
   return (
     <div>
@@ -47,7 +74,7 @@ export const CalendarAgenda = ( props ) => {
         className="calendar"
         views={['month']}
         popup={true}
-        events={eventos}
+        events={formatEvents(events)}
         {...props}
       />
     </div>

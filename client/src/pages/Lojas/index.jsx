@@ -1,7 +1,7 @@
 import React from "react";
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
-import CardLoja from "../../components/CardLoja"
+import CardLoja from "../../components/LojaCard"
 import { Plus, Shop } from 'react-bootstrap-icons'
 
 const LojasRoute = '/lojas';

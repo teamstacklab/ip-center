@@ -1,9 +1,12 @@
-import { EVENTS, CREATE, DELETE, UPDATE } from "../api/util/constants"
+import { CREATE, DELETE, UPDATE, EVENTS } from "../api/util/constants"
 import { ApiInstance } from "../api";
 
 export class EventsController {
-  async getAll() {
-    const events = await ApiInstance(`${EVENTS}`).then((res) => { return res.data });
-    return events;
+  getAll() {
+    try {
+      return ApiInstance(`${EVENTS}`);
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 }
