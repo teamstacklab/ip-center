@@ -1,27 +1,28 @@
 import React from "react";
-
-import './CSS/mobile.css';
-import './CSS/desktop.css';
-
+import "./CSS/mobile.css";
+import "./CSS/desktop.css";
 import CalendarAgenda from "../../components/Calendar";
 import CardEventos from "../../components/CardEventos";
-
-import {
-  Shop,
-  CalendarWeek,
-  PeopleFill,
-  ArrowRight,
-  InfoCircle,
-} from 'react-bootstrap-icons'
-
-import QueryActions from "../../components/QueryActions";
 import CardComunicado from "../../components/CardComunicado";
+import { ComunicatesController } from "../../controllers/ComunicatesController";
+import {
+  CalendarWeek,
+  InfoCircle,
+} from "react-bootstrap-icons";
 
 
-const EventosRoute = '/eventos';
+const EventosRoute = "/eventos";
 
 const Eventos = () => {
-  const [comunicados, setComunicados] = React.useState([]);
+  const comunicatesController = new ComunicatesController();
+  const [comunicates, setComunicates] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchComunicates = async() => {
+      return await comunicatesController.getAll();
+    }
+    setComunicates(fetchComunicates());
+  }, []);
 
   return (
     <section className="home-eventos">
@@ -39,9 +40,9 @@ const Eventos = () => {
             <h2 className="title__nome">Comunicados</h2>
           </div>
           <div className="infor-eventos-card">
-            {comunicados.map(comunicado=>{
-              return <CardComunicado {...comunicado} />
-            })}
+            {/* {comunicates.map(comunicate=>{
+              return <CardComunicado {...comunicate} />
+            })} */}
           </div>
         </div>
       </div>
