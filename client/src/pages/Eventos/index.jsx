@@ -14,25 +14,23 @@ const EventosRoute = "/eventos";
 const Eventos = () => {
 
   return (
-    <section className="home-eventos">
-      <div className="eventos__infor">
-        <div className="navegation-eventos">
-          <CalendarWeek className="navegation-eventos__icons" />
-          <span className="navegation-eventos__title">Eventos</span>
+    <section id="eventos-view">
+      <div className="eventos">
+        <div className="eventos__title">
+          <CalendarWeek className="eventos__icon" />
+          <h1 className="eventos__heading">Eventos</h1>
         </div>
-        <CalendarAgenda className="infor__calendar" />
+        <CalendarAgenda className="eventos__agenda" />
       </div>
-      <div className="infor-eventos-card">
-        <div className="infor-eventos">
-          <div className="infor-eventos__title">
-            <InfoCircle className="title__icon" />
-            <h2 className="title__nome">Comunicados</h2>
-          </div>
-          <div className="infor-comunicados__list">
-            {/* Mapeia os comunicados --> */}
-            <ComunicadosList />
-            {/* <-- Mapeia os comunicados */}
-          </div>
+      <div className="comunicados">
+        <div className="comunicados__title eventos__title">
+          <InfoCircle className="comunicados__icon eventos__icon" />
+          <h1 className="comunicados__heading eventos__heading">Comunicados</h1>
+        </div>
+        <div className="comunicados__list">
+          {/* Mapeia os comunicados --> */}
+          <ComunicadosList />
+          {/* <-- Mapeia os comunicados */}
         </div>
       </div>
     </section>

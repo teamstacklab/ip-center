@@ -1,70 +1,35 @@
 @import url("../../../assets/styles/config.css");
 
-.home-eventos {
+#eventos-view {
+    margin-top: var(--mt-nav-mb);
+    min-height: 65vh;
     width: 100%;
-    /*A margin top de cada section deve ser a altura da nav */
-    margin-top: var(--mt-nav);
-    padding: 25px 15px 27px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
 }
 
-.navegation-eventos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-}
-
-.navegation-eventos__icons {
-    font-size: 30px;
-}
-
-.navegation-eventos__title {
-    font-size: 26px;
-    font-weight: 600;
-}
-
-.eventos__navegation__search {
-    display: none;
-}
-
-.eventos__infor {
-    padding-top: 1em;
+.eventos {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
+}
+
+.eventos__title {
+    display: flex;
     width: fit-content;
-}
-
-.infor__calendar {
-    height: 380px;
-    width: 100%;
-    max-width: 600px;
-}
-
-.infor-eventos__title {
-    display: flex;
     align-items: center;
-    justify-content: left;
-    gap: 7px;
-    padding-top: 1.2em;
+    gap: 4px;
 }
 
-.title__icon {
-    font-size: 1.5em;
+.eventos__icon {
+    font-size: 1.75rem;
 }
 
-.title__nome {
-    font-size: 1.5em;
-    margin: 0;
+.eventos__heading {
+    margin: 0 !important;
 }
 
-.infor-eventos-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.infor-comunicados__list {
-    width: 300px;
+.eventos__agenda {
+    width: 100%;
+    height: 380px;
 }
