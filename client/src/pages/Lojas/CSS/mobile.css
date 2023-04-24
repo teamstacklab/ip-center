@@ -3,6 +3,7 @@
 
 .home-lojas {
     width: 100%;
+    min-height: 50vh;
     /*A margin top de cada section deve ser a altura da nav */
     margin-top: var(--mt-nav);
 }

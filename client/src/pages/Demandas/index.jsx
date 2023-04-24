@@ -9,8 +9,8 @@ import {
   CheckAll
 } from 'react-bootstrap-icons'
 
-import api from "../../api";
-import { ApiDemandas } from "../../api/routes";
+
+
 
 const DemandasRoute = '/demandas';
 
@@ -18,20 +18,6 @@ const Demandas = () => {
   const [demandas, setDemandas] = React.useState([]);
   const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
   const user = JSON.parse(sessionStorage.getItem('user'));
-
-  console.log(user, accessToken)
-
-  React.useEffect(() => {
-    
-    if (accessToken !== null) {
-      if (user.isAdmin) {
-        api.get(ApiDemandas.all).then((res) => {
-          console.log(res.data)
-          setDemandas(res.data)
-        }).catch(err => console.log(err))
-      }
-    }
-  }, [])
 
   return (
     <section className="demandas">

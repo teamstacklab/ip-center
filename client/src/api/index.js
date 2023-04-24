@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
+import { PORT } from "./util/constants";
 
-const api = axios.create({
-  baseURL: "http://localhost:5000"
+
+export const ApiInstance = axios.create({
+  baseURL: `http://localhost:${PORT}/`
 });
-
-export default api;

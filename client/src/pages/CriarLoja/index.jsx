@@ -7,68 +7,13 @@ import {
 import "./CSS/mobile.css"
 import "./CSS/desktop.css"
 
-import api from "../../api";
-import { ApiCategories, ApiLojas } from "../../api/routes";
 
 const CriarLojaRoute = '/lojas/criar';
 
 const CriarLoja = () => {
-  const [name, setName] = React.useState()
-  const [location, setLocation] = React.useState()
-  const [services, setServices] = React.useState()
-  const [images, setImages] = React.useState()
-  const [logo, setLogo] = React.useState()
-  const [slogan, setSlogan] = React.useState()
-  const [description, setDescription] = React.useState()
-  const [additionalInfo, setAdditionalInfo] = React.useState()
-  const [category, setCategory] = React.useState();
-  const [whatsapp, setWhatsapp] = React.useState();
-  const [instagram, setInstagram] = React.useState();
-
-
-  const [categorias, setCategorias] = React.useState([]);
-  const [search, setSearch] = React.useState(false);
-  const [filter, setFilter] = React.useState(false);
-
-  const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
-  const user = JSON.parse(sessionStorage.getItem('user'));
-
-  React.useEffect(() => {
-    api.get(ApiCategories.all).then((res) => {
-      console.log(res.data);
-      setCategorias(res.data);
-    })
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const lojaDto = {
-        owner: user.id,
-        name,
-        location,
-        services,
-        images: Array(images.split(' ')),
-        logo,
-        slogan,
-        description,
-        additionalInfo,
-        category,
-        whatsapp,
-        instagram,
-      }
-
-      console.log(lojaDto)
-      const response = await api.post(ApiLojas.create, lojaDto, { headers: { "Content-Type": "application/json" } });
-      console.log(response);
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
     <section className="loja">
-      <form onSubmit={handleSubmit} method="post" className="formulario">
+      <form method="post" className="formulario">
         <div className="loja--description">
           <div className="loja--description__title">
             <Plus className="title__icon" />

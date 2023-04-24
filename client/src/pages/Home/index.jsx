@@ -70,7 +70,7 @@ const Home = () => {
             {slides.map(slide => {
               return <SwiperSlide className="carousel-inicio__item">
                 <picture>
-                  <source media="(min-width: 1440px)" srcset={slides2} />
+                  <source media="(min-width: 1440px)" srcSet={slides2} />
                   <img className="carousel-inicio__image" src={slide} alt="Arte do Shopping" />
                 </picture>
               </SwiperSlide>
