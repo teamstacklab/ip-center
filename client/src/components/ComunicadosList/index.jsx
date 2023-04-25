@@ -20,7 +20,7 @@ export default function ComunicadosList() {
 
 
   return (
-    <div className="comunicados">
+    <div className="comunicados__list--generated">
       {comunicates.map(comunicate => {
         return <ComunicadoCard {...comunicate} />
       })}

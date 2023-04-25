@@ -1,57 +1,26 @@
-@media screen and (min-width: 3000px) {
-  .home-eventos {
-    padding: 32px 42px 64px;
-    margin-bottom: 0;
-  }
-
-  .navegation-eventos__icons {
-    font-size: 2.25em;
-  }
-
-  .navegation-eventos__title {
-    font-size: 2em;
-    margin-left: 4px;
-  }
-
-  .eventos__navegation__btn {
-    display: none;
-  }
-
-  #eventos__navegation__search {
-    display: none;
-  }
-
-  .eventos__infor {
+@media screen and (min-width: 1279px) {
+  #eventos-view {
     display: flex;
-    align-items: top;
+    align-items: center;
     justify-content: space-evenly;
-    gap: 2em;
-    padding-top: 2em;
+    gap: 4rem;
+    padding: 42px 0;
   }
 
-  .infor__calendar {
-    height: 550px;
-    width: auto;
+  .eventos {
+    width: 600px;
   }
 
-  .infor-eventos__title {
-    padding: 0;
-    gap: 11px;
+  .eventos__title {
+    justify-content: flex-start;
   }
 
-  .eventos__navegation {
-    padding: 0;
+  .eventos__agenda {
+    height: 500px;
   }
 
-  .infor-eventos-card {
-    gap: 16px;
-  }
-
-  .title__icon {
-    font-size: 2em;
-  }
-
-  .title__nome {
-    font-size: 2em;
+  .comunicados {
+    width: 600px !important;
+    gap: 0 !important;
   }
 }
