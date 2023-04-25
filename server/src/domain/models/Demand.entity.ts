@@ -1,7 +1,7 @@
 import { IDemand } from "domain/interfaces/IDemand";
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 
-@Entity()
+@Entity('demands')
 export class Demand implements IDemand {
     @PrimaryGeneratedColumn()
     id: number;

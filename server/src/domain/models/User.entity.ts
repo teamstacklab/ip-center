@@ -1,9 +1,16 @@
 import { IUser } from 'domain/interfaces/IUser';
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {  
+    Entity,
+    Column,
+    CreateDateColumn,
+    UpdateDateColumn,
+    ObjectIdColumn
+} from 'typeorm';
 
-@Entity()
+
+@Entity('users')
 export class User implements IUser {
-    @PrimaryGeneratedColumn()
+    @ObjectIdColumn()
     id: number;
 
     @Column('varchar', { nullable: false, length: 200 })

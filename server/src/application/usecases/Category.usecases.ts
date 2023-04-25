@@ -1,7 +1,7 @@
 import { ConflictException, Injectable, Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Category } from "domain/models/Category.entity";
-import { Repository } from "typeorm";
+import { MongoRepository } from "typeorm";
 import { CreateCategoryDto } from "application/dto/Category/createCategory.dto";
 import { UpdateCategoryDto } from "application/dto/Category/updateCategory.dto";
 
@@ -9,7 +9,7 @@ import { UpdateCategoryDto } from "application/dto/Category/updateCategory.dto";
 @Injectable()
 export class CategoryUseCases {
   constructor(
-    @InjectRepository(Category) private categoryRepository: Repository<Category>
+    @InjectRepository(Category) private categoryRepository: MongoRepository<Category>
   ) { }
 
   private readonly logger = new Logger(CategoryUseCases.name);

@@ -3,6 +3,7 @@ import ComunicadoCard from "../ComunicadoCard"
 import { ComunicatesController } from "../../controllers/ComunicatesController";
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
+import { AxiosError } from "axios";
 
 export default function ComunicadosList() {
   // --> Puxa os Controllers
@@ -21,9 +22,11 @@ export default function ComunicadosList() {
 
   return (
     <div className="comunicados__list--generated">
-      {comunicates.map(comunicate => {
-        return <ComunicadoCard {...comunicate} />
-      })}
+
+      { Object.values(comunicates).length > 0 ? comunicates.map(comunicado => {
+        return <ComunicadosList {...comunicado} />;
+      }): <p className="h5">Ainda não há nenhum comunicado!</p> }
+
     </div>
   );
 

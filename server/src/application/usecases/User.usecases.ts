@@ -1,7 +1,7 @@
 import { User } from 'domain/models/User.entity'
 import { ConflictException, Injectable, UnsupportedMediaTypeException, Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
-import { Any, Repository } from 'typeorm';
+import { MongoRepository } from "typeorm";
 import { CreateUserDto } from 'application/dto/User/createUser.dto';
 import { UpdateUserDto } from 'application/dto/User/updateUser.dto';
 import { EncryptionAdapter } from 'application/adapters/Encryption.adapter';
@@ -11,7 +11,7 @@ import { PartialUserDto } from 'application/dto/User/partialUser.dto';
 @Injectable()
 export class UserUseCases {
   constructor(
-    @InjectRepository(User) private userRepository: Repository<User>,
+    @InjectRepository(User) private userRepository: MongoRepository<User>,
     private readonly encryption: EncryptionAdapter,
   ) { }
 

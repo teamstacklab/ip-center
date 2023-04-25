@@ -1,7 +1,7 @@
 import { IComunicado } from "domain/interfaces/IComunicado";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity()
+@Entity('comunicados')
 export class Comunicado implements IComunicado {
   @PrimaryGeneratedColumn()
   id: number;

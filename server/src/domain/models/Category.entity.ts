@@ -1,7 +1,7 @@
 import { ICategory } from "domain/interfaces/ICategory";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity('categories')
 export class Category implements ICategory {
   @PrimaryGeneratedColumn()
   id: number;

@@ -11,7 +11,7 @@ import {
 } from "typeorm";
 import { Category } from "./Category.entity";
 
-@Entity()
+@Entity('lojas')
 export class Loja implements ILoja {
   @PrimaryGeneratedColumn()
   id: number;

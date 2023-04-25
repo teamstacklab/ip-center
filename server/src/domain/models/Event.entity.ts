@@ -1,7 +1,7 @@
 import { IEvent } from "domain/interfaces/IEvent";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity('events')
 export class Event implements IEvent {
   @PrimaryGeneratedColumn()
   id: number;

@@ -7,20 +7,15 @@ export class TypeOrmProvider implements TypeOrmOptionsFactory {
   constructor(private readonly envService: EnvService) {}
   public createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
     return {
-      type: "postgres",
-      host: this.envService.getVariable('DB_HOST'),
-      port: parseInt(this.envService.getVariable('DB_PORT')),
-      username: this.envService.getVariable('DB_USER'),
-      password: this.envService.getVariable('DB_PASS'),
+      type: "mongodb",
+      url: this.envService.getVariable('DB_URL'),
       database: this.envService.getVariable('DB_NAME'),
       entities: [
         'dist/**/*.entity.{js, ts}'
       ],
-      migrations: [
-        'dist/**/migrations/**/*.{js, ts}'
-      ],
-      logger: 'file',
-      synchronize: true
+      ssl: true,
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
     }
   }
 }
