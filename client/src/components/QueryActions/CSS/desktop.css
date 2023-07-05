@@ -1,0 +1,16 @@
+@import url("../../../assets/styles/config.css");
+
+@media screen and (min-width: 1279px) {
+  .search__input {
+    width: 180px;
+  }
+  .search__input.active {
+    width: 180px;
+  }
+  .select__filter {
+    width: 180px;
+  }
+  .select__filter.active {
+    width: 180px;
+  }
+}

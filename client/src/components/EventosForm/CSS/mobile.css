@@ -1,0 +1,73 @@
+@import url("../../../assets/styles/config.css");
+
+.eventos {
+    padding: .8em 1em;
+    background: var(--cor-begue);
+    width: 100%;
+    border-radius: 12px;
+}
+
+.eventos__title {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.title__texto {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.title__icone {
+    font-size: 2em;
+}
+
+.formulario--eventos {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    gap: .5em;
+    margin-top: .5em;
+}
+
+.formulario--eventos__title {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.formulario--eventos__input {
+    width: 100%;
+    background: var(--cor-menu);
+    border: none;
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--shadow-2);
+    outline: none;
+    color: var(--marrom);
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.formulario--eventos__input::placeholder {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.eventos__formulario--button {
+    border: none;
+    background: var(--verde);
+    padding: 5px .8em;
+    border-radius: 6px;
+    margin-top: 1em;
+    color: var(--cor-menu);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    max-width: 110px;
+}
+
+.formulario--button__icon {
+    font-size: 1.4em;
+}

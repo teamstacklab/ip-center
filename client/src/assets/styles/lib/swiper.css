@@ -1,0 +1,30 @@
+/* Swiper Config*/
+
+.swiper-pagination {
+  margin-bottom: 8px;
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #000 !important;
+  opacity: 0.75 !important;
+}
+.swiper-pagination-bullet-active {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: var(--cor-icone) !important;
+  opacity: 1 !important;
+}
+:is(.swiper-button-prev, .swiper-button-next) {
+  padding: 0 16px;
+}
+:is(.swiper-button-prev, .swiper-button-next)::after {
+  color: #000;
+  font-size: 30px;
+}
+
+@media screen and (min-width: 1280px){
+  :is(.swiper-button-prev, .swiper-button-next) {
+      padding: 0 48px;
+  }
+}

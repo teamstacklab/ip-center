@@ -1,0 +1,69 @@
+@import url("../../../assets/styles/config.css");
+
+@media screen and (min-width: 1440px) {
+
+    .home-lojas {
+        padding: 32px 42px 56px;
+        margin-bottom: 0;
+    }
+
+    .lojas__estabelecimento {
+        display: flex;
+        justify-items: center;
+    }
+
+    .estabelecimento__container {
+        width: 100%;
+        display: grid;
+        /* Configura melhor que o flex */
+        padding-top: 2em;
+        gap: 32px 20px;
+    }
+
+    .btn-search {
+        display: none;
+    }
+    
+    .navegation__actions-action {
+        width: fit-content;
+        background-image: none;
+    }
+
+    .navegation__actions-action::placeholder {
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .input-search {
+        display: block;
+        background-color: var(--cor-menu);
+        margin: 0;
+        border: none;
+        border-radius: 8px ;
+        border: 1px solid  var(--marrom-3);
+        padding: 4px 3px;
+    }
+
+    .input-search::placeholder {
+        background-image: url("../../../assets/images/search.svg");
+        background-repeat: no-repeat;
+        background-size: 1.3em;
+        background-position: 8px;
+    }
+
+    .input-filter::placeholder {
+        background-image: url("../../../assets/images/filter.svg");
+        background-repeat: no-repeat;
+        background-size: 2em;
+        background-position: 6px;
+    }
+
+    .navegation-lojas__icons {
+        font-size: 2.2em;
+    }
+
+    .navegation-lojas__title {
+        font-size: 2em;
+    }
+
+}

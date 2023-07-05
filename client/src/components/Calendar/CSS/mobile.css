@@ -1,0 +1,50 @@
+/* config() */
+@import url("../../../assets/styles/config.css");
+
+.rbc-calendar {
+    width: 100% !important;
+    height: 380px;
+}
+
+.rbc-btn-group button {
+    background-color: var(--branco2);
+}
+
+.rbc-btn-group :nth-child(1),
+.rbc-btn-group :nth-child(1):is(:active, :focus) {
+    background-color: var(--cor-texto) !important;
+}
+
+.rbc-btn-group :nth-child(1):is(:hover) {
+    background-color: var(--cor-icone) !important;
+}
+
+.rbc-toolbar-label {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.rbc-header {
+    text-transform: capitalize;
+    padding: 4px 2px;
+}
+
+.rbc-event {
+    background-color: var(--verde2);
+    border: 0 !important;
+}
+
+.rbc-event:is(:focus, :hover, :active, .rbc-selected) {
+    background-color: var(--verde) !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+.rbc-day-bg.rbc-off-range-bg {
+    background-color: var(--branco2);
+}
+
+.rbc-day-bg.rbc-today {
+    background-color: var(--cor-texto);
+}
