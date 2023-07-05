@@ -9,7 +9,7 @@ import { Repository } from "typeorm";
 @Injectable()
 export class EventService implements IEventService {
   constructor(
-    @InjectRepository(Event) private eventRepo: Repository<Event>
+    @InjectRepository(Event) private eventRepo: Repository<Event>,
   ) { }
 
   private readonly logger = new Logger(EventService.name);
@@ -25,22 +25,24 @@ export class EventService implements IEventService {
   async getOneById(id: number): Promise<Event> {
     this.logger.log(`Get a specific event ${id}.`);
     const event = this.eventRepo.findOneBy({ id });
-    if (!event) throw new NotFoundException(`Evento ${id} não encontrado!`);
+    if (!event){
+      throw new NotFoundException(`Evento ${id} não encontrado!`);
+    }
 
     return event;
   }
 
   //Create a event
-  async create(event: CreateEventDto): Promise<Event> {
-    this.logger.log(`Creating a event: ${event}`);
+  async create(eventDto: CreateEventDto): Promise<Event> {
+    this.logger.log(`Creating a event: ${eventDto}`);
 
-    const existingEvent = await this.eventRepo.findOne({
-      where: [{ name: event.name }]
+    const event = await this.eventRepo.findOne({
+      where: [{ name: eventDto.name }]
     });
-
-    if (existingEvent) throw new ConflictException(`Esta Evento já existe!`);
-
-    const newEvent = this.eventRepo.create(event);
+    if (event) {
+      throw new ConflictException(`Esta Evento já existe!`);
+    }
+    const newEvent = this.eventRepo.create(eventDto);
 
     return await this.eventRepo.save(newEvent);
   }
@@ -49,9 +51,10 @@ export class EventService implements IEventService {
   async update(id: number, update: UpdateEventDto): Promise<Event> {
     this.logger.log(`Get the event of id ${id}.`);
 
-    const Event = await this.eventRepo.findOneBy({ id });
-
-    if (!Event) throw new NotFoundException(`Evento ${id} não encontrado!`);
+    const event = this.getOneById(id);
+    if (!event){
+      throw new NotFoundException(`Evento ${id} não encontrado!`);
+    }
 
     await this.eventRepo.update({ id }, { ...update });
     return await this.eventRepo.findOneBy({ id });
@@ -61,8 +64,10 @@ export class EventService implements IEventService {
   async delete(id: number): Promise<Event> {
     this.logger.log(`Deleting Event ${id}.`);
 
-    const event = this.eventRepo.findOneBy({ id });
-    if (!event) throw new NotFoundException(`Evento ${id} não encontrado!`);
+    const event = this.getOneById(id);
+    if (!event){
+      throw new NotFoundException(`Evento ${id} não encontrado!`);
+    }
 
     await this.eventRepo.delete({ id });
 

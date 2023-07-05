@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { IUser } from 'domain/interfaces/IUser';
 import {
   Entity,

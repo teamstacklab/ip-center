@@ -11,7 +11,7 @@ export interface ICategory {
 export interface ICategoryService {
   getAll(): Promise<Category[]>;
   getOneById(id: number): Promise<Category>;
-  create(category: CreateCategoryDto): Promise<Category>;
+  create(categoryDto: CreateCategoryDto): Promise<Category>;
   update(id: number, update: UpdateCategoryDto): Promise<Category>;
   delete(id: number): Promise<Category>;
 }

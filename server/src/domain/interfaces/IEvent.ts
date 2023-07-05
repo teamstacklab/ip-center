@@ -12,7 +12,7 @@ export interface IEvent {
 export interface IEventService {
   getAll(): Promise<Event[]>;
   getOneById(id: number): Promise<Event>;
-  create(event: CreateEventDto): Promise<Event>;
+  create(eventDto: CreateEventDto): Promise<Event>;
   update(id: number, update: UpdateEventDto): Promise<Event>;
   delete(id: number): Promise<Event>;
 }

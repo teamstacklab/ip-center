@@ -4,10 +4,9 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
-  private readonly env = new ConfigService();
+  private readonly env: ConfigService = new ConfigService();
 
   public createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
-    console.log(this.env.get<string>("DB_URL"))
     return {
       type: "postgres",
       url: this.env.get<string>('DB_URL'),

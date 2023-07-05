@@ -11,7 +11,7 @@ export interface IDemand extends IUser {
 
 export interface IDemandService {
   getAll(): Promise<Demand[]>;
-  create(demand: CreateDemandDto): Promise<Demand>;
+  create(demandDto: CreateDemandDto): Promise<Demand>;
   getOneById(id: number): Promise<Demand>;
   authorizate(id: number): Promise<Object>;
   reject(id: number): Promise<Object>;

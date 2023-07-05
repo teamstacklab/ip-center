@@ -30,7 +30,7 @@ export class ComunicateController {
 
   //Update a comunicate
   @Post('/update/:id')
-  async update(@Param('id') id: string, update: UpdateComunicateDto): Promise<Comunicate> {
+  async update(@Param('id') id: string, @Body() update: UpdateComunicateDto): Promise<Comunicate> {
     return await this.comunicateService.update(+id, update);
   }
 

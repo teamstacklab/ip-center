@@ -9,7 +9,7 @@ import { ICategoryService } from "domain/interfaces/ICategory";
 @Injectable()
 export class CategoryService implements ICategoryService {
   constructor(
-    @InjectRepository(Category) private categoryRepo: Repository<Category>
+    @InjectRepository(Category) private categoryRepo: Repository<Category>,
   ) { }
 
   private readonly logger = new Logger(CategoryService.name);
@@ -36,16 +36,16 @@ export class CategoryService implements ICategoryService {
   }
 
   //Create a category
-  async create(category: CreateCategoryDto): Promise<Category> {
-    this.logger.log(`Creates a category ${category}`);
+  async create(categoryDto: CreateCategoryDto): Promise<Category> {
+    this.logger.log(`Creates a category ${categoryDto}`);
 
-    const existingCategory = await this.categoryRepo.findOneBy({ name: category.name })
+    const category = await this.categoryRepo.findOneBy({ name: categoryDto.name })
 
-    if (existingCategory) {
-      throw new ConflictException(`Uma categoria com nome: ${existingCategory.name} já existe!`);
+    if (category) {
+      throw new ConflictException(`Uma categoria com nome: ${category.name} já existe!`);
     }
 
-    const newCategory = this.categoryRepo.create(category);
+    const newCategory = this.categoryRepo.create(categoryDto);
 
     return await this.categoryRepo.save(newCategory);
   }

@@ -9,14 +9,14 @@ import { IComunicateService } from "domain/interfaces/IComunicate";
 @Injectable()
 export class ComunicateService implements IComunicateService {
   constructor(
-    @InjectRepository(Comunicate) private comunicateRepo: Repository<Comunicate>
+    @InjectRepository(Comunicate) private comunicateRepo: Repository<Comunicate>,
   ) { }
 
   private readonly logger = new Logger(ComunicateService.name)
   
   //Get all comunicates
   async getAll(): Promise<Comunicate[]> {
-    this.logger.log("Get all Comunicates")
+    this.logger.log("Get all Comunicates");
     return this.comunicateRepo.find();
   }
 
@@ -24,19 +24,19 @@ export class ComunicateService implements IComunicateService {
   async getOneById(id: number): Promise<Comunicate> {
     const comunicate = await this.comunicateRepo.findOneBy({ id });
     if (!comunicate) {
-      throw new NotFoundException(`Comunicado ${id} não existe!`)
+      throw new NotFoundException(`Comunicado ${id} não existe!`);
     }
     return comunicate;
   }
 
   //Create a comunicate
-  async create(comunicate: CreateComunicateDto): Promise<Comunicate> {
+  async create(comunicateDto: CreateComunicateDto): Promise<Comunicate> {
     this.logger.log(`Creating comunicate.`);
 
-    const existingComunicate = await this.comunicateRepo.findOneBy({ name: comunicate.name });
+    const comunicate = await this.comunicateRepo.findOneBy({ name: comunicateDto.name });
 
-    if (existingComunicate) {
-      throw new ConflictException(`Um Comunicado '${comunicate.name}' já existe!`)
+    if (comunicate) {
+      throw new ConflictException(`Um Comunicado '${comunicate.name}' já existe!`);
     }
 
     const newComunicate = this.comunicateRepo.create(comunicate);

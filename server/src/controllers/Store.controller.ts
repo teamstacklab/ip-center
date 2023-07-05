@@ -30,7 +30,7 @@ export class StoreController {
 
   //Update a store
   @Post('/update/:id')
-  async update(@Param('id') id: string, storeDto: UpdateStoreDto): Promise<Store> {
+  async update(@Param('id') id: string, @Body() storeDto: UpdateStoreDto): Promise<Store> {
     return await this.storesService.update(+id, storeDto);
   }
 

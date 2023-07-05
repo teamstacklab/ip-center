@@ -29,7 +29,9 @@ export class DemandService implements IDemandService {
     this.logger.log(`Get demand ${id}`);
 
     const demand = this.demandRepo.findOneBy({id});
-    if (!demand) throw new NotFoundException(`Demanda ${id} não encontrada!`);
+    if (!demand) {
+      throw new NotFoundException(`Demanda ${id} não encontrada!`);
+    }
 
     return demand;
   }
@@ -38,39 +40,46 @@ export class DemandService implements IDemandService {
   async create(demandDto: CreateDemandDto): Promise<Demand> {
     this.logger.log(`Create a demand: ${demandDto}`);
     
-    const existingDemand = await this.demandRepo.findOne({
+    const demand = await this.demandRepo.findOne({
       where: [
         {username: demandDto.username},
         {email: demandDto.email},
         {cpf: demandDto.cpf}
       ]
-    })
+    });
 
-    if (existingDemand) {
-      throw new ConflictException(`Demanda ou usuário com este email ou username já existe`)
+    if (demand) {
+      throw new ConflictException(`Demanda ou usuário com este email ou username já existe`);
     }
 
-    const demand = this.demandRepo.create(demandDto);
+    const newDemand = this.demandRepo.create(demand);
 
-    return await this.demandRepo.save(demand);
+    return await this.demandRepo.save(newDemand);
   }
 
   //Authorizate a demand
   async authorizate(id: number): Promise<Object> {
     const demand = await this.getOneById(id);
 
-    await this.userService.create(demand)
-    await this.demandRepo.delete(demand)
+    if (!demand) {
+      throw new NotFoundException(`Demanda ${id} não encontrada!`);
+    }
 
-    return {"message": "Usuário autorizado com sucesso!"}
+    await this.userService.create(demand);
+    await this.demandRepo.delete(demand);
+
+    return {"message": "Usuário autorizado com sucesso!"};
   }
 
   //Reject a demand
   async reject(id: number): Promise<Object> {
-    const demand = await this.getOneById(id)
+    const demand = await this.getOneById(id);
+    
+    if (!demand) {
+      throw new NotFoundException(`Demanda ${id} não encontrada!`);
+    }
+    await this.demandRepo.delete(demand);
 
-    await this.demandRepo.delete(demand)
-
-    return {"message": "Usuário rejeitado com sucesso!"}
+    return {"message": "Usuário rejeitado com sucesso!"};
   }
 }

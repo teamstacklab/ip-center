@@ -16,7 +16,8 @@ export interface IUser {
 export interface IUserService {
   getAll(): Promise<User[]>;
   getOneById(id: number): Promise<User>;
-  create(user: CreateUserDto): Promise<User>;
+  getOne(filter: PartialUserDto | PartialUserDto[]): Promise<User>;
+  create(userDto: CreateUserDto): Promise<User>;
   update(id: number, update: UpdateUserDto): Promise<User>;
   delete(id: number): Promise<User>;
 }

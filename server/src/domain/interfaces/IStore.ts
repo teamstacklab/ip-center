@@ -24,7 +24,7 @@ export interface IStore {
 export interface IStoreService {
   getAll(): Promise<Store[]>;
   getOneById(id: number): Promise<Store>;
-  create(Store: CreateStoreDto): Promise<Store>;
+  create(storeDto: CreateStoreDto): Promise<Store>;
   update(id: number, update: UpdateStoreDto): Promise<Store>;
   delete(id: number): Promise<Store>;
 }

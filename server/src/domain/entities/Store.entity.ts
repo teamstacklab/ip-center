@@ -17,10 +17,10 @@ export class Store implements IStore {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(type => User) @JoinColumn()
+  @OneToOne(() => User, owner => owner.id, {cascade: true}) @JoinColumn()
   owner: User;
   
-  @OneToOne(type => Category) @JoinColumn()
+  @OneToOne(() => Category, category => category.id, {cascade: true}) @JoinColumn()
   category: Category;
 
   @Column('varchar', { nullable: false, length: 100 })
