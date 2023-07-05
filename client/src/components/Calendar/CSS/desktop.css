@@ -1,8 +1,0 @@
-/* config() */
-@import url("../../../assets/styles/config.css");
-
-@media screen and (min-width: 1279px) {
-    .calendar {
-        height: 520px;
-    }
-}

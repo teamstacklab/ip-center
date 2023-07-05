@@ -1,8 +1,0 @@
-@import url("../../../assets/styles/config.css");
-
-.comunicados__list--generated {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
