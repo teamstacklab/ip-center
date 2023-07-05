@@ -3,16 +3,13 @@ import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 import CardLoja from "../../components/LojaCard"
 import { Plus, Shop } from 'react-bootstrap-icons'
+import * as api from "../../api";
 
+const asdf = api.Users.useGetAll()
 const LojasRoute = '/lojas';
 const MinhasLojasRoute = '/lojas/minhas';
 
 const Lojas = (props) => {
-  const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
-  const user = JSON.parse(sessionStorage.getItem('user'));
-
-  const [lojas, setLojas] = React.useState([]);
-
   return (
     <section className="home-lojas">
       <div className="lojas__navegation">
@@ -25,11 +22,7 @@ const Lojas = (props) => {
       </div>
       <div className="lojas__estabelecimento">
         <div className="estabelecimento__container">
-          {lojas.map(loja => {
-            return (
-              <CardLoja {...loja} />
-            );
-          })}
+
         </div>
       </div>
     </section>

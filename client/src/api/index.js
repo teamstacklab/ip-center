@@ -1,7 +1,3 @@
-import axios from "axios";
-import { PORT } from "./util/constants";
+import { UsersService } from "./services/Users";
 
-
-export const ApiInstance = axios.create({
-  baseURL: `http://localhost:${PORT}/`
-});
+export const Users = UsersService;
