@@ -1,5 +1,5 @@
 import { Controller, Param, Get, Post, Body } from "@nestjs/common";
-import { CreateUserDto, UpdateUserDto, PartialUserDto } from "domain/dto/User.dto";
+import { CreateUserDto, UpdateUserDto} from "domain/dto/User.dto";
 import { UserService } from "services/User.service";
 import { User } from "domain/entities/User.entity";
 
@@ -32,7 +32,7 @@ export class UserControler {
 
   //Get user omitting fields
   @Get('/find/:id')
-  async getOneByIdPartial(@Param('id') id: string): Promise<PartialUserDto> {
+  async getOneByIdPartial(@Param('id') id: string): Promise<Partial<User>> {
     const user = await this.userService.getOneById(+id);
     const { password, email, isAdmin, ...partialUser } = user;
     
@@ -41,7 +41,7 @@ export class UserControler {
 
   //Get user completely
   @Post('/find/:id')
-  async getOneById(@Param('id') id: string): Promise<PartialUserDto> {
+  async getOneById(@Param('id') id: string): Promise<Partial<User>> {
     return await this.userService.getOneById(+id);
   }
 

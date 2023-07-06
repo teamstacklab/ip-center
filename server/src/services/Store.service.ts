@@ -5,10 +5,7 @@ import { Store } from "domain/entities/Store.entity";
 import { Repository } from "typeorm";
 import { IStoreService } from "domain/interfaces/IStore";
 import { UserService } from "./User.service";
-import { User } from "domain/entities/User.entity";
-import { Category } from "domain/entities/Category.entity";
 import { CategoryService } from "./Category.service";
-import { PartialUserDto } from "domain/dto/User.dto";
 
 
 @Injectable()
@@ -31,15 +28,10 @@ export class StoreService implements IStoreService {
   //Get a store by id
   async getOneById(id: number): Promise<Store> {
     this.logger.log(`Get a specific Store ${id}.`);
-
     const store = await this.storeRepo.findOneBy({ id });
     if (!store){
       throw new NotFoundException(`Loja ${id} não encontrada!`);
     }
-
-    const owner = await this.verifyOwner(store.owner);
-
-    console.log(owner);
 
     return store;
   }
@@ -47,15 +39,10 @@ export class StoreService implements IStoreService {
   //Create a store
   async create(storeDto: CreateStoreDto): Promise<Store> {
     this.logger.log(`Creating a Store: ${storeDto}`);
-
-    const store = await this.storeRepo.findOne({
-      where: { name: storeDto.name }
-    });
-
+    const store = await this.storeRepo.findOneBy({name: storeDto.name});
     if (store) {
-      throw new ConflictException(`A loja ${store} já existe!`);
+      throw new ConflictException(`A loja '${store.name}' já existe!`);
     }
-
     const newStore = this.storeRepo.create(storeDto);
 
     return await this.storeRepo.save(newStore);
@@ -64,7 +51,6 @@ export class StoreService implements IStoreService {
   //Update a store
   async update(id: number, update: UpdateStoreDto): Promise<Store> {
     this.logger.log(`Get the Store of id ${id}.`);
-
     const store = await this.getOneById(id)
     if (!store) {
       throw new NotFoundException(`Loja ${id} não encontrada!`);
@@ -77,32 +63,12 @@ export class StoreService implements IStoreService {
   //Delete a store
   async delete(id: number): Promise<Store> {
     this.logger.log(`Deleting Store ${id}.`);
-
     const store = await this.getOneById(id);
     if (!store) {
       throw new NotFoundException(`Loja ${id} não encontrada!`);
     }
- 
     await this.storeRepo.delete({ id });
 
     return store;
-  }
-
-  //Verify the store owner
-  private async verifyOwner(owner: PartialUserDto): Promise<User | null> {
-    const user = await this.userService.getOne({...owner});
-    if (!user) {
-      return null;
-    }
-    return user;
-  }
-
-  //Verify the store category
-  private async verifyCategory(categoryId: number): Promise<Category | null> {
-    const category = await this.categoryService.getOneById(categoryId);
-    if (!category) {
-      return null;
-    }
-    return category;
   }
 }

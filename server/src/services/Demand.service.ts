@@ -27,7 +27,6 @@ export class DemandService implements IDemandService {
   //Get a demand by id
   async getOneById(id: number): Promise<Demand> {
     this.logger.log(`Get demand ${id}`);
-
     const demand = this.demandRepo.findOneBy({id});
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
@@ -39,7 +38,6 @@ export class DemandService implements IDemandService {
   //Create a demand
   async create(demandDto: CreateDemandDto): Promise<Demand> {
     this.logger.log(`Create a demand: ${demandDto}`);
-    
     const demand = await this.demandRepo.findOne({
       where: [
         {username: demandDto.username},
@@ -47,11 +45,9 @@ export class DemandService implements IDemandService {
         {cpf: demandDto.cpf}
       ]
     });
-
     if (demand) {
       throw new ConflictException(`Demanda ou usuário com este email ou username já existe`);
     }
-
     const newDemand = this.demandRepo.create(demand);
 
     return await this.demandRepo.save(newDemand);
@@ -60,11 +56,9 @@ export class DemandService implements IDemandService {
   //Authorizate a demand
   async authorizate(id: number): Promise<Object> {
     const demand = await this.getOneById(id);
-
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
     }
-
     await this.userService.create(demand);
     await this.demandRepo.delete(demand);
 
@@ -74,7 +68,6 @@ export class DemandService implements IDemandService {
   //Reject a demand
   async reject(id: number): Promise<Object> {
     const demand = await this.getOneById(id);
-    
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
     }

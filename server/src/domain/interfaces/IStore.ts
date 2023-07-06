@@ -7,6 +7,7 @@ import { Store } from "domain/entities/Store.entity";
 export interface IStore {
   id: number;
   owner: User;
+  category: Category;
   name: string;
   slogan: string;
   images: string[];
@@ -15,7 +16,6 @@ export interface IStore {
   whatsapp: string;
   location: string;
   services: string;
-  category: Category;
   additionalInfo: string;
   updatedAt: Date;
   createdAt: Date;

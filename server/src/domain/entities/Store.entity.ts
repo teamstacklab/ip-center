@@ -17,16 +17,18 @@ export class Store implements IStore {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => User, owner => owner.id, {cascade: true}) @JoinColumn()
-  owner: User;
+  @OneToOne(() => User, {cascade: true})
+  @JoinColumn({name: 'user_id', referencedColumnName: 'id'})
+  owner!: User;
   
-  @OneToOne(() => Category, category => category.id, {cascade: true}) @JoinColumn()
-  category: Category;
+  @OneToOne(() => Category, category => category.id, {cascade: true})
+  @JoinColumn({name: 'category_id', referencedColumnName: 'id'})
+  category!: Category;
 
-  @Column('varchar', { nullable: false, length: 100 })
+  @Column('varchar', { nullable: false, length: 300 })
   name: string;
 
-  @Column('varchar', { nullable: false, length: 150 })
+  @Column('varchar', { nullable: false, length: 500 })
   slogan: string;
 
   @Column('text', { nullable: false, array: true })

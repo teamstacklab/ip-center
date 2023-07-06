@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
+import { ConflictException, Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Category } from "domain/entities/Category.entity";
 import { Repository } from "typeorm";
@@ -19,6 +19,16 @@ export class CategoryService implements ICategoryService {
     this.logger.log("Find all categories");
 
     return await this.categoryRepo.find();
+  }
+
+  //Get one category by filter
+  async getOne(filter: Partial<Omit<Category, 'tags'>> | Partial<Omit<Category, 'tags'>>[]): Promise<Category> {
+    const category = this.categoryRepo.findOne({where: filter});
+    if (!category) {
+      throw new NotFoundException(`Categoria ${filter} não encontrada!`);
+    }
+
+    return category;
   }
 
 
@@ -55,18 +65,23 @@ export class CategoryService implements ICategoryService {
   async update(id: number, update: UpdateCategoryDto): Promise<Category> {
     this.logger.log(`Update category ${id}`);
 
-    await this.getOneById(id);
+    const category = await this.getOneById(id);
+    if (!category) {
+      throw new NotFoundException(`Comunicado ${id} não existe!`);
+    }
     await this.categoryRepo.update({id}, {...update})
 
-    return await this.getOneById(id)
+    return await this.getOneById(id);
   }
 
 
   //Delete a category
   async delete(id: number): Promise<Category> {
     this.logger.log(`Delete category ${id}`);
-
     const category = await this.getOneById(id)
+    if (!category) {
+      throw new NotFoundException(`Comunicado ${id} não existe!`);
+    }
     await this.categoryRepo.delete({ id });
 
     return category;

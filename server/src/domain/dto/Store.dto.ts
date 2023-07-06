@@ -18,7 +18,7 @@ export class CreateStoreDto {
 }
 
 export class UpdateStoreDto {
-  name: string;
+  @IsNotEmpty() @IsOptional() name: string;
   @IsNotEmpty() @IsOptional() slogan: string;
   @IsNotEmpty() @IsOptional() @IsArray() images: string[];
   @IsNotEmpty() @IsOptional() description: string;

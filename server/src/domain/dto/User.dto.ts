@@ -18,13 +18,3 @@ export class UpdateUserDto {
   @IsOptional() @IsNotEmpty() isAdmin: boolean;
   @IsOptional() @IsNotEmpty() whatsapp: string;
 }
-
-export class PartialUserDto {
-  id?: number;
-  name?: string;
-  username?: string;
-  password?: string;
-  email?: string;
-  isAdmin?: boolean;
-  whatsapp?: string;
-}

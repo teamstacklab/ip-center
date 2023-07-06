@@ -35,7 +35,6 @@ export class EventService implements IEventService {
   //Create a event
   async create(eventDto: CreateEventDto): Promise<Event> {
     this.logger.log(`Creating a event: ${eventDto}`);
-
     const event = await this.eventRepo.findOne({
       where: [{ name: eventDto.name }]
     });
@@ -50,25 +49,22 @@ export class EventService implements IEventService {
   //Update a event
   async update(id: number, update: UpdateEventDto): Promise<Event> {
     this.logger.log(`Get the event of id ${id}.`);
-
     const event = this.getOneById(id);
     if (!event){
       throw new NotFoundException(`Evento ${id} não encontrado!`);
     }
-
     await this.eventRepo.update({ id }, { ...update });
+
     return await this.eventRepo.findOneBy({ id });
   }
 
   //Delete a event
   async delete(id: number): Promise<Event> {
     this.logger.log(`Deleting Event ${id}.`);
-
     const event = this.getOneById(id);
     if (!event){
       throw new NotFoundException(`Evento ${id} não encontrado!`);
     }
-
     await this.eventRepo.delete({ id });
 
     return event;
