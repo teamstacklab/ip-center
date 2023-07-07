@@ -34,7 +34,7 @@ export class EventService implements IEventService {
 
   //Create a event
   async create(eventDto: CreateEventDto): Promise<Event> {
-    this.logger.log(`Creating a event: ${eventDto}`);
+    this.logger.log(`Creating a event ${eventDto.name}.`);
     const event = await this.eventRepo.findOne({
       where: [{ name: eventDto.name }]
     });

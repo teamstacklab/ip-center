@@ -31,13 +31,10 @@ export class CategoryService implements ICategoryService {
     return category;
   }
 
-
   //Get a category by id
   async getOneById(id: number): Promise<Category> {
     this.logger.log(`Get category ${id}.`);
-
     const category = await this.categoryRepo.findOneBy({ id });
-
     if (!category){
       throw new NotFoundException(`Categoria ${id} não encontrada!`);
     }
@@ -47,16 +44,12 @@ export class CategoryService implements ICategoryService {
 
   //Create a category
   async create(categoryDto: CreateCategoryDto): Promise<Category> {
-    this.logger.log(`Creates a category ${categoryDto}`);
-
+    this.logger.log(`Creates a category ${categoryDto.name}`);
     const category = await this.categoryRepo.findOneBy({ name: categoryDto.name })
-
     if (category) {
       throw new ConflictException(`Uma categoria com nome: ${category.name} já existe!`);
     }
-
     const newCategory = this.categoryRepo.create(categoryDto);
-
     return await this.categoryRepo.save(newCategory);
   }
 
@@ -64,7 +57,6 @@ export class CategoryService implements ICategoryService {
   //Update a category
   async update(id: number, update: UpdateCategoryDto): Promise<Category> {
     this.logger.log(`Update category ${id}`);
-
     const category = await this.getOneById(id);
     if (!category) {
       throw new NotFoundException(`Comunicado ${id} não existe!`);
@@ -73,7 +65,6 @@ export class CategoryService implements ICategoryService {
 
     return await this.getOneById(id);
   }
-
 
   //Delete a category
   async delete(id: number): Promise<Category> {

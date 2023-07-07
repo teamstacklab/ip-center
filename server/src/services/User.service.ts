@@ -17,7 +17,7 @@ export class UserService implements IUserService {
   //Get all users
   async getAll(): Promise<User[]> {
     this.logger.log(`Get all users.`)
-  
+
     return await this.userRepo.find();
   }
 

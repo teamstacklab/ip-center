@@ -4,16 +4,12 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Store } from "domain/entities/Store.entity";
 import { Repository } from "typeorm";
 import { IStoreService } from "domain/interfaces/IStore";
-import { UserService } from "./User.service";
-import { CategoryService } from "./Category.service";
 
 
 @Injectable()
 export class StoreService implements IStoreService {
   constructor(
     @InjectRepository(Store) private storeRepo: Repository<Store>,
-    private userService: UserService,
-    private categoryService: CategoryService,
   ) { }
 
   private readonly logger = new Logger(StoreService.name);
@@ -38,14 +34,18 @@ export class StoreService implements IStoreService {
 
   //Create a store
   async create(storeDto: CreateStoreDto): Promise<Store> {
-    this.logger.log(`Creating a Store: ${storeDto}`);
+    this.logger.log(`Creating a Store: ${storeDto.name}`);
     const store = await this.storeRepo.findOneBy({name: storeDto.name});
     if (store) {
       throw new ConflictException(`A loja '${store.name}' já existe!`);
     }
-    const newStore = this.storeRepo.create(storeDto);
+    try {
+      const newStore = this.storeRepo.create(storeDto);
+      return await this.storeRepo.save(newStore);
 
-    return await this.storeRepo.save(newStore);
+    } catch (err) {
+      throw new NotFoundException(`${err.detail}`)
+    }
   }
 
   //Update a store

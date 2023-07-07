@@ -7,7 +7,8 @@ import {
   UpdateDateColumn,
   Column,
   OneToOne,
-  JoinColumn
+  JoinColumn,
+  ManyToOne
 } from "typeorm";
 import { Category } from "./Category.entity";
 
@@ -17,12 +18,12 @@ export class Store implements IStore {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => User, {cascade: true})
-  @JoinColumn({name: 'user_id', referencedColumnName: 'id'})
+  @ManyToOne(() => User, {cascade: true})
+  @JoinColumn()
   owner!: User;
   
-  @OneToOne(() => Category, category => category.id, {cascade: true})
-  @JoinColumn({name: 'category_id', referencedColumnName: 'id'})
+  @ManyToOne(() => Category, category => category.id, {cascade: true})
+  @JoinColumn()
   category!: Category;
 
   @Column('varchar', { nullable: false, length: 300 })
