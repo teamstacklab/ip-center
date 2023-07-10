@@ -7,6 +7,7 @@ import { CategoryModule } from 'ioc/Category.module';
 import { EventModule } from 'ioc/Event.module';
 import { ComunicateModule } from 'ioc/Comunicate.module';
 import { ConfigModule } from '@nestjs/config';
+import { EncryptionModule } from 'ioc/Encryption.module';
 
 
 @Module({
@@ -21,7 +22,8 @@ import { ConfigModule } from '@nestjs/config';
     StoreModule,
     CategoryModule,
     EventModule,
-    ComunicateModule
+    ComunicateModule,
+    EncryptionModule
   ],
 })
 

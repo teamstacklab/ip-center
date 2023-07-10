@@ -4,12 +4,14 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { ConflictException, Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { User } from "domain/entities/User.entity";
 import { CreateUserDto, UpdateUserDto } from "domain/dto/User.dto";
+import { EncryptionService } from "./Encription.service";
 
 
 @Injectable()
 export class UserService implements IUserService {
   constructor(
     @InjectRepository(User) private userRepo: Repository<User>,
+    private encryptionService: EncryptionService,
   ) { }
 
   private readonly logger = new Logger(UserService.name);
@@ -52,7 +54,9 @@ export class UserService implements IUserService {
     if (user) {
       throw new ConflictException(`Este usuário já existe!`);
     }
-    const newUser = this.userRepo.create(userDto);
+    const { password, ...partialUser } = userDto;
+    const hashPassword = await this.encryptionService.generateHash(password);
+    const newUser = this.userRepo.create({...partialUser, password: hashPassword});
 
     return await this.userRepo.save(newUser);
   }
@@ -64,8 +68,22 @@ export class UserService implements IUserService {
     if (!user) {
       throw new NotFoundException(`Usuário ${id} não encontrado!`)
     }
-    await this.userRepo.update({id}, {...update});
-
+    if (update.username || update.email) {
+      const verification = await this.userRepo.findOne({
+        where: [{username: update.username}, {email: update.email}]
+      })
+      if (verification) {
+        throw new ConflictException(`Algum usuário com este email ou username já existe!`)
+      }
+    }
+    const { password, ...partialUser } = update;
+    if (password) {
+      const hashPassword = await this.encryptionService.generateHash(password);
+      await this.userRepo.update({id}, {...partialUser, password: hashPassword});
+    } else {
+      await this.userRepo.update({id}, {...update});
+    }
+  
     return await this.getOneById(id);
   }
   
