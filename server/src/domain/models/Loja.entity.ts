@@ -7,7 +7,8 @@ import {
   UpdateDateColumn,
   Column,
   OneToOne,
-  JoinColumn
+  JoinColumn,
+  ManyToOne
 } from "typeorm";
 import { Category } from "./Category.entity";
 
@@ -16,16 +17,26 @@ export class Loja implements ILoja {
   @PrimaryGeneratedColumn()
   id: number;
 
+<<<<<<< HEAD:server/src/domain/models/Loja.entity.ts
   @OneToOne(type => User) @JoinColumn()
   owner: User;
 
   @OneToOne(type => Category) @JoinColumn()
   category: Category;
+=======
+  @ManyToOne(() => User, {cascade: true})
+  @JoinColumn()
+  owner!: User;
+  
+  @ManyToOne(() => Category, category => category.id, {cascade: true})
+  @JoinColumn()
+  category!: Category;
+>>>>>>> server:server/src/domain/entities/Store.entity.ts
 
-  @Column('varchar', { nullable: false, length: 100 })
+  @Column('varchar', { nullable: false, length: 300 })
   name: string;
 
-  @Column('varchar', { nullable: false, length: 150 })
+  @Column('varchar', { nullable: false, length: 500 })
   slogan: string;
 
   @Column('text', { nullable: false, array: true })
