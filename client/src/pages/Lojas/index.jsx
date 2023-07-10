@@ -1,11 +1,8 @@
 import React from "react";
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
-import CardLoja from "../../components/LojaCard"
-import { Plus, Shop } from 'react-bootstrap-icons'
-import * as api from "../../api";
+import { Shop } from 'react-bootstrap-icons'
 
-const asdf = api.Users.useGetAll()
 const LojasRoute = '/lojas';
 const MinhasLojasRoute = '/lojas/minhas';
 
