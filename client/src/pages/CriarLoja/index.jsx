@@ -1,16 +1,34 @@
-import React from "react";
-
-import {
-  Plus,
-} from 'react-bootstrap-icons'
-
+import React from 'react';
+import { Plus } from 'react-bootstrap-icons'
 import "./CSS/mobile.css"
 import "./CSS/desktop.css"
-
 
 const CriarLojaRoute = '/lojas/criar';
 
 const CriarLoja = () => {
+  const categorias = [
+    {
+      id: 1,
+      name: "asdf"
+    }
+  ];
+
+  const [name, setName] = React.useState(null);
+  const [slogan, setSlogan] = React.useState(null);
+  const [location, setLocation] = React.useState(null);
+  const [category, setCategory] = React.useState(null);
+  const [additionalInfo, setAdditionalInfo] = React.useState(null);
+  const [instagram, setInstagram] = React.useState(null);
+  const [whatsapp, setWhatsapp] = React.useState(null);
+  const [description, setDescription] = React.useState(null);
+  const [services, setServices] = React.useState(null);
+  const [images, setImages] = React.useState(null);
+  const [logo, setLogo] = React.useState(null);
+
+  console.log(
+    name, slogan, location, category, additionalInfo, instagram, whatsapp, description, services, images, logo
+  )
+
   return (
     <section className="loja">
       <form method="post" className="formulario">
@@ -60,7 +78,7 @@ const CriarLoja = () => {
               <p className="formulario__title">Categoria:</p>
               <select onChange={(e) => setCategory(e.target.value)} className='formulario__inputs' id="categoria-filter">
                 {categorias.map(categoria => {
-                  return <option className="categoria" value={categoria.id}>{categoria.name}</option>
+                  return <option key={categoria.id} className="categoria" value={categoria.id}>{categoria.name}</option>
                 })}
               </select>
             </fieldset>
