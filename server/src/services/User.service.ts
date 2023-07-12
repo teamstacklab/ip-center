@@ -25,7 +25,7 @@ export class UserService implements IUserService {
 
   //Get one user
   async getOne(filter: Partial<User> | Partial<User>[]): Promise<User> {
-    this.logger.log(`Get a specific user ${filter}.`);
+    this.logger.log(`Get a specific user ${Object.values(filter)}.`);
     const user = this.userRepo.findOne({where:filter});
     if (!user) {
       throw new NotFoundException(`Usuário ${filter} não encontrado!`);
@@ -47,7 +47,7 @@ export class UserService implements IUserService {
 
   //Create a user
   async create(userDto: CreateUserDto): Promise<User> {
-    this.logger.log(`Creating a user: ${userDto}`);
+    this.logger.log(`Creates a user`);
     const user = await this.userRepo.findOne({
       where: [{username: userDto.username}, {email: userDto.email}]
     });
@@ -55,7 +55,7 @@ export class UserService implements IUserService {
       throw new ConflictException(`Este usuário já existe!`);
     }
     const { password, ...partialUser } = userDto;
-    const hashPassword = await this.encryptionService.generateHash(password);
+    const hashPassword = await this.encryptionService.hash(password);
     const newUser = this.userRepo.create({...partialUser, password: hashPassword});
 
     return await this.userRepo.save(newUser);
@@ -78,7 +78,7 @@ export class UserService implements IUserService {
     }
     const { password, ...partialUser } = update;
     if (password) {
-      const hashPassword = await this.encryptionService.generateHash(password);
+      const hashPassword = await this.encryptionService.hash(password);
       await this.userRepo.update({id}, {...partialUser, password: hashPassword});
     } else {
       await this.userRepo.update({id}, {...update});

@@ -8,6 +8,7 @@ import { EventModule } from 'ioc/Event.module';
 import { ComunicateModule } from 'ioc/Comunicate.module';
 import { ConfigModule } from '@nestjs/config';
 import { EncryptionModule } from 'ioc/Encryption.module';
+import { AuthModule } from 'ioc/Auth.module';
 
 
 @Module({
@@ -16,6 +17,7 @@ import { EncryptionModule } from 'ioc/Encryption.module';
       isGlobal: true,
       envFilePath: '.env',
     }),
+    AuthModule,
     DatabaseModule,
     UserModule,
     DemandModule,

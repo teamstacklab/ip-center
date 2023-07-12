@@ -8,9 +8,10 @@ export interface IUser {
   password: string;
   whatsapp: string;
   email: string;
-  isAdmin?: boolean;
+  isAdmin: boolean;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt: Date;
+  refreshToken: string;
 }
 
 export interface IUserService {

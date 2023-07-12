@@ -1,4 +1,3 @@
-import { Exclude } from 'class-transformer';
 import { IUser } from 'domain/interfaces/IUser';
 import {
   Entity,
@@ -37,4 +36,7 @@ export class User implements IUser {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column('varchar', { nullable: true, default: null })
+  refreshToken: string;
 }

@@ -1,4 +1,4 @@
 export interface IEncryptionService {
-  generateHash(value: string): Promise<string>;
-  compareWithHash(value: string): Promise<boolean>;
+  hash(value: string): Promise<string>;
+  compare(value: string, hash: string): Promise<boolean>;
 }

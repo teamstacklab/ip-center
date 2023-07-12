@@ -3,7 +3,7 @@ import { Demand } from "domain/entities/Demand.entity";
 import { IUser } from "./IUser";
 
 
-export interface IDemand extends IUser {
+export interface IDemand extends Omit<IUser, 'refreshToken' | 'updatedAt'> {
   cpf: string;
   store: string;
   createdAt: Date;

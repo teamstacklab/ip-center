@@ -37,7 +37,7 @@ export class DemandService implements IDemandService {
 
   //Create a demand
   async create(demandDto: CreateDemandDto): Promise<Demand> {
-    this.logger.log(`Creating a demand ${demandDto.name}.`);
+    this.logger.log(`Creating a demand.`);
     const demand = await this.demandRepo.findOne({
       where: [
         {username: demandDto.username},
