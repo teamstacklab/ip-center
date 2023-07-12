@@ -1,6 +1,5 @@
-import { ICategory } from "domain/interfaces/ICategory";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import { ICategory } from 'domain/interfaces/ICategory';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('categories')
 export class Category implements ICategory {

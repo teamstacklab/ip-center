@@ -1,33 +1,36 @@
-import { ConflictException, Injectable, NotFoundException } from "@nestjs/common";
-import { Demand } from "domain/entities/Demand.entity";
-import { CreateDemandDto } from "domain/dto/Demand.dto";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { Logger } from "@nestjs/common";
-import { UserService } from "services/User.service";
-import { IDemandService } from "domain/interfaces/IDemand";
-
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Demand } from 'domain/entities/Demand.entity';
+import { CreateDemandDto } from 'domain/dto/Demand.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Logger } from '@nestjs/common';
+import { UserService } from 'services/User.service';
+import { IDemandService } from 'domain/interfaces/IDemand';
 
 @Injectable()
 export class DemandService implements IDemandService {
   constructor(
     @InjectRepository(Demand) private demandRepo: Repository<Demand>,
     private readonly userService: UserService,
-  ) { }
+  ) {}
 
   private readonly logger = new Logger(DemandService.name);
 
   //Get all demands
   async getAll(): Promise<Demand[]> {
     this.logger.log(`Get all demands`);
-    
+
     return this.demandRepo.find();
   }
 
   //Get a demand by id
   async getOneById(id: number): Promise<Demand> {
     this.logger.log(`Get demand ${id}`);
-    const demand = this.demandRepo.findOneBy({id});
+    const demand = this.demandRepo.findOneBy({ id });
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
     }
@@ -40,13 +43,15 @@ export class DemandService implements IDemandService {
     this.logger.log(`Creating a demand.`);
     const demand = await this.demandRepo.findOne({
       where: [
-        {username: demandDto.username},
-        {email: demandDto.email},
-        {cpf: demandDto.cpf}
-      ]
+        { username: demandDto.username },
+        { email: demandDto.email },
+        { cpf: demandDto.cpf },
+      ],
     });
     if (demand) {
-      throw new ConflictException(`Demanda ou usuário com este email ou username já existe`);
+      throw new ConflictException(
+        `Demanda ou usuário com este email ou username já existe`,
+      );
     }
     const newDemand = this.demandRepo.create(demand);
 
@@ -54,7 +59,7 @@ export class DemandService implements IDemandService {
   }
 
   //Authorizate a demand
-  async authorizate(id: number): Promise<Object> {
+  async authorizate(id: number): Promise<any> {
     const demand = await this.getOneById(id);
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
@@ -62,17 +67,17 @@ export class DemandService implements IDemandService {
     await this.userService.create(demand);
     await this.demandRepo.delete(demand);
 
-    return {"message": "Usuário autorizado com sucesso!"};
+    return { message: 'Usuário autorizado com sucesso!' };
   }
 
   //Reject a demand
-  async reject(id: number): Promise<Object> {
+  async reject(id: number): Promise<any> {
     const demand = await this.getOneById(id);
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
     }
     await this.demandRepo.delete(demand);
 
-    return {"message": "Usuário rejeitado com sucesso!"};
+    return { message: 'Usuário rejeitado com sucesso!' };
   }
 }

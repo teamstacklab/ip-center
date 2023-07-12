@@ -1,36 +1,35 @@
-import { Controller, Param, Post } from "@nestjs/common";
-import { Demand } from "domain/entities/Demand.entity";
-import { DemandService } from "services/Demand.service";
-
+import { Controller, Param, Post } from '@nestjs/common';
+import { Demand } from 'domain/entities/Demand.entity';
+import { DemandService } from 'services/Demand.service';
+import { RolesGuard } from 'infra/guards/Roles/roles.guard';
+import { UseGuards } from '@nestjs/common';
+import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/demands')
 export class DemandController {
-  constructor(
-    private readonly demandService: DemandService,
-  ) { }
+  constructor(private readonly demandService: DemandService) {}
 
-  //Get all demands
+  @UseGuards(JwtAccessAuthGuard, RolesGuard)
   @Post('/find')
   async getAll(): Promise<Demand[]> {
     return await this.demandService.getAll();
   }
 
-  //Get a demand by id
+  @UseGuards(JwtAccessAuthGuard, RolesGuard)
   @Post('/find/:id')
   async getOneById(@Param('id') id: string): Promise<Demand> {
-    return await this.demandService.getOneById(+id)
+    return await this.demandService.getOneById(+id);
   }
 
-  //Authorizate a demand
+  @UseGuards(JwtAccessAuthGuard, RolesGuard)
   @Post('/authorizate/:id')
-  async authorizate(@Param('id') id: string): Promise<Object> {
+  async authorizate(@Param('id') id: string): Promise<any> {
     return await this.demandService.authorizate(+id);
   }
 
-  //Reject a demand
+  @UseGuards(JwtAccessAuthGuard, RolesGuard)
   @Post('/reject/:id')
-  async reject(@Param('id') id: string): Promise<Object> {
+  async reject(@Param('id') id: string): Promise<any> {
     return await this.demandService.reject(+id);
   }
-
 }

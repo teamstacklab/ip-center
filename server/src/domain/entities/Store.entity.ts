@@ -1,28 +1,26 @@
-import { IStore } from "domain/interfaces/IStore";
-import { User } from "./User.entity";
-import { 
+import { IStore } from 'domain/interfaces/IStore';
+import { User } from './User.entity';
+import {
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
   Column,
-  OneToOne,
   JoinColumn,
-  ManyToOne
-} from "typeorm";
-import { Category } from "./Category.entity";
-
+  ManyToOne,
+} from 'typeorm';
+import { Category } from './Category.entity';
 
 @Entity('stores')
 export class Store implements IStore {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => User, {cascade: true})
+  @ManyToOne(() => User, { cascade: true })
   @JoinColumn()
   owner!: User;
-  
-  @ManyToOne(() => Category, category => category.id, {cascade: true})
+
+  @ManyToOne(() => Category, (category) => category.id, { cascade: true })
   @JoinColumn()
   category!: Category;
 

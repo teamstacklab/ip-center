@@ -1,5 +1,5 @@
-import { CreateUserDto, UpdateUserDto } from "domain/dto/User.dto";
-import { User } from "domain/entities/User.entity";
+import { CreateUserDto, UpdateUserDto } from 'domain/dto/User.dto';
+import { User } from 'domain/entities/User.entity';
 
 export interface IUser {
   id: number;

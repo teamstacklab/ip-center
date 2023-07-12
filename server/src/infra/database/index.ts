@@ -1,3 +1,3 @@
-import { TypeOrmProvider } from "./providers/typeorm.provider";
+import { TypeOrmProvider } from './providers/typeorm.provider';
 
-export { TypeOrmProvider }
+export { TypeOrmProvider };

@@ -1,6 +1,5 @@
-import { IEvent } from "domain/interfaces/IEvent";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import { IEvent } from 'domain/interfaces/IEvent';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('events')
 export class Event implements IEvent {
