@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 !important;
-    margin-top: var(--mt-nav-mb) !important;
+    margin-top: var(--nav-top-mobile) !important;
 }
 
 .loja__sobre {
@@ -61,7 +61,7 @@
 
 .loja__data {
     width: 100%;
-    background-color: var(--marrom-4);
+    background-color: var(--brown-dark);
     padding: 24px 12px;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
-    border: 2px solid var(--marrom-2);
+    border: 2px solid var(--brown-secondary);
     margin-bottom: 12px;
 }
 
@@ -86,7 +86,7 @@
 .data__slogan {
     font-size: 18px;
     font-style: italic;
-    color: var(--cor-menu);
+    color: var(--orange-secondary);
     margin-bottom: 30px;
 }
 .data__slogan::before,
@@ -103,11 +103,11 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--cor-texto);
+    color: var(--orange-light-text);
 }
 
 .data__icon {
-    color: var(--cor-icone);
+    color: var(--orange-primary);
     font-size: 28px;
     height: auto;
     width: auto;
@@ -130,12 +130,12 @@
     height: 48px;
     border-radius: 8px;
     width: 100% !important;
-    background-color: var(--verde);
-    color: var(--cor-texto);
+    background-color: var(--green-primary);
+    color: var(--orange-light-text);
     font-size: 28px;
 }
 
 .data__action.instagram {
-    background-color: var(--cor-icone);
-    color: var(--marrom);
+    background-color: var(--orange-primary);
+    color: var(--brown-primary);
 }

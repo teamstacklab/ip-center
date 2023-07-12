@@ -1,6 +1,6 @@
 @media screen and (min-width: 1440px) {
     .loja {
-        margin-top: var(--mt-nav) !important;
+        margin-top: var(--nav-top-desktop) !important;
         padding: 27px 25px 27px;
         height: 80vh;
         align-items: center;
@@ -20,12 +20,12 @@
         width: 40vw;
         padding: 10px 1em ;
         font-weight: 600;
-        color: var(--marrom-3);
+        color: var(--brown-tertiaty);
     }
 
     .formulario__inputs::placeholder {
         font-weight: 600;
-        color: var(--marrom-3);
+        color: var(--brown-tertiaty);
     }
 
     .formulario--button {
@@ -37,7 +37,7 @@
     }
     
     .formulario--button:hover {
-        background: var(--verde-hover);
+        background: var(--green-primary-hover);
     }
 
     .loja--description {
@@ -65,6 +65,6 @@
     }
 
     .formulario--loja__file:hover {
-        background: var(--verde-hover);
+        background: var(--green-primary-hover);
     }
 }

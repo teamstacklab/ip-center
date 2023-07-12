@@ -8,7 +8,7 @@
     .greeting__text {
         margin: 0;
         font-size: 16px;
-        color: var(--cor-texto);
+        color: var(--orange-light-text);
         font-weight: 500;
         display: block;
     }
@@ -28,12 +28,12 @@
 
     .menu__actions {
         border-radius: 12px;
-        background-color: var(--cor-begue);
-        border: 1px solid var(--shadow-2);
+        background-color: var(--orange-secondary);
+        border: 1px solid var(--shadow-secondary);
     }
 
     .header-bar__trabalhe:hover {
-        color: var(--cor-texto);
+        color: var(--orange-light-text);
     }
 
     .social__icon:hover {
@@ -44,7 +44,7 @@
     }
 
     .menu__link--nav:hover {
-        color: var(--marrom-hover-nav);
+        color: var(--brown-primary-hover-nav);
     }
 
     .actions__login, .actions__register {
@@ -52,13 +52,13 @@
     }
 
     .actions__login:hover {
-        background-color: var(--cor-texto-btn);
-        color: var(--marrom);
+        background-color: var(--orange-light-text);
+        color: var(--brown-primary);
     }
 
     .actions__register:hover {
         background-color: var(--cor-btn-hover);
-        color: var(--marrom);
+        color: var(--brown-primary);
     }
 
 }

@@ -18,7 +18,7 @@
     justify-content: space-between;
     height: 36px;
     padding: 0 20px;
-    background-color: var(--verde);
+    background-color: var(--green-primary);
     width: 100%;
 }
 
@@ -31,7 +31,7 @@
 
 .social__icon {
     font-size: 1.35em;
-    color: var(--cor-texto);
+    color: var(--orange-light-text);
 }
 
 .greeting__text {
@@ -42,7 +42,7 @@
     display: flex;
     align-items: center;
     font-size: 0.95em;
-    color: var(--cor-texto);
+    color: var(--orange-light-text);
     font-weight: 600;
     text-decoration: none;
     transition: all .1s;
@@ -62,9 +62,9 @@
 }
 
 .nav-bar {
-    background-color: var(--cor-menu);
+    background-color: var(--orange-light);
     z-index: 999;
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 8px var(--shadow-primary);
 }
 
 .nav-bar__logo {
@@ -77,7 +77,7 @@
 }
 
 .menu__link {
-    color: var(--marrom);
+    color: var(--brown-primary);
     border: none;
     gap: 6px;
 }
@@ -87,13 +87,13 @@
 }
 
 :is(.menu.show, .menu.collapsing) .menu__link {
-    border: 1px solid var(--marrom-2);
+    border: 1px solid var(--brown-secondary);
     margin-top: -1px;
-    color: var(--marrom);
+    color: var(--brown-primary);
 }
 
 .menu__button:is(:hover) {
-    background-color: var(--shadow-2);
+    background-color: var(--shadow-secondary);
     box-shadow: none !important;
     border: 0;
     outline: 0;
@@ -104,7 +104,7 @@
     align-items: center;
     padding: 8px 16px;
     gap: 16px;
-    background-color: var(--cor-begue);
+    background-color: var(--orange-secondary);
 }
 
 .actions__container {
@@ -114,8 +114,8 @@
 
 .actions__btn {
     border-radius: 8px;
-    border: 1px solid var(--shadow-2);
-    filter: drop-shadow(2px 2px 3px var(--shadow-2));
+    border: 1px solid var(--shadow-secondary);
+    filter: drop-shadow(2px 2px 3px var(--shadow-secondary));
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -129,9 +129,9 @@
 }
 
 .actions__login {
-    background-color: var(--cor-texto);
+    background-color: var(--orange-light-text);
 }
 
 .actions__register {
-    background-color: var(--cor-icone);
+    background-color: var(--orange-primary);
 }

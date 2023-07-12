@@ -1,16 +1,16 @@
 import React from "react";
 
 /*Fotos Ipê Center*/
-import ipe01 from "../../assets/images/IpêCenter/ipe01.jpeg"
-import ipe02 from "../../assets/images/IpêCenter/ipe02.jpeg"
-import ipe03 from "../../assets/images/IpêCenter/ipe03.jpeg"
-import ipe04 from "../../assets/images/IpêCenter/ipe04.jpeg"
-import ipe05 from "../../assets/images/IpêCenter/ipe05.jpeg"
-import ipe06 from "../../assets/images/IpêCenter/ipe06.jpeg"
-import ipe07 from "../../assets/images/IpêCenter/ipe07.jpeg"
-import ipe08 from "../../assets/images/IpêCenter/ipe08.jpeg"
-import ipe09 from "../../assets/images/IpêCenter/ipe09.jpeg"
-import ipe10 from "../../assets/images/IpêCenter/ipe10.PNG"
+import ipe01 from "../../assets/images/ipecenter/ipe01.jpeg"
+import ipe02 from "../../assets/images/ipecenter/ipe02.jpeg"
+import ipe03 from "../../assets/images/ipecenter/ipe03.jpeg"
+import ipe04 from "../../assets/images/ipecenter/ipe04.jpeg"
+import ipe05 from "../../assets/images/ipecenter/ipe05.jpeg"
+import ipe06 from "../../assets/images/ipecenter/ipe06.jpeg"
+import ipe07 from "../../assets/images/ipecenter/ipe07.jpeg"
+import ipe08 from "../../assets/images/ipecenter/ipe08.jpeg"
+import ipe09 from "../../assets/images/ipecenter/ipe09.jpeg"
+import ipe10 from "../../assets/images/ipecenter/ipe10.PNG"
 import artepc from "../../assets/images/ArtePc.png"
 
 /*Fotos da lojas*/

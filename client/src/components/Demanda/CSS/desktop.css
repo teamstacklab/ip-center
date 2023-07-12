@@ -5,11 +5,11 @@
     }
 
     .button--action--aceitar:hover {
-        background: var(--verde-hover);
+        background: var(--green-primary-hover);
     }
 
     .button--action--recusar:hover {
-        background: var(--vermelho-hover);
+        background: var(--red-primary-hover);
     }
 
     .infor__title {

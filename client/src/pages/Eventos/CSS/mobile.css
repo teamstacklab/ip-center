@@ -1,7 +1,7 @@
 @import url("../../../assets/styles/config.css");
 
 #eventos-view {
-    margin-top: var(--mt-nav-mb);
+    margin-top: var(--nav-top-mobile);
     min-height: 75vh;
     padding: 24px 12px;
     display: block;

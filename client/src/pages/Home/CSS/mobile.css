@@ -22,7 +22,7 @@
 .cards {
     display: flex;
     justify-content: space-evenly;
-    background-color: var(--branco);
+    background-color: var(--white);
     padding: 12px 0;
 }
 
@@ -36,7 +36,7 @@
     width: 80px;
     height: 80px;
     border-radius: 12px;
-    background-color: var(--verde);
+    background-color: var(--green-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,12 +60,12 @@
 
 .card__icon{
     font-size: 2em;
-    color: var(--cor-icone);
+    color: var(--orange-primary);
 }
 
 #lojas {
     padding: 12px 23px;
-    background-color: var(--marrom);
+    background-color: var(--brown-primary);
 }
 
 .lojas--container {
@@ -84,19 +84,19 @@
 .lojas__title {
     font-size: 22px;
     font-weight: 700;
-    color: var(--cor-menu);
+    color: var(--orange-secondary);
 }
 
 .lojas__title--icon {
     font-size: 1.4em;
-    color: var(--cor-icone);
+    color: var(--orange-primary);
 }
 
 .container__link {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--cor-menu);
+    color: var(--orange-secondary);
     gap: 11px;
     margin-top: -10px;
 }
@@ -109,7 +109,7 @@
 .link__titulo {
     font-size: 17px;
     font-weight: 600;
-    border-bottom: 1px solid var(--cor-menu);
+    border-bottom: 1px solid var(--orange-secondary);
 }
 
 #lojas__imagem {
@@ -136,7 +136,7 @@
 
 #eventos {
     padding: 12px 21px 12px;
-    background-color: var(--branco);
+    background-color: var(--white);
 }
 
 .eventos__carousel__item {
@@ -146,7 +146,7 @@
 
 .container__calendario {
     font-size: 1.4em;
-    color: var(--marrom-3);
+    color: var(--brown-tertiaty);
 }
 
 .eventos__container {
@@ -157,12 +157,12 @@
 .container__title {
     font-size: 22px;
     font-weight: 700;
-    color: var(--marrom-3);
+    color: var(--brown-tertiaty);
 }
 
 .descricao__text {
     font-weight: 500;
-    color: var(--marrom-3);
+    color: var(--brown-tertiaty);
 }
 
 .text__bold {
@@ -181,7 +181,7 @@
 .title__agenda {
     margin: 0 0 12px 2px;
     font-weight: 700;
-    color: var(--marrom);
+    color: var(--brown-primary);
 }
 
 .calendario__imagem {

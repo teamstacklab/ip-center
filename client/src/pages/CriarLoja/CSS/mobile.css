@@ -3,7 +3,7 @@
 .loja {
     display: flex;
     flex-direction: column;
-    margin-top: var(--mt-nav);
+    margin-top: var(--nav-top-desktop);
     padding: 27px 15px 27px;
 }
 
@@ -24,23 +24,23 @@
 .formulario__title {
     margin: 0;
     font-weight: 600;
-    color: var(--marrom);
+    color: var(--brown-primary);
 }
 
 .formulario__inputs {
     padding: 5px 1em ;
-    background: var(--cor-begue);
+    background: var(--orange-secondary);
     border: none;
-    border: 1px solid var(--shadow-2);
+    border: 1px solid var(--shadow-secondary);
     border-radius: 6px;
     outline: none;
     margin-top: 4px;
     width: 100%;
-    color: var(--marrom-3);
+    color: var(--brown-tertiaty);
 }
 
 .formulario__inputs::placeholder {
-    color: var(--marrom-3);
+    color: var(--brown-tertiaty);
 }
 
 .formulario--loja {
@@ -59,8 +59,8 @@
     max-width: 160px;
     min-width: 100px;
     border-radius: 6px;
-    background: var(--verde);
-    color: var(--branco);
+    background: var(--green-primary);
+    color: var(--white);
     gap: 2px;
 }
 
@@ -106,8 +106,8 @@
     width: 35px;
     height: 35px;
     border-radius: 6px;
-    background-color: var(--verde);
-    color: var(--cor-menu);
+    background-color: var(--green-primary);
+    color: var(--orange-secondary);
     margin-top: 4px;
 }
 .file__icon {

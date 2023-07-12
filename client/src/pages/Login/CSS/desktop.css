@@ -5,13 +5,13 @@
 
 @media screen and (min-width: 1279px) {
   #login {
-    margin-top: var(--mt-nav);
+    margin-top: var(--nav-top-desktop);
     padding: 42px 0;
   }
   .auth__login {
     flex-direction: row;
     width: 50vw;
-    background-color: var(--cor-begue);
+    background-color: var(--orange-secondary);
     border-radius: 12px;
     overflow: hidden;
   }

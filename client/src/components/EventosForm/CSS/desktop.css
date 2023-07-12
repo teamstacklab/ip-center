@@ -31,7 +31,7 @@
     }
 
     .eventos__formulario--button:hover {
-        background: var(--verde-hover);
+        background: var(--green-primary-hover);
     }
 
     .formulario--button__text {

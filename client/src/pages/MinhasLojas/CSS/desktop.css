@@ -36,11 +36,11 @@
 
     .input-search {
         display: block;
-        background-color: var(--cor-menu);
+        background-color: var(--orange-secondary);
         margin: 0;
         border: none;
         border-radius: 8px ;
-        border: 1px solid  var(--marrom-3);
+        border: 1px solid  var(--brown-tertiaty);
         padding: 4px 3px;
     }
 

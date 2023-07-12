@@ -7,7 +7,7 @@
 .actions__search {
   display: flex;
   width: fit-content;
-  background-color: var(--cor-begue);
+  background-color: var(--orange-secondary);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@
 }
 
 .actions__search {
-  border: 1px solid var(--shadow-2);
+  border: 1px solid var(--shadow-secondary);
 }
 
 .search__input {
@@ -41,11 +41,11 @@
 .actions__select {
   width: fit-content;
   display: flex;
-  background-color: var(--cor-begue);
+  background-color: var(--orange-secondary);
   height: 36px;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--shadow-2);
+  border: 1px solid var(--shadow-secondary);
 }
 
 .select__icon {

@@ -6,9 +6,9 @@
     justify-content: space-between;
     width: 100%;
     padding: .5em .7em;
-    background: var(--cor-menu);
+    background: var(--orange-secondary);
     border-radius: 6px;
-    border: 2px solid var(--shadow-2);
+    border: 2px solid var(--shadow-secondary);
     flex-wrap: wrap;
     gap: 1em;
 }
@@ -20,7 +20,7 @@
 .dados__title {
     font-size: 1.5em;
     font-weight: 700;
-    color: var(--marrom);
+    color: var(--brown-primary);
     margin-bottom: .3em;
 }
 
@@ -36,7 +36,7 @@
 
 .infor__title {
     margin: 0;
-    color: var(--marrom);
+    color: var(--brown-primary);
     font-weight: 700;
 }
 
@@ -44,13 +44,13 @@
     margin: 0;
     font-size: 1em;
     font-weight: 600;
-    color: var(--marrom);
+    color: var(--brown-primary);
 }
 
 .action__title {
     font-size: 1.1em;
     font-weight: 700;
-    color: var(--marrom);
+    color: var(--brown-primary);
     margin-bottom: .8em;
     text-align: center;
 }
@@ -68,14 +68,14 @@
 }
 
 .button--action--aceitar {
-    background: var(--verde);
-    color: var(--cor-menu);
+    background: var(--green-primary);
+    color: var(--orange-secondary);
     transition: all .2s;
 }
 
 .button--action--recusar {
-    background: var(--vermelho);
-    color: var(--cor-menu);
+    background: var(--red-primary);
+    color: var(--orange-secondary);
     transition: all .2s;
 }
 

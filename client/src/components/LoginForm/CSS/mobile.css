@@ -30,14 +30,14 @@
 
 .auth__input {
   width: 100%;
-  background-color: var(--cor-menu) !important;
+  background-color: var(--orange-secondary) !important;
 }
 
 .auth__submit {
   width: 100%;
   margin-top: 24px;
-  background-color: var(--verde) !important;
-  border: 1px solid var(--shadow-2) !important;
+  background-color: var(--green-primary) !important;
+  border: 1px solid var(--shadow-secondary) !important;
   padding: 8px 0 !important;
 }
 

@@ -31,7 +31,7 @@
     .cards__card {
         width: 432px;
         height: 234px;
-        background-color: var(--verde);
+        background-color: var(--green-primary);
         border-radius: 12px;
         flex-direction: row;
         padding: 16px 22px;
@@ -56,7 +56,7 @@
         font-size: 32px;
         font-weight: 700;
         margin: 0;
-        color: var(--branco);
+        color: var(--white);
     }
 
     .card__sobre {
@@ -70,10 +70,10 @@
         align-items: center;
         bottom: 0;
         font-size: 18px;
-        color: var(--preto);
+        color: var(--black);
         font-weight: 500;
         text-decoration: none;
-        background-color: var(--cor-icone);
+        background-color: var(--orange-primary);
         padding: 10px 20px 10px 30px;
         border-radius: 12px;
         box-sizing: border-box;
@@ -90,7 +90,7 @@
     .sobre__text {
         font-size: 20px;
         margin-top: 12px;
-        color: var(--branco);
+        color: var(--white);
         margin-bottom: auto;
     }
 
@@ -146,7 +146,7 @@
 
     .agenda {
         padding: 0;
-        background: var(--branco);
+        background: var(--white);
         height: 520px;
     }
 
@@ -206,14 +206,14 @@
         align-items: center;
         text-decoration: none;
         gap: 7px;
-        color: var(--marrom-3);
+        color: var(--brown-tertiaty);
         font-weight: 600;
         font-size: 18px;
         margin: 20px 0 29px;
     }
 
     .link__title {
-        border-bottom: 2px solid var(--marrom-3);
+        border-bottom: 2px solid var(--brown-tertiaty);
     }
 
     .container__link, .descricao__link {
@@ -221,11 +221,11 @@
     }
 
     .container__link:hover {
-        color: var(--cor-menu-hover);
+        color: var(--orange-secondary-hover);
     }
 
     .descricao__link:hover {
-        color: var(--marrom-hover);
+        color: var(--brown-primary-hover);
     }
 
     .sobre__button {
@@ -233,7 +233,7 @@
     }
     
     .sobre__button:hover {
-        color: var(--preto);
+        color: var(--black);
         background: var(--cor-btn-hover);
     }
 

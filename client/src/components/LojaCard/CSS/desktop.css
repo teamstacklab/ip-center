@@ -49,12 +49,12 @@
     }
 
     .card-btn--ver:hover {
-        color: var(--marrom);
-        background: var(--cor-icone-hover);
+        color: var(--brown-primary);
+        background: var(--orange-primary-hover);
     }
 
     .card-btn--whatsapp:hover {
-        color: var(--cor-texto);
-        background: var(--verde2-hover);
+        color: var(--orange-light-text);
+        background: var(--green-secondary-hover);
     }
 }

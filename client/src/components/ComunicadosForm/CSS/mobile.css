@@ -2,7 +2,7 @@
 
 .comunicados {
     padding: .8em 1em;
-    background: var(--cor-begue);
+    background: var(--orange-secondary);
     width: 100%;
     border-radius: 12px;
 }
@@ -38,13 +38,13 @@
 
 .formulario--comunicados__input {
     width: 100%;
-    background: var(--cor-menu);
+    background: var(--orange-secondary);
     border: none;
     padding: 5px 8px;
     border-radius: 6px;
-    border: 1px solid var(--shadow-2);
+    border: 1px solid var(--shadow-secondary);
     outline: none;
-    color: var(--marrom);
+    color: var(--brown-primary);
     font-weight: 600;
     font-size: 1em;
 }
@@ -56,11 +56,11 @@
 
 .comunicados__formulario--button {
     border: none;
-    background: var(--verde);
+    background: var(--green-primary);
     padding: 5px .8em;
     border-radius: 6px;
     margin-top: 1em;
-    color: var(--cor-menu);
+    color: var(--orange-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
