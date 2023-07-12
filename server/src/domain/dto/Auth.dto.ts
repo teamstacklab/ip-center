@@ -19,4 +19,4 @@ export class AuthAccessPayloadDto implements IAuthPayload {
   user: string
 }
 
-export class AuthRefreshPayloadDto extends AuthAccessPayloadDto { }
+export class AuthRefreshPayloadDto extends AuthAccessPayloadDto {}

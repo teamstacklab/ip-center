@@ -1,5 +1,6 @@
 import { Controller, Get, Post, UseGuards } from "@nestjs/common";
 import { Req } from "@nestjs/common";
+import { Request } from "express";
 import { JwtAccessAuthGuard } from "infra/guards/Auth/jwt-access.guard";
 import { JwtRefreshAuthGuard } from "infra/guards/Auth/jwt-refresh.guard";
 import { LocalAuthGuard } from "infra/guards/Auth/local.guard";
@@ -17,7 +18,7 @@ export class AuthController {
 
   @UseGuards(JwtAccessAuthGuard)
   @Get('logout')
-  async logout(@Req() req: any): Promise<any> {
+  async logout(@Req() req: Request): Promise<any> {
     await this.authService.logout(req.user['sub'])
     
     return req.user = null;
@@ -25,14 +26,13 @@ export class AuthController {
 
   @UseGuards(JwtRefreshAuthGuard)
   @Get('refresh')
-  async refresh(@Req() req: any): Promise<any> {
-    console.log(req.user)
-    return await this.authService.refreshTokens(req.user['sub'], req.user['refresh_token']);
+  async refresh(@Req() req: Request): Promise<any> {
+    return await this.authService.refreshTokens(req.user['sub'], req.user['refreshToken']);
   }
   
   @UseGuards(JwtAccessAuthGuard)
   @Get('profile')
-  async profile(@Req() req: any): Promise<any> {
+  async profile(@Req() req: Request): Promise<any> {
     return req.user;
   }
 }
