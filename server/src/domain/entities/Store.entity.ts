@@ -1,4 +1,4 @@
-import { ILoja } from "domain/interfaces/ILoja";
+import { IStore } from "domain/interfaces/IStore";
 import { User } from "./User.entity";
 import { 
   Entity,
@@ -12,18 +12,12 @@ import {
 } from "typeorm";
 import { Category } from "./Category.entity";
 
-@Entity('lojas')
-export class Loja implements ILoja {
+
+@Entity('stores')
+export class Store implements IStore {
   @PrimaryGeneratedColumn()
   id: number;
 
-<<<<<<< HEAD:server/src/domain/models/Loja.entity.ts
-  @OneToOne(type => User) @JoinColumn()
-  owner: User;
-
-  @OneToOne(type => Category) @JoinColumn()
-  category: Category;
-=======
   @ManyToOne(() => User, {cascade: true})
   @JoinColumn()
   owner!: User;
@@ -31,7 +25,6 @@ export class Loja implements ILoja {
   @ManyToOne(() => Category, category => category.id, {cascade: true})
   @JoinColumn()
   category!: Category;
->>>>>>> server:server/src/domain/entities/Store.entity.ts
 
   @Column('varchar', { nullable: false, length: 300 })
   name: string;

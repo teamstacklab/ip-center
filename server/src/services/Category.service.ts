@@ -44,7 +44,7 @@ export class CategoryService implements ICategoryService {
 
   //Create a category
   async create(categoryDto: CreateCategoryDto): Promise<Category> {
-    this.logger.log(`Creates a category ${categoryDto.name}`);
+    this.logger.log(`Creates a category`);
     const category = await this.categoryRepo.findOneBy({ name: categoryDto.name })
     if (category) {
       throw new ConflictException(`Uma categoria com nome: ${category.name} já existe!`);

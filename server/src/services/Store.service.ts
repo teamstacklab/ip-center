@@ -34,7 +34,7 @@ export class StoreService implements IStoreService {
 
   //Create a store
   async create(storeDto: CreateStoreDto): Promise<Store> {
-    this.logger.log(`Creating a Store: ${storeDto.name}`);
+    this.logger.log(`Creates a store`);
     const store = await this.storeRepo.findOneBy({name: storeDto.name});
     if (store) {
       throw new ConflictException(`A loja '${store.name}' já existe!`);

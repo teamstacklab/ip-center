@@ -23,6 +23,7 @@ export class ComunicateService implements IComunicateService {
 
   //Get a comunicate by id
   async getOneById(id: number): Promise<Comunicate> {
+    this.logger.log(`Get a comunicate by id ${id}`);
     const comunicate = await this.comunicateRepo.findOneBy({ id });
     if (!comunicate) {
       throw new NotFoundException(`Comunicado ${id} não existe!`);
@@ -33,7 +34,7 @@ export class ComunicateService implements IComunicateService {
 
   //Create a comunicate
   async create(comunicateDto: CreateComunicateDto): Promise<Comunicate> {
-    this.logger.log(`Creating comunicate ${comunicateDto.name}.`);
+    this.logger.log(`Creating comunicate.`);
     const comunicate = await this.comunicateRepo.findOneBy({ name: comunicateDto.name });
     if (comunicate) {
       throw new ConflictException(`Um Comunicado '${comunicate.name}' já existe!`);

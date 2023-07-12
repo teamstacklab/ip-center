@@ -17,7 +17,7 @@ export class UserControler {
     const partialUsers = [];
 
     users.forEach(userDto => {
-      const { email, password, isAdmin, ...partialUser } = userDto;
+      const { email, password, isAdmin, refreshToken, ...partialUser } = userDto;
       partialUsers.push({ ...partialUser });
     })
 
@@ -34,7 +34,7 @@ export class UserControler {
   @Get('/find/:id')
   async getOneByIdPartial(@Param('id') id: string): Promise<Partial<User>> {
     const user = await this.userService.getOneById(+id);
-    const { password, email, isAdmin, ...partialUser } = user;
+    const { password, email, isAdmin, refreshToken, ...partialUser } = user;
     
     return partialUser;
   }

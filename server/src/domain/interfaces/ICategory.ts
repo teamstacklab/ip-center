@@ -1,9 +1,11 @@
+import { CreateCategoryDto, UpdateCategoryDto } from "domain/dto/Category.dto";
+import { Category } from "domain/entities/Category.entity";
+
+
 export interface ICategory {
   id: number;
   name: string;
   tags: string[];
-<<<<<<< HEAD
-=======
 }
 
 export interface ICategoryService {
@@ -13,5 +15,4 @@ export interface ICategoryService {
   create(categoryDto: CreateCategoryDto): Promise<Category>;
   update(id: number, update: UpdateCategoryDto): Promise<Category>;
   delete(id: number): Promise<Category>;
->>>>>>> server
 }
