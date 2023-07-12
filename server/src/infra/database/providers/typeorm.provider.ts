@@ -10,13 +10,15 @@ import { Demand } from 'domain/entities/Demand.entity';
 @Injectable()
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
   private readonly env: ConfigService = new ConfigService();
-  
-  public createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
+
+  public createTypeOrmOptions():
+    | TypeOrmModuleOptions
+    | Promise<TypeOrmModuleOptions> {
     return {
-      type: "postgres",
+      type: 'postgres',
       url: this.env.get<string>('DB_URL'),
       entities: [User, Store, Demand, Category, Comunicate, Event],
       synchronize: true,
-    }
+    };
   }
 }

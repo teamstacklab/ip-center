@@ -1,22 +1,30 @@
-import { Injectable, Logger, NotFoundException, ConflictException, InternalServerErrorException } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Comunicate } from "domain/entities/Comunicate.entity";
-import { CreateComunicateDto, UpdateComunicateDto } from "domain/dto/Comunicate.dto";
-import { Repository } from "typeorm";
-import { IComunicateService } from "domain/interfaces/IComunicate";
-
+import {
+  Injectable,
+  Logger,
+  NotFoundException,
+  ConflictException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Comunicate } from 'domain/entities/Comunicate.entity';
+import {
+  CreateComunicateDto,
+  UpdateComunicateDto,
+} from 'domain/dto/Comunicate.dto';
+import { Repository } from 'typeorm';
+import { IComunicateService } from 'domain/interfaces/IComunicate';
 
 @Injectable()
 export class ComunicateService implements IComunicateService {
   constructor(
-    @InjectRepository(Comunicate) private comunicateRepo: Repository<Comunicate>,
-  ) { }
+    @InjectRepository(Comunicate)
+    private comunicateRepo: Repository<Comunicate>,
+  ) {}
 
-  private readonly logger = new Logger(ComunicateService.name)
-  
+  private readonly logger = new Logger(ComunicateService.name);
+
   //Get all comunicates
   async getAll(): Promise<Comunicate[]> {
-    this.logger.log("Get all Comunicates");
+    this.logger.log('Get all Comunicates');
 
     return this.comunicateRepo.find();
   }
@@ -35,9 +43,13 @@ export class ComunicateService implements IComunicateService {
   //Create a comunicate
   async create(comunicateDto: CreateComunicateDto): Promise<Comunicate> {
     this.logger.log(`Creating comunicate.`);
-    const comunicate = await this.comunicateRepo.findOneBy({ name: comunicateDto.name });
+    const comunicate = await this.comunicateRepo.findOneBy({
+      name: comunicateDto.name,
+    });
     if (comunicate) {
-      throw new ConflictException(`Um Comunicado '${comunicate.name}' já existe!`);
+      throw new ConflictException(
+        `Um Comunicado '${comunicate.name}' já existe!`,
+      );
     }
     const newComunicate = this.comunicateRepo.create(comunicate);
 
@@ -51,11 +63,11 @@ export class ComunicateService implements IComunicateService {
     if (!comunicate) {
       throw new NotFoundException(`Comunicado ${id} não existe!`);
     }
-    await this.comunicateRepo.update({id}, {...update})
+    await this.comunicateRepo.update({ id }, { ...update });
 
     return await this.getOneById(id);
   }
-  
+
   //Delete a comunicate
   async delete(id: number): Promise<Comunicate> {
     this.logger.log(`Deleting comunicate ${id}.`);

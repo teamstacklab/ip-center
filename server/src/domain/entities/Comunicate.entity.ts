@@ -1,6 +1,11 @@
-import { IComunicate } from "domain/interfaces/IComunicate";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
+import { IComunicate } from 'domain/interfaces/IComunicate';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('comunicates')
 export class Comunicate implements IComunicate {

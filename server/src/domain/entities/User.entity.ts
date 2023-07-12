@@ -4,9 +4,8 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-
 
 @Entity('users')
 export class User implements IUser {
@@ -26,7 +25,7 @@ export class User implements IUser {
   email: string;
 
   @Column('varchar', { nullable: true, length: 200 })
-  whatsapp: string
+  whatsapp: string;
 
   @Column('boolean', { nullable: false })
   isAdmin: boolean;

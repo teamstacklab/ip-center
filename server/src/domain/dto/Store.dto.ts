@@ -1,7 +1,6 @@
-import { IsNotEmpty, IsOptional, IsArray } from "class-validator";
-import { Category } from "domain/entities/Category.entity";
-import { User } from "domain/entities/User.entity";
-
+import { IsNotEmpty, IsOptional, IsArray } from 'class-validator';
+import { Category } from 'domain/entities/Category.entity';
+import { User } from 'domain/entities/User.entity';
 
 export class CreateStoreDto {
   @IsNotEmpty() owner: User;

@@ -1,6 +1,8 @@
-import { CreateComunicateDto, UpdateComunicateDto } from "domain/dto/Comunicate.dto";
-import { Comunicate } from "domain/entities/Comunicate.entity";
-
+import {
+  CreateComunicateDto,
+  UpdateComunicateDto,
+} from 'domain/dto/Comunicate.dto';
+import { Comunicate } from 'domain/entities/Comunicate.entity';
 
 export interface IComunicate {
   id: number;

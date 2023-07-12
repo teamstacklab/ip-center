@@ -1,8 +1,7 @@
-import { CreateStoreDto, UpdateStoreDto, PartialStoreDto } from "domain/dto/Store.dto";
-import { Category } from "domain/entities/Category.entity";
-import { User } from "domain/entities/User.entity";
-import { Store } from "domain/entities/Store.entity";
-
+import { CreateStoreDto, UpdateStoreDto } from 'domain/dto/Store.dto';
+import { Category } from 'domain/entities/Category.entity';
+import { User } from 'domain/entities/User.entity';
+import { Store } from 'domain/entities/Store.entity';
 
 export interface IStore {
   id: number;
