@@ -15,8 +15,8 @@ import {
 
 // Routes
 import { HomeRoute } from "../../pages/Home";
-import { LojasRoute } from "../../pages/Lojas";
-import { EventosRoute } from "../../pages/Eventos";
+import { LojasRoute } from "../../pages/Stores";
+import { EventosRoute } from "../../pages/Events";
 
 // Router
 import { Link, Route } from "react-router-dom";

@@ -1,21 +1,15 @@
 import React from "react";
 
 /*Fotos Ipê Center*/
-import ipe01 from "../../assets/images/ipecenter/ipe01.jpeg"
 import ipe02 from "../../assets/images/ipecenter/ipe02.jpeg"
-import ipe03 from "../../assets/images/ipecenter/ipe03.jpeg"
-import ipe04 from "../../assets/images/ipecenter/ipe04.jpeg"
 import ipe05 from "../../assets/images/ipecenter/ipe05.jpeg"
-import ipe06 from "../../assets/images/ipecenter/ipe06.jpeg"
-import ipe07 from "../../assets/images/ipecenter/ipe07.jpeg"
 import ipe08 from "../../assets/images/ipecenter/ipe08.jpeg"
 import ipe09 from "../../assets/images/ipecenter/ipe09.jpeg"
-import ipe10 from "../../assets/images/ipecenter/ipe10.PNG"
-import artepc from "../../assets/images/ArtePc.png"
+import artepc from "../../assets/images/arte.png"
 
 /*Fotos da lojas*/
-import imperio from "../../assets/images/Lojas/imperio.jpg"
-import HotDog from "../../assets/images/Lojas/HotDog.jpg"
+import imperio from "../../assets/images/lojas/imperio.jpg"
+import HotDog from "../../assets/images/lojas/hotdog.jpg"
 
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -23,8 +17,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { CalendarAgenda } from "../../components/Calendar";
 
-import { LojasRoute } from '../Lojas';
-import { EventosRoute } from '../Eventos'
+import { LojasRoute } from '../Stores';
+import { EventosRoute } from '../Events'
 import { RegisterRoute } from '../Register'
 import { Link } from 'react-router-dom';
 
@@ -57,6 +51,7 @@ const Home = () => {
   const slides2 = [
     artepc
   ]
+  
   return (
     <main className="content-box">
       <section id="inicio">

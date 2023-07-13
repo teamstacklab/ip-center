@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationBar from './components/NavigationBar';
+import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,7 +11,7 @@ import { AppRoutes } from './routes'; // <-- Configura as rotas Aqui agora
 function App() {
   return (
     <BrowserRouter>
-      <NavigationBar />
+      <NavBar />
       <AppRoutes />
       <Footer />
     </BrowserRouter>
