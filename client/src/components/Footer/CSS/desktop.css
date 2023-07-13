@@ -71,9 +71,9 @@
     }
 
     .footer__link:hover {
-        color: var(--cor-menu-hover);
+        color: var(--orange-tertiary-hover);
         padding: 4px 10px;
-        background-color: var(--marrom-3);
+        background-color: var(--brown-tertiaty);
         border-radius: 8px;
     }
 
@@ -86,6 +86,6 @@
     }
 
     .data__link:hover, .data__text:hover {
-        color: var(--cor-menu-hover);
+        color: var(--orange-tertiary-hover);
     }
 }

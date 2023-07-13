@@ -1,25 +1,22 @@
 import React from "react";
-import Nav from 'react-bootstrap/Nav';
 
 // CSS
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 
 //Styled
-import { Header, NavBar } from "./Style/index";
+import { Div, Header, LogOut, Nav, NavBar } from "./Style/index";
 
 // Routes
 import { HomeRoute } from "../../pages/Home";
-import { MinhasLojasRoute } from "../../pages/Lojas";
-import { DemandasRoute } from "../../pages/Demandas";
+import { MinhasLojasRoute } from '../../pages/Stores';
 
 // Router
 import { Link, useNavigate } from "react-router-dom";
 
 // Icones
 import {
-  Shop,
-  CheckAll
+  Shop
 } from 'react-bootstrap-icons';
 
 import Bar from '../Bar'
@@ -27,6 +24,8 @@ import LogoHeader from "../LogoHeader";
 import MenuNavigation from "../MenuNavigation";
 import AuthNavigation from "../AuthNavigation";
 import AuthNavigationUser from "../AuthNavigationUser/index,";
+import UserAdmin from "../UserAdmin";
+
 
 
 const NavigationBar = () => {
@@ -47,12 +46,16 @@ const NavigationBar = () => {
 
   const AuthActions = () => {
     if (accessToken !== null) {
+      AuthNavigationUser(User.name)
       return (
-        <AuthNavigation/>
+        <Div>
+          <AuthNavigationUser />
+          <LogOut as='button'>LogOut</LogOut>
+        </Div>
       )
     } else {
       return (
-        <AuthNavigationUser/>
+        <AuthNavigation />
       )
     }
   }
@@ -61,14 +64,7 @@ const NavigationBar = () => {
     if (accessToken !== null) {
       if (user?.isAdmin) {
         return (
-          <React.Fragment>
-            <Link to={MinhasLojasRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
-              <Shop className="menu__link__icon" />MinhasLojas
-            </Link>
-            <Link to={DemandasRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
-              <CheckAll className="menu__link__icon" />Demandas
-            </Link>
-          </React.Fragment>
+          <UserAdmin />
         )
       } else {
         return (
@@ -87,8 +83,8 @@ const NavigationBar = () => {
         <NavBar expand="lg">
           <LogoHeader />
           <NavBar.Collapse className="menu" id="menuList">
-            <Nav className="me-auto d-flex">
-              <MenuNavigation/>
+            <Nav >
+              <MenuNavigation />
               <AdminActions />
             </Nav>
             {/*Área login*/}

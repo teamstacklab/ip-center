@@ -1,0 +1,31 @@
+@import url("../../../assets/styles/config.css");
+
+#eventos-view {
+    margin-top: var(--nav-top-mobile);
+    min-height: 75vh;
+    padding: 24px 12px;
+    display: block;
+}
+
+.eventos__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 18px;
+}
+
+.eventos__icon {
+    font-size: 1.75rem;
+}
+
+.eventos__heading {
+    margin: 0 !important;
+    margin-left: 4px !important;
+}
+
+.eventos__agenda {
+    width: 100%;
+    height: 380px;
+    margin-bottom: 24px;
+}

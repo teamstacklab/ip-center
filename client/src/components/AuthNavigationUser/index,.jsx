@@ -1,15 +1,35 @@
+import { styled } from 'styled-components';
+
 // Icones
 import {
-    Person
-  } from 'react-bootstrap-icons';
+    Person,
+} from 'react-bootstrap-icons';
 
-function AuthNavigationUser() {
+const Div = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+`
+
+const User = styled.p`
+    line-height: 1.2em;
+    margin-right: 1em;
+    font-size: 18px;
+    color: var(--marrom);
+    font-weight: 500;
+`
+
+const Icon = styled(Person)`
+    font-size: 2.3em;
+`
+
+function AuthNavigationUser(user) {
     return (
-        <div className="menu__actions">
-            <Person className="menu__link__icon" />
-            <p className="m-0 p-0 actions__text">Aparecido Ribeiro</p>
-            <button className="actions__btn actions__register menu__link px-3 py-0 text-decoration-none" onClick={logOut}>Logout</button>
-        </div>
+        <Div>
+            <Icon/>
+            <User>user</User>
+        </Div>
     )
 }
 

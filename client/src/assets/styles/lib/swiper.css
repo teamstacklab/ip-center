@@ -12,7 +12,7 @@
 .swiper-pagination-bullet-active {
   width: 12px !important;
   height: 12px !important;
-  background-color: var(--cor-icone) !important;
+  background-color: var(--orange-primary) !important;
   opacity: 1 !important;
 }
 :is(.swiper-button-prev, .swiper-button-next) {

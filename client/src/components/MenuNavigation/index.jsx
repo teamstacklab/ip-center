@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 
 // Routes
 import { HomeRoute } from "../../pages/Home";
-import { LojasRoute } from "../../pages/Lojas";
-import { EventosRoute } from "../../pages/Eventos";
+import { LojasRoute } from "../../pages/Stores";
+import { EventosRoute } from "../../pages/Events";
 
 
 import {
@@ -13,7 +13,7 @@ import {
     CalendarWeek,
 } from 'react-bootstrap-icons';
 
-const Link = styled.a`
+export const LinkMenu = styled.a`
     color: var(--marrom);
     border: none;
     gap: 6px;
@@ -37,18 +37,18 @@ const Link = styled.a`
 function MenuNavigation() {
     return (
         <>
-            <Link to={HomeRoute}>
+            <LinkMenu to={HomeRoute}>
                 <House className="menu__link__icon" />
                 Home
-            </Link>
-            <Link to={LojasRoute}>
+            </LinkMenu>
+            <LinkMenu to={LojasRoute}>
                 <Shop className="menu__link__icon" />
                 Lojas
-            </Link>
-            <Link to={EventosRoute}>
+            </LinkMenu>
+            <LinkMenu to={EventosRoute}>
                 <CalendarWeek className="menu__link__icon" />
                 Eventos
-            </Link>
+            </LinkMenu>
         </>
     )
 }

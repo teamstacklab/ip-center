@@ -1,5 +1,5 @@
 import React from "react";
-import { RegisterForm } from "../../components/RegisterForm";
+import { RegisterForm } from "../../components/Forms/Register";
 import Logo from "../../assets/images/logo.svg";
 import LogoAlt from "../../assets/images/logo-alternativa.svg";
 import "./CSS/mobile.css";

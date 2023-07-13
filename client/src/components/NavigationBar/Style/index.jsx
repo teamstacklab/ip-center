@@ -1,5 +1,7 @@
 import { styled } from "styled-components"
 import NavegationBar from 'react-bootstrap/Navbar';
+import { Button } from "../../Button";
+import NavReact from 'react-bootstrap/Nav';
 
 
 export const Header = styled.header`
@@ -20,6 +22,25 @@ export const NavBar = styled(NavegationBar)`
         width: 100%;
         padding: 0 72px;
     }
-    
 `
 
+export const Div = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+export const LogOut = styled(Button)`
+    box-shadow: 3px 3px 10px var(--shadow-2);
+    background: var(--cor-icone);
+    border: none;
+    font-weight: 600;
+    color: var(--marrom);
+`
+export const Nav = styled(NavReact)`
+    @media screen and (min-width: 1279px) {
+        display: flex;
+        align-items: center;
+        margin-right: 1em;
+    }
+`

@@ -7,16 +7,16 @@
 }
 
 .rbc-btn-group button {
-    background-color: var(--branco2);
+    background-color: var(--orange-light);
 }
 
 .rbc-btn-group :nth-child(1),
 .rbc-btn-group :nth-child(1):is(:active, :focus) {
-    background-color: var(--cor-texto) !important;
+    background-color: var(--orange-secondary) !important;
 }
 
 .rbc-btn-group :nth-child(1):is(:hover) {
-    background-color: var(--cor-icone) !important;
+    background-color: var(--orange-primary) !important;
 }
 
 .rbc-toolbar-label {
@@ -30,21 +30,21 @@
 }
 
 .rbc-event {
-    background-color: var(--verde2);
+    background-color: var(--green-secondary);
     border: 0 !important;
 }
 
 .rbc-event:is(:focus, :hover, :active, .rbc-selected) {
-    background-color: var(--verde) !important;
+    background-color: var(--green-primary) !important;
     border: 0 !important;
     box-shadow: none !important;
     outline: none;
 }
 
 .rbc-day-bg.rbc-off-range-bg {
-    background-color: var(--branco2);
+    background-color: var(--orange-light);
 }
 
 .rbc-day-bg.rbc-today {
-    background-color: var(--cor-texto);
+    background-color: var(--orange-secondary);
 }

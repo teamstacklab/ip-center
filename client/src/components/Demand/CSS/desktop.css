@@ -1,0 +1,35 @@
+@media screen and (min-width: 1440px) { 
+    .demandas--resgistro {
+        padding: .7em 1em;
+
+    }
+
+    .button--action--aceitar:hover {
+        background: var(--green-primary-hover);
+    }
+
+    .button--action--recusar:hover {
+        background: var(--red-primary-hover);
+    }
+
+    .infor__title {
+        font-size: 1.3em;
+    }
+
+    .infor__name {
+        font-size: 1.3em;
+    }
+
+    .action__title {
+        font-size: 1.35em;
+    }
+
+    .button--action {
+        width: 55px;
+        height: 45px;
+    }
+
+    .dados__title {
+        font-size: 1.8em;
+    }
+}

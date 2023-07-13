@@ -5,7 +5,7 @@
 
 
 #login {
-  margin-top: var(--mt-nav-mb);
+  margin-top: var(--nav-top-mobile);
   padding: 12px 12px 32px;
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +35,7 @@
 }
 .login__background {
   width: 100%;
-  background-color: var(--marrom);
+  background-color: var(--brown-primary);
   display: flex;
   align-items: center;
   justify-content: center;

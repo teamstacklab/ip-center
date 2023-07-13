@@ -1,15 +1,15 @@
 import React from "react";
 import Home, { HomeRoute } from "../pages/Home";
-import Eventos, { EventosRoute } from "../pages/Eventos";
-import Lojas, { LojasRoute, MinhasLojasRoute } from "../pages/Lojas";
-import Loja from "../pages/Loja";
-import CriarLoja, { CriarLojaRoute } from "../pages/CriarLoja";
+import Eventos, { EventosRoute } from "../pages/Events";
+import Lojas, { LojasRoute, MinhasLojasRoute } from "../pages/Stores";
+import Loja from "../pages/Store";
+import CriarLoja, { CriarLojaRoute } from "../pages/CreateStore";
 
 import { Routes, Route } from 'react-router-dom';
 import Login, { LoginRoute } from "../pages/Login";
 import Register, { RegisterRoute } from "../pages/Register";
-import Demandas, { DemandasRoute } from "../pages/Demandas";
-import MinhasLojas from "../pages/MinhasLojas";
+import Demandas, { DemandasRoute } from "../pages/Demands";
+import MinhasLojas from "../pages/UserStores";
 
 export const AppRoutes = () => {
   return (
