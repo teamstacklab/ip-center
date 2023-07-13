@@ -43,9 +43,6 @@
         transition: all .2s;
     }
 
-    .menu__link--nav:hover {
-        color: var(--marrom-hover-nav);
-    }
 
     .actions__login, .actions__register {
         transition: all .2s;

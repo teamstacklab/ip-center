@@ -4,24 +4,6 @@
 @import url("../../../assets/styles/config.css");
 
 
-/* Conjunto de barras do topo */
-.top-bars {
-    z-index: 999;
-    top: 0;
-    left: 0;
-}
-
-/* Barra-Header, acima da navbar */
-.header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 36px;
-    padding: 0 20px;
-    background-color: var(--verde);
-    width: 100%;
-}
-
 .header-bar__social {
     display: flex;
     align-items: center;
@@ -76,11 +58,6 @@
     margin-top: 1px;
 }
 
-.menu__link {
-    color: var(--marrom);
-    border: none;
-    gap: 6px;
-}
 
 .menu__link__icon {
     font-size: 1.15em;
@@ -92,25 +69,6 @@
     color: var(--marrom);
 }
 
-.menu__button:is(:hover) {
-    background-color: var(--shadow-2);
-    box-shadow: none !important;
-    border: 0;
-    outline: 0;
-}
-
-.menu__actions {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    gap: 16px;
-    background-color: var(--cor-begue);
-}
-
-.actions__container {
-    display: flex;
-    gap: 1em;
-}
 
 .actions__btn {
     border-radius: 8px;
@@ -124,9 +82,6 @@
     height: 40px;
 }
 
-.actions__text {
-    width: max-content;
-}
 
 .actions__login {
     background-color: var(--cor-texto);
