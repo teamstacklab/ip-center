@@ -221,7 +221,7 @@
     }
 
     .container__link:hover {
-        color: var(--orange-secondary-hover);
+        color: var(--orange-tertiary-hover);
     }
 
     .descricao__link:hover {

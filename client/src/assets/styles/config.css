@@ -2,7 +2,14 @@
 @import url("./lib/swal.css");
 @import url("./lib/normalize.css");
 
+* {
+  font-family: var(--inter);
+}
+
 :root {
+  /* --- fonts --- */
+  --inter: 'Inter';
+
   /* --- colors --- */
   --white: #fffdf9;
   --black: #121212;
@@ -15,17 +22,19 @@
   --red-primary: #bb3030;
   --red-primary-hover: #912f2f;
 
-  --orange-primary: #f7a107;
-  --orange-primary-hover: #ffae00;
-  --orange-secondary: #ffe6ae;
-  --orange-secondary-hover: #dbc897;
+  --orange-primary: #fdad18;
+  --orange-primary-hover: #e29f0d;
+  --orange-secondary: #ffce77;
+  --orange-secondary-hover: #dbb065;
+  --orange-tertiary: #ffe8b7;
+  --orange-tertiary-hover: #dbc897;
   --orange-light: #fff5e0;
-  --orange-light-text: #ffce77;
+  --orange-light-hover: #ebdec2;
 
   --brown-primary: #403a36;
   --brown-primary-hover: #7e7d7d;
-  --brown-secondary: #ccb9ad;
-  --brown-tertiaty: #706158;
+  --brown-secondary: #706158;
+  --brown-tertiary: #ccb9ad;
   --brown-dark: #25211e;
   --shadow-primary: rgba(64, 58, 54, 0.35);
   --shadow-secondary: rgba(64, 58, 54, 0.1);

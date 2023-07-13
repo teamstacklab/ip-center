@@ -30,7 +30,7 @@
 
 .auth__input {
   width: 100%;
-  background-color: var(--orange-secondary) !important;
+  background-color: var(--orange-tertiary) !important;
 }
 
 .auth__submit {

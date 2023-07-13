@@ -36,7 +36,7 @@
 
     .input-search {
         display: block;
-        background-color: var(--orange-secondary);
+        background-color: var(--orange-tertiary);
         margin: 0;
         border: none;
         border-radius: 8px ;

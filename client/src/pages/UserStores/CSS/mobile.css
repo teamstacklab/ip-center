@@ -23,7 +23,7 @@
 .navigation__button {
     background-color: var(--green-primary) !important;
     border: 1px solid var(--shadow-primary) !important;
-    color: var(--orange-light-text) !important;
+    color: var(--orange-secondary) !important;
     margin-left: 8px;
 }
 .navegation-lojas__icons {

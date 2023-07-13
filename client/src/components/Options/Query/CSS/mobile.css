@@ -7,7 +7,7 @@
 .actions__search {
   display: flex;
   width: fit-content;
-  background-color: var(--orange-secondary);
+  background-color: var(--orange-tertiary);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@
 .actions__select {
   width: fit-content;
   display: flex;
-  background-color: var(--orange-secondary);
+  background-color: var(--orange-tertiary);
   height: 36px;
   border-radius: 6px;
   overflow: hidden;

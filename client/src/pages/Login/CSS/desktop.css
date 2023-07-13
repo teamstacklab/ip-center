@@ -11,7 +11,7 @@
   .auth__login {
     flex-direction: row;
     width: 50vw;
-    background-color: var(--orange-secondary);
+    background-color: var(--orange-tertiary);
     border-radius: 12px;
     overflow: hidden;
   }

@@ -4,7 +4,7 @@
     width: 100%;
     flex-direction: column;
     border-radius: 8px;
-    background-color: var(--orange-secondary);
+    background-color: var(--orange-tertiary);
     border: 1px solid var(--shadow-primary);
     overflow: hidden;
 }
@@ -60,7 +60,7 @@
     width: calc(25%);
     height: 100%;
     border-radius: 6px;
-    color: var(--orange-light-text);
+    color: var(--orange-secondary);
 }
 
 .card-btn--whatsapp__icon {
@@ -121,7 +121,7 @@
         width: calc(25%);
         height: 100%;
         border-radius: 6px;
-        color: var(--orange-light-text);
+        color: var(--orange-secondary);
     }
     
     .card-btn--whatsapp__icon {

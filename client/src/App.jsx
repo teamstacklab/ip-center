@@ -1,12 +1,10 @@
-import React from 'react';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// React Navigator
-import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './routes'; // <-- Configura as rotas Aqui agora
-
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fontsource/inter";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./routes";
 
 function App() {
   return (

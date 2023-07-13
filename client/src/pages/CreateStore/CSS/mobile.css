@@ -29,7 +29,7 @@
 
 .formulario__inputs {
   padding: 5px 1em;
-  background: var(--orange-secondary);
+  background: var(--orange-tertiary);
   border: none;
   border: 1px solid var(--shadow-secondary);
   border-radius: 6px;
@@ -106,7 +106,7 @@
   height: 35px;
   border-radius: 6px;
   background-color: var(--green-primary);
-  color: var(--orange-secondary);
+  color: var(--orange-tertiary);
   margin-top: 4px;
 }
 .file__icon {

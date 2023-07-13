@@ -11,7 +11,7 @@
   .auth__register {
     flex-direction: row;
     width: 60vw;
-    background-color: var(--orange-secondary);
+    background-color: var(--orange-tertiary);
     border-radius: 12px;
     overflow: hidden;
   }

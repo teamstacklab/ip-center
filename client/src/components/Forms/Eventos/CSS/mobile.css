@@ -2,7 +2,7 @@
 
 .eventos {
     padding: .8em 1em;
-    background: var(--orange-secondary);
+    background: var(--orange-tertiary);
     width: 100%;
     border-radius: 12px;
 }
@@ -38,7 +38,7 @@
 
 .formulario--eventos__input {
     width: 100%;
-    background: var(--orange-secondary);
+    background: var(--orange-tertiary);
     border: none;
     padding: 5px 8px;
     border-radius: 6px;
@@ -60,7 +60,7 @@
     padding: 5px .8em;
     border-radius: 6px;
     margin-top: 1em;
-    color: var(--orange-secondary);
+    color: var(--orange-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;

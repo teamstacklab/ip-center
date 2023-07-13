@@ -1,64 +1,50 @@
-/* Resoucoes desltop (1280 - 1920)*/
+@import url("@/assets/styles/config.css");
 
-/* Config() */
-@import url("../../../assets/styles/config.css");
+@media screen and (min-width: 1279px) {
+  .greeting__text {
+    margin: 0;
+    font-size: 16px;
+    color: var(--orange-secondary);
+    font-weight: 500;
+    display: block;
+  }
 
+  .nav-bar {
+    padding: 0 72px !important;
+    height: 84px;
+  }
 
-@media screen and (min-width: 1279px) {    
-    .greeting__text {
-        margin: 0;
-        font-size: 16px;
-        color: var(--orange-light-text);
-        font-weight: 500;
-        display: block;
-    }
+  .nav-bar__logo {
+    width: 80px;
+    height: 80px;
+  }
 
-    .nav-bar {
-        padding: 0 72px !important;
-    }
+  .menu__links {
+    font-size: 18px;
+  }
 
-    .nav-bar__logo {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .menu__links {
-        font-size: 18px;
-    }
+  .menu__link:hover {
+    border-radius: 8px;
+  }
 
-    .menu__actions {
-        border-radius: 12px;
-        background-color: var(--orange-secondary);
-        border: 1px solid var(--shadow-secondary);
-    }
+  .menu__actions {
+    border-radius: 12px;
+    background-color: var(--orange-tertiary);
+    border: 1px solid var(--shadow-secondary);
+  }
 
-    .header-bar__trabalhe:hover {
-        color: var(--orange-light-text);
-    }
+  .header-bar__trabalhe:hover {
+    color: var(--orange-secondary);
+  }
 
-    .social__icon:hover {
-        text-decoration: none;
-    }
-    .menu__link {
-        transition: all .2s;
-    }
+  .social__icon:hover {
+    text-decoration: none;
+  }
+  .menu__link {
+    transition: all 0.2s;
+  }
 
-    .menu__link--nav:hover {
-        color: var(--brown-primary-hover-nav);
-    }
-
-    .actions__login, .actions__register {
-        transition: all .2s;
-    }
-
-    .actions__login:hover {
-        background-color: var(--orange-light-text);
-        color: var(--brown-primary);
-    }
-
-    .actions__register:hover {
-        background-color: var(--cor-btn-hover);
-        color: var(--brown-primary);
-    }
-
+  .menu__link--nav:hover {
+    color: var(--brown-primary-hover-nav);
+  }
 }

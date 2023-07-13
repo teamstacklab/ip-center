@@ -54,7 +54,7 @@
     }
 
     .card-btn--whatsapp:hover {
-        color: var(--orange-light-text);
+        color: var(--orange-secondary);
         background: var(--green-secondary-hover);
     }
 }
