@@ -1,18 +1,20 @@
-import '../../assets/styles/config.css'
-
 // Routes
-import { LoginRoute } from "../../pages/Login";
-import { RegisterRoute } from "../../pages/Register";
+import { LoginRoute } from "../../../pages/Login";
+import { RegisterRoute } from "../../../pages/Register";
 import { styled } from "styled-components";
-import { Button } from "../Button";
+import { Button } from "../../Button";
 
 const Container = styled.div`
     display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    gap: 16px;
-    background-color: var(--cor-begue);
-    border-radius: 12px;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 16px;
+        background-color: var(--cor-begue);
+        border-radius: 12px;
+
+    @media screen and (max-width: 1279px) {
+        margin-left: 16px;
+    }
 `
 
 const Text = styled.p`
@@ -20,8 +22,9 @@ const Text = styled.p`
     font-size: 15px;
     font-weight: 600;
     color: var(--marrom);
-    @media screen and (min-width: 1279px) {
-        font-size: 18px;
+    font-size: 18px;
+    @media screen and (max-width: 1279px) {
+        
     }
 `
 
@@ -41,7 +44,7 @@ const Link = styled(Button)`
     cursor: pointer;
 `
 
-function AuthNavigation() {
+function Navigation() {
     return (
         <Container>
             <Text>É Lojista?</Text>
@@ -57,4 +60,4 @@ function AuthNavigation() {
     )
 }
 
-export default AuthNavigation
+export default Navigation

@@ -24,13 +24,13 @@ const Icon = styled(Person)`
     font-size: 2.3em;
 `
 
-function AuthNavigationUser(user) {
+function NavigationUser(user) {
     return (
         <Div>
-            <Icon/>
-            <User>user</User>
+            <Icon />
+            <User>{user}</User>
         </Div>
     )
 }
 
-export default AuthNavigationUser
+export default NavigationUser

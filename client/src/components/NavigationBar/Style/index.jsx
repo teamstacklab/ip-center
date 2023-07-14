@@ -41,6 +41,5 @@ export const Nav = styled(NavReact)`
     @media screen and (min-width: 1279px) {
         display: flex;
         align-items: center;
-        margin-right: 1em;
     }
 `

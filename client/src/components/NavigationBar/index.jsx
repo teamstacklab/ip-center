@@ -9,22 +9,18 @@ import { Div, Header, LogOut, Nav, NavBar } from "./Style/index";
 
 // Routes
 import { HomeRoute } from "../../pages/Home";
-import { MinhasLojasRoute } from '../../pages/Stores';
 
 // Router
 import { Link, useNavigate } from "react-router-dom";
 
-// Icones
-import {
-  Shop
-} from 'react-bootstrap-icons';
 
 import Bar from '../Bar'
 import LogoHeader from "../LogoHeader";
 import MenuNavigation from "../MenuNavigation";
-import AuthNavigation from "../AuthNavigation";
-import AuthNavigationUser from "../AuthNavigationUser/index,";
-import UserAdmin from "../UserAdmin";
+import Navigation from "../Auth/Navigation"
+import Admin from "../Auth/Admin";
+import NavigationUser from "../Auth/NavigationUser/index,";
+import User from "../Auth/User";
 
 
 
@@ -46,16 +42,16 @@ const NavigationBar = () => {
 
   const AuthActions = () => {
     if (accessToken !== null) {
-      AuthNavigationUser(User.name)
+      //NavigationUser(User.name)
       return (
         <Div>
-          <AuthNavigationUser />
-          <LogOut as='button'>LogOut</LogOut>
+          <NavigationUser />
+          <LogOut as='button' onClick={logOut}>LogOut</LogOut>
         </Div>
       )
     } else {
       return (
-        <AuthNavigation />
+        <Navigation />
       )
     }
   }
@@ -64,13 +60,11 @@ const NavigationBar = () => {
     if (accessToken !== null) {
       if (user?.isAdmin) {
         return (
-          <UserAdmin />
+          <Admin />
         )
       } else {
         return (
-          <Link to={MinhasLojasRoute} className="menu__link px-3 py-2 w-100 d-flex align-items-center text-decoration-none">
-            <Shop className="menu__link__icon" />MinhasLojas
-          </Link>
+          < User />
         );
       }
     }
