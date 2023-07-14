@@ -9,6 +9,7 @@ import { ComunicateModule } from 'ioc/Comunicate.module';
 import { ConfigModule } from '@nestjs/config';
 import { EncryptionModule } from 'ioc/Encryption.module';
 import { AuthModule } from 'ioc/Auth.module';
+import { ImageModule } from 'ioc/Image.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from 'ioc/Auth.module';
     EventModule,
     ComunicateModule,
     EncryptionModule,
+    ImageModule,
   ],
 })
 export class AppModule {}

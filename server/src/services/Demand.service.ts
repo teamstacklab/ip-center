@@ -20,17 +20,15 @@ export class DemandService implements IDemandService {
 
   private readonly logger = new Logger(DemandService.name);
 
-  //Get all demands
   async getAll(): Promise<Demand[]> {
     this.logger.log(`Get all demands`);
 
     return this.demandRepo.find();
   }
 
-  //Get a demand by id
   async getOneById(id: number): Promise<Demand> {
     this.logger.log(`Get demand ${id}`);
-    const demand = this.demandRepo.findOneBy({ id });
+    const demand = await this.demandRepo.findOneBy({ id });
     if (!demand) {
       throw new NotFoundException(`Demanda ${id} não encontrada!`);
     }
@@ -38,7 +36,6 @@ export class DemandService implements IDemandService {
     return demand;
   }
 
-  //Create a demand
   async create(demandDto: CreateDemandDto): Promise<Demand> {
     this.logger.log(`Creating a demand.`);
     const demand = await this.demandRepo.findOne({
@@ -58,7 +55,6 @@ export class DemandService implements IDemandService {
     return await this.demandRepo.save(newDemand);
   }
 
-  //Authorizate a demand
   async authorizate(id: number): Promise<any> {
     const demand = await this.getOneById(id);
     if (!demand) {
@@ -69,8 +65,7 @@ export class DemandService implements IDemandService {
 
     return { message: 'Usuário autorizado com sucesso!' };
   }
-
-  //Reject a demand
+  
   async reject(id: number): Promise<any> {
     const demand = await this.getOneById(id);
     if (!demand) {

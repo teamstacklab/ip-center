@@ -20,17 +20,15 @@ export class UserService implements IUserService {
 
   private readonly logger = new Logger(UserService.name);
 
-  //Get all users
   async getAll(): Promise<User[]> {
     this.logger.log(`Get all users.`);
 
     return await this.userRepo.find();
   }
 
-  //Get one user
   async getOne(filter: Partial<User> | Partial<User>[]): Promise<User> {
     this.logger.log(`Get a specific user ${Object.values(filter)}.`);
-    const user = this.userRepo.findOne({ where: filter });
+    const user = await this.userRepo.findOne({ where: filter });
     if (!user) {
       throw new NotFoundException(`Usuário ${filter} não encontrado!`);
     }
@@ -38,10 +36,10 @@ export class UserService implements IUserService {
     return user;
   }
 
-  //Get a user by id
+
   async getOneById(id: number): Promise<User> {
     this.logger.log(`Get a specific user ${id}.`);
-    const user = this.userRepo.findOneBy({ id });
+    const user = await this.userRepo.findOneBy({ id });
     if (!user) {
       throw new NotFoundException(`Usuário ${id} não encontrado!`);
     }
@@ -49,7 +47,6 @@ export class UserService implements IUserService {
     return user;
   }
 
-  //Create a user
   async create(userDto: CreateUserDto): Promise<User> {
     this.logger.log(`Creates a user`);
     const user = await this.userRepo.findOne({
@@ -68,7 +65,6 @@ export class UserService implements IUserService {
     return await this.userRepo.save(newUser);
   }
 
-  //Update a user
   async update(id: number, update: UpdateUserDto): Promise<User> {
     this.logger.log(`Get the user of id ${id}.`);
 
@@ -100,7 +96,6 @@ export class UserService implements IUserService {
     return await this.getOneById(id);
   }
 
-  //Delete a user
   async delete(id: number): Promise<User> {
     this.logger.log(`Deleting user ${id}.`);
     const user = await this.getOneById(id);

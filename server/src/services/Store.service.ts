@@ -16,14 +16,12 @@ export class StoreService implements IStoreService {
 
   private readonly logger = new Logger(StoreService.name);
 
-  //Get all stores
   async getAll(): Promise<Store[]> {
     this.logger.log(`Get all Stores.`);
 
     return await this.storeRepo.find();
   }
 
-  //Get a store by id
   async getOneById(id: number): Promise<Store> {
     this.logger.log(`Get a specific Store ${id}.`);
     const store = await this.storeRepo.findOneBy({ id });
@@ -34,7 +32,6 @@ export class StoreService implements IStoreService {
     return store;
   }
 
-  //Create a store
   async create(storeDto: CreateStoreDto): Promise<Store> {
     this.logger.log(`Creates a store`);
     const store = await this.storeRepo.findOneBy({ name: storeDto.name });
@@ -49,19 +46,21 @@ export class StoreService implements IStoreService {
     }
   }
 
-  //Update a store
   async update(id: number, update: UpdateStoreDto): Promise<Store> {
     this.logger.log(`Get the Store of id ${id}.`);
     const store = await this.getOneById(id);
     if (!store) {
       throw new NotFoundException(`Loja ${id} não encontrada!`);
     }
-    await this.storeRepo.update({ id }, { ...update });
+    try {
+      await this.storeRepo.update({ id }, { ...update });
+      return await this.getOneById(id);
+    } catch (err) {
+      throw new NotFoundException(`${err.detail}`);
+    }
 
-    return await this.getOneById(id);
   }
 
-  //Delete a store
   async delete(id: number): Promise<Store> {
     this.logger.log(`Deleting Store ${id}.`);
     const store = await this.getOneById(id);

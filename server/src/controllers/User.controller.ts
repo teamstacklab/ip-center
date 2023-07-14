@@ -2,7 +2,7 @@ import { Controller, Param, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { CreateUserDto, UpdateUserDto } from 'domain/dto/User.dto';
 import { UserService } from 'services/User.service';
 import { User } from 'domain/entities/User.entity';
-import { RolesGuard } from 'infra/guards/Roles/roles.guard';
+import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
 import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/users')
@@ -23,7 +23,7 @@ export class UserControler {
     return partialUsers;
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/find')
   async getAll(): Promise<User[]> {
     return await this.userService.getAll();
@@ -37,19 +37,19 @@ export class UserControler {
     return partialUser;
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/find/:id')
   async getOneById(@Param('id') id: string): Promise<Partial<User>> {
     return await this.userService.getOneById(+id);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/create')
   async create(@Body() userDto: CreateUserDto): Promise<User> {
     return await this.userService.create(userDto);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/update/:id')
   async update(
     @Param('id') id: string,
@@ -58,7 +58,7 @@ export class UserControler {
     return await this.userService.update(+id, userDto);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/delete/:id')
   async delete(@Param('id') id: string): Promise<User> {
     return await this.userService.delete(+id);

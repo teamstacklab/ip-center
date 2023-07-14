@@ -1,5 +1,6 @@
 import { IsNotEmpty, IsOptional, IsArray } from 'class-validator';
 import { Category } from 'domain/entities/Category.entity';
+import { Image } from 'domain/entities/Image.entity';
 import { User } from 'domain/entities/User.entity';
 
 export class CreateStoreDto {
@@ -7,7 +8,7 @@ export class CreateStoreDto {
   @IsNotEmpty() category: Category;
   @IsNotEmpty() name: string;
   @IsNotEmpty() slogan: string;
-  @IsNotEmpty() images: string[];
+  @IsNotEmpty() @IsArray() images: Image[];
   @IsNotEmpty() description: string;
   @IsNotEmpty() instagram: string;
   @IsNotEmpty() whatsapp: string;
@@ -19,7 +20,7 @@ export class CreateStoreDto {
 export class UpdateStoreDto {
   @IsNotEmpty() @IsOptional() name: string;
   @IsNotEmpty() @IsOptional() slogan: string;
-  @IsNotEmpty() @IsOptional() @IsArray() images: string[];
+  @IsNotEmpty() @IsOptional() @IsArray() images: Image[];
   @IsNotEmpty() @IsOptional() description: string;
   @IsNotEmpty() @IsOptional() instagram: string;
   @IsNotEmpty() @IsOptional() whatsapp: string;

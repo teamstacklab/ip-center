@@ -6,6 +6,7 @@ import { Store } from 'domain/entities/Store.entity';
 import { Category } from 'domain/entities/Category.entity';
 import { Comunicate } from 'domain/entities/Comunicate.entity';
 import { Demand } from 'domain/entities/Demand.entity';
+import { Image } from 'domain/entities/Image.entity';
 
 @Injectable()
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
@@ -17,7 +18,7 @@ export class TypeOrmProvider implements TypeOrmOptionsFactory {
     return {
       type: 'postgres',
       url: this.env.get<string>('DB_URL'),
-      entities: [User, Store, Demand, Category, Comunicate, Event],
+      entities: [User, Store, Demand, Category, Comunicate, Event, Image],
       synchronize: true,
     };
   }

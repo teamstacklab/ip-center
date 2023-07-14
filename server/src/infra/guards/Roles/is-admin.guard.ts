@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 
 @Injectable()
-export class RolesGuard implements CanActivate {
+export class IsAdminGuard implements CanActivate {
   canActivate(context: ExecutionContext) {
     const { user } = context.switchToHttp().getRequest();
     if (!user?.isAdmin) {
