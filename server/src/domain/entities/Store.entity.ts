@@ -9,7 +9,6 @@ import {
   JoinColumn,
   ManyToOne,
   ManyToMany,
-  OneToMany,
 } from 'typeorm';
 import { Category } from './Category.entity';
 import { Image } from './Image.entity';
@@ -23,9 +22,9 @@ export class Store implements IStore {
   @JoinColumn()
   owner!: User;
 
-  @ManyToOne(() => Category, (category) => category.id, { cascade: true })
+  @ManyToOne(() => Category, (category) => category.id, { cascade: true, nullable: true })
   @JoinColumn()
-  category!: Category;
+  category: Category;
 
   @Column('varchar', { nullable: false, length: 300 })
   name: string;
@@ -33,8 +32,7 @@ export class Store implements IStore {
   @Column('varchar', { nullable: false, length: 500 })
   slogan: string;
 
-
-  @OneToMany(() => Image, (image) => image.id, { cascade: true })
+  @ManyToMany(() => Image, (image) => image.id, { cascade: true })
   @JoinColumn()
   images: Image[];
 

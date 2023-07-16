@@ -36,7 +36,6 @@ export class UserService implements IUserService {
     return user;
   }
 
-
   async getOneById(id: number): Promise<User> {
     this.logger.log(`Get a specific user ${id}.`);
     const user = await this.userRepo.findOneBy({ id });

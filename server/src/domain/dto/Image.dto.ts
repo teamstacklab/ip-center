@@ -1,6 +1,6 @@
-import { IsEnum, IsNotEmpty, IsOptional } from "class-validator";
-import { User } from "domain/entities/User.entity";
-import { ImagesRole } from "domain/interfaces/IImage";
+import { IsEnum, IsNotEmpty, IsOptional } from 'class-validator';
+import { User } from 'domain/entities/User.entity';
+import { ImagesRole } from 'domain/interfaces/IImage';
 
 export class CreateImageDto {
   @IsNotEmpty() url: string;

@@ -65,7 +65,7 @@ export class DemandService implements IDemandService {
 
     return { message: 'Usuário autorizado com sucesso!' };
   }
-  
+
   async reject(id: number): Promise<any> {
     const demand = await this.getOneById(id);
     if (!demand) {

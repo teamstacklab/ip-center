@@ -3,6 +3,8 @@ import {
   Injectable,
   Logger,
   NotFoundException,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { IImageService } from 'domain/interfaces/IImage';
 import { Image } from 'domain/entities/Image.entity';
@@ -19,12 +21,18 @@ export class ImageService implements IImageService {
   async getAll(): Promise<Image[]> {
     this.logger.log(`Get all images.`);
 
-    return await this.imageRepo.find();
+    return await this.imageRepo.find({ relations: { owner: true } });
   }
 
   async getOneById(id: number): Promise<Image> {
     this.logger.log(`Get a specific image ${id}.`);
-    const image = await this.imageRepo.findOneBy({ id });
+    const image = await this.imageRepo.findOne({
+      where: { id },
+      loadRelationIds: {
+        relations: ['owner'],
+        disableMixedMap: true,
+      },
+    });
     if (!image) {
       throw new NotFoundException(`Imagem ${id} não encontrado!`);
     }
@@ -43,8 +51,9 @@ export class ImageService implements IImageService {
     try {
       const newImage = this.imageRepo.create(imageDto);
       return await this.imageRepo.save(newImage);
+      
     } catch (err) {
-      throw new NotFoundException(`${err.detail}`);
+      throw new HttpException(`${err}`, HttpStatus.BAD_REQUEST);
     }
   }
 
@@ -56,9 +65,10 @@ export class ImageService implements IImageService {
     }
     try {
       await this.imageRepo.update({ id }, { ...update });
+
       return await this.imageRepo.findOneBy({ id });
     } catch (err) {
-      throw new NotFoundException(`${err.detail}`);
+      throw new HttpException(`${err}`, HttpStatus.BAD_REQUEST);
     }
   }
 
@@ -71,5 +81,17 @@ export class ImageService implements IImageService {
     await this.imageRepo.delete({ id });
 
     return image;
+  }
+
+  async assureOwnerIsCurrentUser(
+    imageId: number,
+    userId: number,
+  ): Promise<any> {
+    const store = await this.getOneById(imageId);
+    if (store.owner.id !== userId) {
+      throw new ConflictException(`Você não tem acesso a essa imagem!`);
+    }
+
+    return true;
   }
 }

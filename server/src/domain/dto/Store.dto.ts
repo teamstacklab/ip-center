@@ -5,10 +5,10 @@ import { User } from 'domain/entities/User.entity';
 
 export class CreateStoreDto {
   @IsNotEmpty() owner: User;
-  @IsNotEmpty() category: Category;
+  category: Category;
   @IsNotEmpty() name: string;
   @IsNotEmpty() slogan: string;
-  @IsNotEmpty() @IsArray() images: Image[];
+  @IsArray() images: Image[];
   @IsNotEmpty() description: string;
   @IsNotEmpty() instagram: string;
   @IsNotEmpty() whatsapp: string;
@@ -18,16 +18,16 @@ export class CreateStoreDto {
 }
 
 export class UpdateStoreDto {
-  @IsNotEmpty() @IsOptional() name: string;
-  @IsNotEmpty() @IsOptional() slogan: string;
-  @IsNotEmpty() @IsOptional() @IsArray() images: Image[];
-  @IsNotEmpty() @IsOptional() description: string;
-  @IsNotEmpty() @IsOptional() instagram: string;
-  @IsNotEmpty() @IsOptional() whatsapp: string;
-  @IsNotEmpty() @IsOptional() location: string;
-  @IsNotEmpty() @IsOptional() services: string;
-  @IsNotEmpty() @IsOptional() category: Category;
-  @IsOptional() additionalInfo: string;
+  @IsNotEmpty() @IsOptional() name?: string;
+  @IsNotEmpty() @IsOptional() slogan?: string;
+  @IsOptional() @IsArray() images?: Image[];
+  @IsNotEmpty() @IsOptional() description?: string;
+  @IsNotEmpty() @IsOptional() instagram?: string;
+  @IsNotEmpty() @IsOptional() whatsapp?: string;
+  @IsNotEmpty() @IsOptional() location?: string;
+  @IsNotEmpty() @IsOptional() services?: string;
+  @IsNotEmpty() @IsOptional() category?: Category;
+  @IsOptional() additionalInfo?: string;
 }
 
 export class PartialStoreDto {
