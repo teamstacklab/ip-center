@@ -14,10 +14,8 @@ export class UserControler {
     const users = await this.userService.getAll();
     const partialUsers = [];
 
-    users.forEach((userDto) => {
-      const { email, password, isAdmin, refreshToken, ...partialUser } =
-        userDto;
-      partialUsers.push({ ...partialUser });
+    users.forEach((user) => {
+      partialUsers.push(this.userService.partial(user));
     });
 
     return partialUsers;
@@ -32,9 +30,7 @@ export class UserControler {
   @Get('/find/:id')
   async getOneByIdPartial(@Param('id') id: string): Promise<Partial<User>> {
     const user = await this.userService.getOneById(+id);
-    const { password, email, isAdmin, refreshToken, ...partialUser } = user;
-
-    return partialUser;
+    return this.userService.partial(user);
   }
 
   @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
@@ -45,7 +41,7 @@ export class UserControler {
 
   @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/create')
-  async create(@Body() userDto: CreateUserDto): Promise<User> {
+  async create(@Body() userDto: CreateUserDto): Promise<Partial<User>> {
     return await this.userService.create(userDto);
   }
 
@@ -54,13 +50,13 @@ export class UserControler {
   async update(
     @Param('id') id: string,
     @Body() userDto: UpdateUserDto,
-  ): Promise<User> {
+  ): Promise<Partial<User>> {
     return await this.userService.update(+id, userDto);
   }
 
   @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/delete/:id')
-  async delete(@Param('id') id: string): Promise<User> {
+  async delete(@Param('id') id: string): Promise<Partial<User>> {
     return await this.userService.delete(+id);
   }
 }

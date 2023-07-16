@@ -47,7 +47,7 @@ export class UserService implements IUserService {
     return user;
   }
 
-  async create(userDto: CreateUserDto): Promise<User> {
+  async create(userDto: CreateUserDto): Promise<Partial<User>> {
     this.logger.log(`Creates a user`);
     const user = await this.userRepo.findOne({
       where: [{ username: userDto.username }, { email: userDto.email }],
@@ -62,10 +62,10 @@ export class UserService implements IUserService {
       password: hashPassword,
     });
 
-    return await this.userRepo.save(newUser);
+    return this.partial(await this.userRepo.save(newUser));
   }
 
-  async update(id: number, update: UpdateUserDto): Promise<User> {
+  async update(id: number, update: UpdateUserDto): Promise<Partial<User>> {
     this.logger.log(`Get the user of id ${id}.`);
 
     const user = await this.getOneById(id);
@@ -93,10 +93,10 @@ export class UserService implements IUserService {
       await this.userRepo.update({ id }, { ...update });
     }
 
-    return await this.getOneById(id);
+    return this.partial(await this.getOneById(id));
   }
 
-  async delete(id: number): Promise<User> {
+  async delete(id: number): Promise<Partial<User>> {
     this.logger.log(`Deleting user ${id}.`);
     const user = await this.getOneById(id);
     if (!user) {
@@ -104,6 +104,12 @@ export class UserService implements IUserService {
     }
     await this.userRepo.delete({ id });
 
-    return user;
+    return this.partial(user);
+  }
+
+  partial(user: User): Partial<User> {
+    const { username, email, password, refreshToken, ...partialUser } = user;
+
+    return partialUser;
   }
 }
