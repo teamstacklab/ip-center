@@ -1,9 +1,5 @@
 import React from "react";
 
-// CSS
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
-
 //Styled
 import { Div, Header, LogOut, Nav, NavBar } from "./Style/index";
 

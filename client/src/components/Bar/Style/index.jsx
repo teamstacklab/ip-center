@@ -38,12 +38,12 @@ export const Arrow = styled(ArrowRight)`
     font-size: 1.3em;
     margin-left: 4px;
 `
-export const WhatsappIcon = styled(Whatsapp)`
+export const IconWhatsapp = styled(Whatsapp)`
     font-size: 1.35em;
     color: var(--cor-texto);
 `
 
-export const InstagramIcon = styled(Instagram)`
+export const IconInstagram = styled(Instagram)`
     font-size: 1.35em;
     color: var(--cor-texto);
 `

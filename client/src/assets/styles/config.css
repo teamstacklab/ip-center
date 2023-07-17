@@ -5,32 +5,33 @@
 * {
   font-family: var(--inter);
 }
+
 :root {
-    --branco: #fffdf9;
-    --branco2: #fff5e0;
-    --preto: #121212;
-    --verde: #255F23;
-    --verde-hover: #193b18;
-    --verde2: #179612;
-    --verde2-hover: #1e5a1c;
-    --vermelho: #bb3030;
-    --vermelho-hover: #912f2f;
-    --cor-menu: #faeac3;
-    --cor-menu-hover: #dfd5bc;
-    --cor-texto: #FFCE77;
-    --cor-texto-btn: #fcc465;
-    --cor-begue: #FFE6AE;
-    --cor-icone: #F7A107;
-    --cor-icone-hover: #ffae00;
-    --cor-btn-hover: #f79707;
-    --marrom: #403a36;
-    --marrom-hover-nav: #403a36;
-    --marrom-hover: #7e7d7d;
-    --marrom-2: rgb(204, 185, 173);
-    --marrom-3: #706158;
-    --marrom-4: #25211e;
-    --shadow: rgba(64, 58, 54, 0.35);
-    --shadow-2: rgba(64, 58, 54, 0.2);
+  --branco: #fffdf9;
+  --branco2: #fff5e0;
+  --preto: #121212;
+  --verde: #255F23;
+  --verde-hover: #193b18;
+  --verde2: #179612;
+  --verde2-hover: #1e5a1c;
+  --vermelho: #bb3030;
+  --vermelho-hover: #912f2f;
+  --cor-menu: #faeac3;
+  --cor-menu-hover: #dfd5bc;
+  --cor-texto: #FFCE77;
+  --cor-texto-btn: #fcc465;
+  --cor-begue: #FFE6AE;
+  --cor-icone: #F7A107;
+  --cor-icone-hover: #ffae00;
+  --cor-btn-hover: #f79707;
+  --marrom: #403a36;
+  --marrom-hover-nav: #403a36;
+  --marrom-hover: #7e7d7d;
+  --marrom-2: rgb(204, 185, 173);
+  --marrom-3: #706158;
+  --marrom-4: #25211e;
+  --shadow: rgba(64, 58, 54, 0.35);
+  --shadow-2: rgba(64, 58, 54, 0.2);
 }
 
 :root {

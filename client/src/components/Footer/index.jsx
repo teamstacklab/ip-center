@@ -1,13 +1,9 @@
 import React from "react";
 import './CSS/mobile.css'
 import './CSS/desktop.css'
-import Nav from 'react-bootstrap/Nav';
-import logo from "../../assets/images/logo-alternativa.svg"
 
 // Icons
 import {
-  Whatsapp,
-  Instagram,
   PeopleFill,
   ClockFill,
   GeoAltFill
@@ -19,25 +15,16 @@ import { LojasRoute } from "../../pages/Stores";
 import { EventosRoute } from "../../pages/Events";
 
 // Router
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Nav } from "../NavigationBar/Style";
+import { ContainerFooter } from "./Style";
+import MenuFooter from "../MenuFooter";
 
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="social">
-        <div className="social__logo">
-          <img src={logo} className="logo__imagem" alt="Logo Ipê Center" />
-        </div>
-        <div className="social__items">
-          <a rel="noreferrer noopener" href="https://api.whatsapp.com/send/?phone=%2B5588993808414&text&type=phone_number&app_absent=0" className="item__link item__link--social">
-            <Whatsapp className="link__icon" />
-          </a>
-          <a rel="noreferrer noopener" href="https://www.instagram.com/ipe_center/" className="item__link item__link--social">
-            <Instagram className="link__icon" />
-          </a>
-        </div>
-      </div>
+    <ContainerFooter>
+      <MenuFooter />
       <Nav className="footer-bar">
         {/* Aqui vem os links das rotas do site */}
         <Link to={HomeRoute} className="footer__link">
@@ -81,7 +68,7 @@ const Footer = () => {
         </div>
         <p className="sloga-desktop">Shopping Ipê Center, o shopping da sua família!</p>
       </section>
-    </footer>
+    </ContainerFooter>
   );
 };
 
