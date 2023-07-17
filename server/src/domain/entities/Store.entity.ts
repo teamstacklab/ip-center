@@ -22,7 +22,10 @@ export class Store implements IStore {
   @JoinColumn()
   owner!: User;
 
-  @ManyToOne(() => Category, (category) => category.id, { cascade: true, nullable: true })
+  @ManyToOne(() => Category, (category) => category.id, {
+    cascade: true,
+    nullable: true,
+  })
   @JoinColumn()
   category: Category;
 

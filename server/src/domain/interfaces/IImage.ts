@@ -18,7 +18,7 @@ export interface IImage {
 export interface IImageService {
   getAll(): Promise<Image[]>;
   getOneById(id: number): Promise<Image>;
-  create(eventDto: CreateImageDto): Promise<Image>;
+  create(imageDtoList: CreateImageDto[]): Promise<Image[]>;
   update(id: number, update: UpdateImageDto): Promise<Image>;
   delete(id: number): Promise<Image>;
 }

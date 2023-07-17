@@ -34,7 +34,7 @@ export class StoreController {
     @Param('id') id: string,
     @Body() storeDto: UpdateStoreDto,
   ): Promise<Store> {
-    let ownerIsCurrentUser: boolean = true;
+    let ownerIsCurrentUser = true;
     if (!req.user['isAdmin']) {
       try {
         ownerIsCurrentUser = await this.storesService.assureOwnerIsCurrentUser(
@@ -53,7 +53,7 @@ export class StoreController {
   @UseGuards(JwtAccessAuthGuard)
   @Post('/delete/:id')
   async delete(@Req() req: Request, @Param('id') id: string): Promise<Store> {
-    let ownerIsCurrentUser: boolean = true;
+    let ownerIsCurrentUser = true;
     if (!req.user['isAdmin']) {
       try {
         ownerIsCurrentUser = await this.storesService.assureOwnerIsCurrentUser(
