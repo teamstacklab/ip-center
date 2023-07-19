@@ -25,6 +25,23 @@ const Div = styled.div`
 
 const Link = styled.a`
     cursor: pointer;
+    z-index: 100;
+`
+
+const WhatsappIcon = styled(IconWhatsapp)`
+    font-size: 2em;
+    @media screen and (max-width: 1440px) {
+    font-size: 1.7em;
+
+    }
+`
+
+const InstagramIcon = styled(IconInstagram)`
+    font-size: 2em;
+    @media screen and (max-width: 1440px) {
+    font-size: 1.7em;
+
+    }
 `
 
 function MenuFooter() {
@@ -32,14 +49,16 @@ function MenuFooter() {
         <Container >
             <LogoFooter src={Logo} />
             <Div>
-                <IconWhatsapp
-                    href="https://api.whatsapp.com/send/?phone=%2B5588993808414&text&type=phone_number&app_absent=0"
-                    className="link__icon"
-                />
-                <IconInstagram
-                    className="link__icon"
-                    href="https://www.instagram.com/ipe_center/"
-                />
+                <Link
+                    href={"#"}
+                >
+                    <WhatsappIcon />
+                </Link>
+                <Link
+                    href={"#"}
+                >
+                    <InstagramIcon />
+                </Link>
             </Div>
         </Container>
     )

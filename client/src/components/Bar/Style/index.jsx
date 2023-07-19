@@ -46,6 +46,8 @@ export const IconWhatsapp = styled(Whatsapp)`
 export const IconInstagram = styled(Instagram)`
     font-size: 1.35em;
     color: var(--cor-texto);
+    cursor: pointer;
+
 `
 
 export const Text = styled.p`

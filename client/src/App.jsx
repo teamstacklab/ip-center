@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes'; // <-- Configura as rotas Aqui agora
 
 const Global = createGlobalStyle`
-  
   *, p {
     margin: 0;
     padding: 0;

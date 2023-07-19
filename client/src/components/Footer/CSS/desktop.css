@@ -1,8 +1,5 @@
 @media screen and (min-width: 1440px) {
-    .footer__info {
-        display: flex;
-        justify-content: space-between;
-    }
+
 
     .info__data {
         display: flex;
@@ -19,9 +16,6 @@
         height: 304px;
     }
 
-    .footer-left {
-        font-size: 18px;
-    }
 
     .info__sloga {
         font-size: 1rem;

@@ -29,30 +29,18 @@
     border-radius: 8px;
 }
 
-.footer__separator {
-    height: 3px;
-    background-color: var(--orange-tertiary);
-    margin: 9px 0 20px;
-}
 
 .info__meta {
     color: var(--orange-tertiary);
     margin-bottom: 1em;
 }
 
-.info__data {
-    font-size: 14px;
-}
 
 .data__elementos-horarios {
     display: flex;
     align-items: center;
 }
 
-.data__trabalho,
-.data__horarios {
-    margin-bottom: .8em;
-}
 
 .data__icon {
     font-size: 1.5rem !important;
@@ -104,14 +92,6 @@
 
 .item-negrito--hora {
     font-weight: 700;
-}
-
-.data__maps {
-    padding-top: 16px;
-}
-
-.mapa {
-    border-radius: 24px;
 }
 
 .info__sloga {
