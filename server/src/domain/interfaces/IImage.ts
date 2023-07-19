@@ -6,6 +6,7 @@ export enum ImagesRole {
   Slider = 'slider',
   Shopping = 'shopping',
   Loja = 'loja',
+  User = 'user',
 }
 
 export interface IImage {
