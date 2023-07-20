@@ -17,13 +17,15 @@ export const TitleBox = styled.span`
 `;
 
 export const TitleText = styled.h1`
+  margin-bottom: -2px;
   font-size: 2em;
-  font-weight: 500;
+  font-weight: ${props => props.fontWeight || 500};
   margin: 0 !important;
   padding: 0 !important;
 `;
 
 export const TitleIcon = styled.div`
+  color: ${(props) => props.iconColor|| "inherit"};
   display: flex;
   justify-content: center;
   align-items: center;
