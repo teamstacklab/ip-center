@@ -3,18 +3,18 @@ import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 import * as Icons from "react-bootstrap-icons";
 import { Title } from "@/components/Title";
+import * as Box from "@/components/Box";
 
 const LojasRoute = "/lojas";
 const MinhasLojasRoute = "/lojas/minhas";
 
 const Lojas = (props) => {
   return (
-    <section className="home-lojas">
+    <Box.Section>
       <Title icon={<Icons.Shop />}>Lojas</Title>
-      <div className="lojas__estabelecimento">
-        <div className="estabelecimento__container"></div>
-      </div>
-    </section>
+      <Box.Grid>
+      </Box.Grid>
+    </Box.Section>
   );
 };
 

@@ -35,20 +35,3 @@
     font-size: 26px;
     font-weight: 600;
 }
-/*Cards das lojas*/
-.lojas__estabelecimento {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.estabelecimento__container {
-    padding: 8px;
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    padding-top: 18px;
-}
