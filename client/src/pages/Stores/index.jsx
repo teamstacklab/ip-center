@@ -10,12 +10,7 @@ const MinhasLojasRoute = "/lojas/minhas";
 const Lojas = (props) => {
   return (
     <section className="home-lojas">
-      <Title>
-        <Title.Icon>
-          <Icons.Airplane />
-        </Title.Icon>
-        <Title.Text>ASDF</Title.Text>
-      </Title>
+      <Title icon={<Icons.Shop />}>Lojas</Title>
       <div className="lojas__estabelecimento">
         <div className="estabelecimento__container"></div>
       </div>
