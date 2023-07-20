@@ -57,7 +57,7 @@ const LinkInfor = styled(Link)`
     border-bottom: 1px solid var(--orange-tertiary);
 `
 
-const LinkLocal = styled.
+const LinkLocal = styled.a;
 
 function InforFooter() {
     return (
