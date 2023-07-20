@@ -7,10 +7,6 @@
     width: 100%;
 }
 
-.carousel-inicio__item {
-    height: 312px;
-    width: 100%;
-}
 
 .carousel-inicio__image {
     width: 100%;
@@ -63,10 +59,7 @@
     color: var(--orange-primary);
 }
 
-#lojas {
-    padding: 12px 23px;
-    background-color: var(--brown-primary);
-}
+
 
 .lojas--container {
     display: flex;
@@ -139,6 +132,11 @@
     background-color: var(--white);
 }
 
+#lojas {
+    padding: 12px 23px;
+    background-color: var(--brown-primary);
+}
+
 .eventos__carousel__item {
     width: 100%;
     height: 280px;
@@ -174,15 +172,6 @@
     overflow: hidden;
 }
 
-.agenda {
-    padding-top: 12px;
-}
-
-.title__agenda {
-    margin: 0 0 12px 2px;
-    font-weight: 700;
-    color: var(--brown-primary);
-}
 
 .calendario__imagem {
     width: 100%;
