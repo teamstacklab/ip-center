@@ -42,3 +42,18 @@ export const SectionFooter = styled.section`
     }
 `
 
+export const Sloga = styled.p`
+    text-align: left;
+    font-weight: 600;
+    color: var(--orange-tertiary);
+    position: absolute;
+    margin-top: 280px;
+    
+    @media screen and (max-width: 1440px) {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+        
+    }
+`
+
