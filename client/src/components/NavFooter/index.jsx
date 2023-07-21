@@ -17,6 +17,7 @@ const Nav = styled(NavReact)`
     @media screen and (max-width: 1440px) {
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
         position: static;
         margin: 0;
         padding: 0;

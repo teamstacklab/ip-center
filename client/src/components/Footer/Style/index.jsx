@@ -9,7 +9,7 @@ export const ContainerFooter = styled.footer`
 export const Separetor = styled.hr`
     height: 3px;
     background-color: var(--orange-tertiary);
-    margin: -20px 0 20px;
+    margin: -30px 0 20px;
     position: relative;
 
     @media screen and (max-width: 1440px) {
