@@ -51,7 +51,7 @@
   --red-primary-hover: #912f2f;
 
   --orange-primary: #fdad18;
-  --orange-primary-hover: #e29f0d;
+  --orange-primary-hover: #d8970c;
   --orange-secondary: #ffce77;
   --orange-secondary-hover: #dbb065;
   --orange-tertiary: #ffe8b7;
@@ -60,14 +60,21 @@
   --orange-light-hover: #ebdec2;
 
   --brown-primary: #403a36;
-  --brown-primary-hover: #7e7d7d;
+  --brown-primary-hover: #2b2624;
   --brown-secondary: #706158;
-  --brown-tertiary: #ccb9ad;
+  --brown-tertiary: #be967d;
   --brown-dark: #25211e;
-  --shadow-primary: rgba(64, 58, 54, 0.35);
+  --shadow-primary: rgba(64, 58, 54, 0.75);
   --shadow-secondary: rgba(64, 58, 54, 0.3);
 
   /* --- dimensions --- */
+  --desktop-lg: 1440px;
+  --desktop-md: 1280px;
+  --tablet-md: 768px;
+  --mobile-lg: 425px;
+  --mobile-md: 375px;
+  --mobile-sm: 320px;
+
   --nav-top-desktop: 116px;
   --nav-top-mobile: 103px;
 }
