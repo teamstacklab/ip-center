@@ -1,6 +1,4 @@
 import React from "react";
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
 import * as Icons from "react-bootstrap-icons";
 import { Title } from "@/components/Title";
 import * as Box from "@/components/Box";

@@ -7,8 +7,7 @@ export const BoxSection = styled.section`
   margin-top: var(--nav-top-desktop);
   min-height: calc(100vh - var(--nav-top-desktop) * 3);
   padding: 40px calc(40px * 2.15);
-  gap: ${props => props.$row ? '3em' : '0'};
-  justify-content: ${props => props.$row ? "center" : 'flex-start'};
+  justify-content: ${props => props.$row ? "space-between" : 'flex-start'};
 `;
 
 export const BoxFlex = styled.div`
