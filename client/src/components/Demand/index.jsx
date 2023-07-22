@@ -1,46 +1,41 @@
-import React from "react"
+import React from "react";
 
-import "./CSS/mobile.css"
-import "./CSS/desktop.css"
+import "./CSS/mobile.css";
+import "./CSS/desktop.css";
 
-import {
-  CheckLg,
-  X
-} from 'react-bootstrap-icons'
+import * as Icons from "react-bootstrap-icons";
+import * as Box from "@/components/Box";
+import { Bold, Button, Container, Info, Marked, Store, Sub } from "./styled";
 
-
-const Demanda = (props) => {
-  
+export const Demand = (props) => {
   return (
-    <section className="demandas--resgistro">
-      <div className="demandas__dados">
-        <h2 className="dados__title">{props.loja}</h2>
-        <span className="dados__infor">
-          <h3 className="infor__title">Lojista:</h3>
-          <p className="infor__name">{props.name}</p>
-        </span>
-        <span className="dados__infor">
-          <h3 className="infor__title infor__title--cpf ">Cpf:</h3>
-          <p className="infor__name">{props.cpf}</p>
-        </span>
-        <span className="dados__infor">
-          <h3 className="infor__title">Efetuado em:</h3>
-          <p className="infor__name">{props.createdAt}</p>
-        </span>
-      </div>
-      <div className="demandas__action">
-        <h3 className="action__title">Autorizar?</h3>
-        <div className="action__button">
-          <button className="button--action button--action--aceitar">
-            <CheckLg className="button--action__icon" />
-          </button>
-          <button  className="button--action button--action--recusar" >
-            <X className="button--action__icon" />
-          </button>
-        </div>
-      </div>
-    </section>
+    <Container>
+      <Container.Content column>
+        <Store>{props.loja}</Store>
+        <Info>
+          <Bold>Owner: </Bold>
+          <Marked>{props.name}</Marked>
+        </Info>
+        <Info>
+          <Bold>CPF: </Bold>
+          <Marked $secondary>{props.cpf}</Marked>
+        </Info>
+        <Info>
+          <Bold>Emissão: </Bold>
+          <Marked $tertiary>{props.createdAt}</Marked>
+        </Info>
+      </Container.Content>
+      <Container.Actions column>
+        <Sub>Autorizar?</Sub>
+        <Container.Buttons>
+          <Button $success>
+            <Icons.Check />
+          </Button>
+          <Button $alert>
+            <Icons.X />
+          </Button>
+        </Container.Buttons>
+      </Container.Actions>
+    </Container>
   );
 };
-
-export default Demanda;

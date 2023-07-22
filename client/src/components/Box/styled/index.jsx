@@ -6,10 +6,11 @@ export const BoxSection = styled.section`
   width: 100%;
   margin-top: var(--nav-top-desktop);
   min-height: calc(100vh - var(--nav-top-desktop) * 3);
-  gap: 16px;
+  gap: 26px;
   padding: 40px calc(40px * 2.15);
   @media screen and (max-width: 1280px) {
     padding: 28px calc(28px * 2.15);
+    gap: 18px;
   }
   @media screen and (max-width: 425px) {
     padding: 12px calc(12px * 2.15);
@@ -22,6 +23,7 @@ export const BoxSection = styled.section`
 export const BoxFlex = styled.div`
   width: 100%;
   display: flex;
+  gap: 4px;
   flex-direction: ${(props) => (props.column ? "column" : "row")};
   justify-content: center;
   align-items: center;
