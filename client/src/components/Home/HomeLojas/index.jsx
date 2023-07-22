@@ -8,21 +8,20 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import {
-  ContainerTitle,
   Div,
   IconArrow,
-  IconShop,
   LinkLojas,
   SpanTitle,
   SlideLojas,
   ImageSlide,
   CaroseulLojas,
-  TitleLojas,
+
 } from "./Style";
 
 /*Fotos da lojas*/
 import imperio from "../../../assets/images/lojas/imperio.jpg";
 import HotDog from "../../../assets/images/lojas/hotdog.jpg";
+import IconLojas from "../../Icon/IconLojas";
 
 const slideLojas = [imperio, HotDog, imperio];
 
@@ -30,10 +29,7 @@ function HomeLojas() {
   return (
     <>
       <Div>
-        <ContainerTitle>
-          <IconShop />
-          <TitleLojas>Lojas</TitleLojas>
-        </ContainerTitle>
+        <IconLojas />
         <LinkLojas to={LojasRoute} alt="Veja todas">
           <SpanTitle>Veja todas</SpanTitle>
           <IconArrow />

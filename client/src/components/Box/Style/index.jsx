@@ -2,11 +2,13 @@ import { styled } from "styled-components";
 
 export const BoxSection = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => props.$row ? "roe" : "column"};
   width: 100%;
   margin-top: var(--nav-top-desktop);
   min-height: calc(100vh - var(--nav-top-desktop) * 3);
   padding: 40px calc(40px * 2.15);
+  gap: ${props => props.$row ? '3em' : '0'};
+  justify-content: ${props => props.$row ? "center" : 'flex-start'};
 `;
 
 export const BoxFlex = styled.div`

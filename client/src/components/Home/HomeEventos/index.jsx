@@ -12,7 +12,7 @@ import {
 } from "./Style";
 
 import CalendarAgenda from '../../Calendar';
-import IconEventos from "../../IconEventos";
+import IconEventos from "../../Icon/IconEventos";
 import { ImageSlide } from "../HomeLojas/Style";
 
 import ipe02 from "../../../assets/images/ipecenter/ipe02.jpeg"

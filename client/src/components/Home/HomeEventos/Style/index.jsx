@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { TitleLojas } from "../../HomeLojas/Style";
 import { IconArrow } from "../../HomeLojas/Style";
+import { TitleLojas } from "../../../Icon/IconLojas";
 
 export const ContainerAgenda = styled.div`
     padding: 0;

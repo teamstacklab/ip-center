@@ -1,4 +1,4 @@
-import { BoxSection, BoxGrid, BoxFlex } from "./styled";
+import { BoxSection, BoxGrid, BoxFlex } from "./Style";
 
 export {
   BoxSection as Section,

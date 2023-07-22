@@ -4,7 +4,8 @@ import {
     CalendarWeek,
 } from 'react-bootstrap-icons'
 
-import { TitleLojas, ContainerTitle } from "../Home/HomeLojas/Style";
+import { TitleLojas } from "../IconLojas";
+import { ContainerTitle } from "../../Home/HomeLojas/Style";
 
 const ContainerIcon = styled(ContainerTitle)`
     margin-top: 10px;
@@ -21,12 +22,18 @@ const IconCalendar = styled(CalendarWeek)`
     }
 `
 
+const TitleEventos = styled(TitleLojas)`
+    color: var(--black);
+` 
+
+
 function IconEventos() {
     return (
         <ContainerIcon>
             <IconCalendar />
-            <TitleLojas $evento>Eventos</TitleLojas>
+            <TitleEventos $color="var(--black)">Eventos</TitleEventos>
         </ContainerIcon>
+
     )
 }
 
