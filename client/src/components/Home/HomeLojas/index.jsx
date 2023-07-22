@@ -1,6 +1,6 @@
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
-import { LojasRoute } from "../../pages/Stores";
+import { LojasRoute } from "../../../pages/Stores";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,8 +21,8 @@ import {
 } from "./Style";
 
 /*Fotos da lojas*/
-import imperio from "../../assets/images/lojas/imperio.jpg";
-import HotDog from "../../assets/images/lojas/hotdog.jpg";
+import imperio from "../../../assets/images/lojas/imperio.jpg";
+import HotDog from "../../../assets/images/lojas/hotdog.jpg";
 
 const slideLojas = [imperio, HotDog, imperio];
 

@@ -1,11 +1,6 @@
 import { styled } from "styled-components";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { TitleLojas, ContainerTitle } from "../../../components/HomeLojas/Style";
-
-import {
-    CalendarWeek,
-} from 'react-bootstrap-icons'
 
 export const Main = styled.main`
     margin-top: 103px;
@@ -40,14 +35,15 @@ export const Cards = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 64px 0;
-    justify-content: center !important;
-    gap: 64px;
+    justify-content: space-evenly;
 
-    @media screen and (max-width: 1440px){
-        display: flex;
-        justify-content: space-evenly;
-        background-color: var(--white);
-        padding: 12px 0;
+    @media screen and (max-width: 1300px){
+        padding: 64px 0;
+    }
+
+    @media screen and (max-width: 1280px){
+        padding: 20px 0;
+
     }
 `
 
@@ -76,3 +72,6 @@ export const SectionEventos = styled.section`
         height: auto;
     }
 ` 
+export const SectionCards = styled.section`
+    padding: 0;
+`

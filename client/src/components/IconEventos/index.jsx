@@ -4,7 +4,7 @@ import {
     CalendarWeek,
 } from 'react-bootstrap-icons'
 
-import { TitleLojas, ContainerTitle } from "../HomeLojas/Style";
+import { TitleLojas, ContainerTitle } from "../Home/HomeLojas/Style";
 
 const ContainerIcon = styled(ContainerTitle)`
     margin-top: 10px;
