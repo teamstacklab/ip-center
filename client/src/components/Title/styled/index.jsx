@@ -19,7 +19,7 @@ export const TitleBox = styled.span`
 export const TitleText = styled.h1`
   margin-bottom: -2px;
   font-size: 2em;
-  font-weight: ${props => props.fontWeight || 500};
+  font-weight: ${props => props.fw || 500};
   margin: 0 !important;
   padding: 0 !important;
 `;
