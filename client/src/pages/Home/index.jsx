@@ -9,57 +9,45 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
+import { Cards, Main, SectionLojas, SectionEventos, SectionCards } from "./Style";
 
-import {
-  Shop,
-  CalendarWeek,
-  PeopleFill,
-  ArrowRight,
-} from "react-bootstrap-icons";
-
-import { Cards, Main, SectionLojas, SectionEventos } from "./Style";
-
-import SlideShoping from "../../components/SlideShopping";
-import HomeLojas from "../../components/HomeLojas";
-import HomeEventos from "../../components/HomeEventos/index";
+import SlideShoping from "../../components/Home/SlideShopping";
+import HomeLojas from "../../components/Home/HomeLojas";
+import HomeEventos from "../../components/Home/HomeEventos/index";
 
 const HomeRoute = "/";
 
 const Home = () => {
   return (
     <Main>
-      <section id="inicio">
+      <SectionCards>
         <SlideShoping />
         <Cards>
-          <div className="cards">
-            <InfoCard link={LojasRoute}>
-              <InfoCard.Title icon={<Icons.Shop />}>Lojas</InfoCard.Title>
-              <InfoCard.Body>
-                Encontre todos os nossos lojistas e suas informações de contato.
-              </InfoCard.Body>
-            </InfoCard>
-            <InfoCard link={EventosRoute}>
-              <InfoCard.Title icon={<Icons.CalendarWeek />}>
-                Eventos
-              </InfoCard.Title>
-              <InfoCard.Body>
-                Fique por dentro de todos os eventos que acontecerão aqui.
-                Marque já o seu!
-              </InfoCard.Body>
-            </InfoCard>
-            <InfoCard link={RegisterRoute}>
-              <InfoCard.Title icon={<Icons.PeopleFill />}>
-                Trabalhe Conosco
-              </InfoCard.Title>
-              <InfoCard.Body>
-                Seja um de nossos lojistas. Será um prazer trabalhar com você!
-              </InfoCard.Body>
-            </InfoCard>
-          </div>
+          <InfoCard link={LojasRoute}>
+            <InfoCard.Title icon={<Icons.Shop />}>Lojas</InfoCard.Title>
+            <InfoCard.Body>
+              Encontre todos os nossos lojistas e suas informações de contato.
+            </InfoCard.Body>
+          </InfoCard>
+          <InfoCard link={EventosRoute}>
+            <InfoCard.Title icon={<Icons.CalendarWeek />}>
+              Eventos
+            </InfoCard.Title>
+            <InfoCard.Body>
+              Fique por dentro de todos os eventos que acontecerão aqui.
+              Marque já o seu!
+            </InfoCard.Body>
+          </InfoCard>
+          <InfoCard link={RegisterRoute}>
+            <InfoCard.Title icon={<Icons.PeopleFill />}>
+              Trabalhe Conosco
+            </InfoCard.Title>
+            <InfoCard.Body>
+              Seja um de nossos lojistas. Será um prazer trabalhar com você!
+            </InfoCard.Body>
+          </InfoCard>
         </Cards>
-      </section>
+      </SectionCards>
       <SectionLojas>
         <HomeLojas />
       </SectionLojas>

@@ -34,16 +34,6 @@ export const IconArrow = styled(ArrowRight)`
   color: var(--orange-primary);
 `;
 
-export const TitleLojas = styled.h2`
-  font-size: 1.4em;
-  font-weight: 700;
-  color: ${(props) =>
-    props.$evento ? "var(--brown-primary)" : "var(--orange-tertiary)"};
-  @media screen and (max-width: 1440px) {
-    font-size: 22px;
-  }
-`;
-
 export const LinkLojas = styled(Link)`
   display: flex;
   align-items: center;

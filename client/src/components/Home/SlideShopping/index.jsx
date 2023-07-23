@@ -1,11 +1,11 @@
 /*Fotos Ipê Center*/
-import ipe02 from "../../assets/images/ipecenter/ipe02.jpeg"
-import ipe08 from "../../assets/images/ipecenter/ipe08.jpeg"
-import ipe09 from "../../assets/images/ipecenter/ipe09.jpeg"
-import artepc from "../../assets/images/arte.png"
+import ipe02 from "../../../assets/images/ipecenter/ipe02.jpeg"
+import ipe08 from "../../../assets/images/ipecenter/ipe08.jpeg"
+import ipe09 from "../../../assets/images/ipecenter/ipe09.jpeg"
+import artepc from "../../../assets/images/arte.png"
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Carousel, Image, Slide } from "../../pages/Home/Style";
+import { Carousel, Image, Slide } from "../../../pages/Home/Style";
 
 import 'swiper/css';
 import 'swiper/css/navigation';

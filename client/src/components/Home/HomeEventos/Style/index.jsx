@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
-import { TitleLojas, ContainerTitle } from "../../../components/HomeLojas/Style";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { IconArrow } from "../../HomeLojas/Style";
+import { TitleLojas } from "../../../Icon/IconLojas";
 
 export const ContainerAgenda = styled.div`
     padding: 0;
@@ -41,7 +43,7 @@ export const Description = styled.p`
     @media screen and (max-width: 1440px) {
         width: auto;
         font-weight: 500;
-        color: var(--brown-tertiaty);
+        ;
     }
 `
 
@@ -53,8 +55,29 @@ export const LinkEventos = styled.a`
     color: var(--brown-tertiaty);
     font-weight: 600;
     font-size: 18px;
-    margin: 20px 0 29px;
+    margin: 16px 0 29px;
     @media screen and (max-width: 1440px) {
         display: none;
     }
 `
+
+export const CarouselEventos = styled(Swiper)`
+    width: 474px;
+    height: 314px;
+    border-radius: 12px;
+    @media screen and (max-width: 1440px) {
+        width: 100%;
+        height: 250px;  
+        margin-top: .5em;
+    }
+`
+
+export const Slide = styled(SwiperSlide)`
+    
+`
+
+export const ArrowEventos = styled(IconArrow)`
+    color: var(--brown-tertiaty);
+    font-size: 1.3rem;
+`
+

@@ -2,12 +2,13 @@ import { styled } from "styled-components";
 
 export const BoxSection = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => props.$row ? "roe" : "column"};
   width: 100%;
   margin-top: var(--nav-top-desktop);
   min-height: calc(100vh - var(--nav-top-desktop) * 3);
   gap: 26px;
   padding: 40px calc(40px * 2.15);
+  justify-content: ${props => props.$row ? "space-between" : 'flex-start'};
   @media screen and (max-width: 1280px) {
     padding: 28px calc(28px * 2.15);
     gap: 18px;
