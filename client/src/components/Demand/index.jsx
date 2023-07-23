@@ -1,10 +1,5 @@
 import React from "react";
-
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
-
 import * as Icons from "react-bootstrap-icons";
-import * as Box from "@/components/Box";
 import { Bold, Button, Container, Info, Marked, Store, Sub } from "./styled";
 
 export const Demand = (props) => {
