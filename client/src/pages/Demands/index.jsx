@@ -12,8 +12,7 @@ const demand = {
   name: "Renan Alves",
   cpf: "09890987654",
   createdAt: "2023-07-22",
-}
-
+};
 const demandas = [demand, demand, demand, demand];
 
 const Demandas = () => {
@@ -22,7 +21,7 @@ const Demandas = () => {
       <Box.Section>
         <Title icon={<Icons.Check2All />}>Demandas de Registro</Title>
         <Box.Flex column>
-          {demandas.map(demanda => {
+          {demandas.map((demanda) => {
             return <Demand {...demanda} />;
           })}
         </Box.Flex>
