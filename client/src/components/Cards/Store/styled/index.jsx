@@ -32,6 +32,7 @@ Container.Image = styled(Box.Flex)`
 
 Container.Buttons = styled(Box.Flex)`
   margin-top: auto;
+  flex-direction: row !important;
   width: 100%;
   height: fit-content;
   border-radius: 0 !important;

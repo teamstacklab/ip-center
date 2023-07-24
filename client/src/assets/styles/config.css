@@ -79,3 +79,8 @@
   --nav-top-desktop: 116px;
   --nav-top-mobile: 103px;
 }
+
+::selection {
+  background-color: var(--orange-secondary);
+  color: var(--black);
+}

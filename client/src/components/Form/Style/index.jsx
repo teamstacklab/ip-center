@@ -8,23 +8,49 @@ export const Form = styled(BSForm)`
   border-radius: 12px;
   width: 100%;
   font-size: 1rem;
-  background-color: var(--orange-tertiary);
+  background: var(--orange-tertiary);
+  @media screen and (max-width: 425px) {
+    padding: 0;
+  }
 `;
 
-Form.Input = ({ name, ...props }) => {
-  const Input = styled(BSForm.Control)`
-    height: 40px;
-    background: var(--white) !important;
-    box-shadow: 0 0 8px var(--shadow-secondary) !important;
-    border: 2px solid transparent;
-    margin-bottom: 8px !important;
-    &:focus {
-      border: 2px solid var(--orange-primary);
-    }
-  `;
+Form.Input = styled(BSForm.Control)`
+  min-height: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  margin-bottom: 8px !important;
+  background: var(--white);
+  border-radius: 4px !important;
+  box-shadow: 0 0 8px var(--shadow-secondary) !important;
+  &:focus {
+    border: 2px solid var(--orange-primary);
+  }
+`;
 
-  return <Input controlId={name} {...props} />;
-};
+Form.Select = styled(BSForm.Select)`
+  height: 40px;
+  border-radius: 4px !important;
+  border: 2px solid transparent;
+  margin-bottom: 8px !important;
+  background-color: var(--white);
+  box-shadow: 0 0 8px var(--shadow-secondary) !important;
+  &:focus {
+    border: 2px solid var(--orange-primary);
+  }
+`;
+
+Form.Textarea = styled(Form.Input).attrs(() => ({ as: "textarea" }))`
+  height: 100% !important;
+  padding: 8px;
+  outline: none;
+  @media screen and (max-width: 768px) {
+    height: 150px !important;
+  }
+`;
+
+Form.Option = styled.option`
+  color: "#000";
+`;
 
 Form.Label = styled(BSForm.Label)`
   font-size: 1em;
@@ -46,11 +72,14 @@ Form.Div = styled.div`
     flex-direction: row;
     gap: 8px;
   `};
+  @media screen and (max-width: 768px) {
+    flex-direction: column !important;
+  }
 `;
 
-Form.Submit = ({ children }) => {
+Form.Submit = ({ children, ...props }) => {
   const Button = styled(BSButton)`
-    margin-top: 16px;
+    margin-top: ${(props) => props.top || "22px"};
     height: 40px;
     width: 100%;
     font-size: 1em;
@@ -74,7 +103,7 @@ Form.Submit = ({ children }) => {
   `;
 
   return (
-    <Button type="submit">
+    <Button type="submit" {...props}>
       {children}
       <IconContainer>
         <Icons.Check2Circle />

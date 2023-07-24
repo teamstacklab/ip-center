@@ -28,6 +28,9 @@ export const BoxFlex = styled.div`
   flex-direction: ${(props) => (props.column ? "column" : "row")};
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 768px){
+    flex-direction: column !important;
+  }
 `;
 
 export const BoxGrid = styled.div`

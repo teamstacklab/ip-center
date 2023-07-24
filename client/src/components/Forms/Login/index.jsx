@@ -6,14 +6,14 @@ export const LoginForm = () => {
     <React.Fragment>
       <Form>
         <Form.Label>Username:</Form.Label>
-        <Form.Input name={"username"} placeholder={"Digite seu username"} />
+        <Form.Input controlId={"username"} placeholder={"Digite seu username"} />
         <Form.Label>Senha:</Form.Label>
         <Form.Input
-          name={"password"}
+          controlId={"password"}
           placeholder={"Digite sua senha"}
           type={"password"}
         />
-        <Form.Submit>Pedir registro</Form.Submit>
+        <Form.Submit>Entrar</Form.Submit>
       </Form>
     </React.Fragment>
   );
