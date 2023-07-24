@@ -22,18 +22,30 @@ const Nav = styled(NavReact)`
         margin: 0;
         padding: 0;
     }
+
+    @media screen and (max-width: 340px) {
+        gap: 0;
+    }
 `
 
 const LinkFooter = styled(Link)`
     text-decoration: none;
     font-size: 1.2em;
     color: var(--orange-tertiary);
+    transition: color  .2s;
+
+    &:hover {
+        color: var(--orange-tertiary-hover);
+    }
+
     @media screen and (max-width: 1440px) {
         text-decoration: none;
         background: var(--brown-secondary);
         font-weight: 400;
         padding: 4px 10px;
         border-radius: 8px;
+        font-size: 1rem;
+
     }
 `
 

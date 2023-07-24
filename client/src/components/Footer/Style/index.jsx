@@ -28,6 +28,17 @@ export const ContainerMap = styled.div`
 
         &>iframe {
             width: 100%;
+            max-width: 800px;
+    }
+    }
+
+    @media screen and (max-width: 490px) {
+        padding-top: 16px;
+
+        &>iframe {
+            width: 100%;
+            height: 240px;
+            max-width: 800px;
     }
     }
 

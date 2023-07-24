@@ -14,6 +14,11 @@ import { IconShop } from "../User";
 const Container = styled.div`
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1440px) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
 `
 const IconCheck = styled(CheckAll)`
     font-size: 1.15em;

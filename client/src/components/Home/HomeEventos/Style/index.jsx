@@ -39,6 +39,7 @@ export const Description = styled.p`
     margin-bottom: 26px;
     margin: 0;
     width: 474px;
+    color: var(--brown-primary);
     
     @media screen and (max-width: 1440px) {
         width: auto;
@@ -52,10 +53,14 @@ export const LinkEventos = styled.a`
     align-items: center;
     text-decoration: none;
     gap: 7px;
-    color: var(--brown-tertiaty);
+    color: var(--brown-primary);
     font-weight: 600;
     font-size: 18px;
     margin: 16px 0 29px;
+    &:hover {
+        color: var(--brown-primary-hover);
+    }
+
     @media screen and (max-width: 1440px) {
         display: none;
     }

@@ -10,7 +10,7 @@ import { House, CalendarWeek } from "react-bootstrap-icons";
 import { IconShop } from "../Auth/User";
 
 export const LinkMenu = styled(Link)`
-  color: var(--marrom);
+  color: var(--brown-primary);
   border: none;
   gap: 6px;
   display: flex;
@@ -21,6 +21,12 @@ export const LinkMenu = styled(Link)`
   font-size: 18px;
   cursor: pointer;
   padding: 5px;
+  transition: color  .1s;
+
+  &:hover {
+    color: var(--brown-primary-hover);
+  }
+
 
   @media screen and (max-width: 1279px) {
     padding: 5px 0;
