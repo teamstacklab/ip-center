@@ -43,7 +43,7 @@
   --black: #121212;
 
   --green-primary: #255f23;
-  --green-primary-hover: #193b18;
+  --green-primary-hover: #1a4a19;
   --green-secondary: #179612;
   --green-secondary-hover: #1e5a1c;
 
@@ -77,5 +77,5 @@
 
   --nav-top-desktop: 116px;
   --nav-top-mobile: 103px;
-  --padding-mobile: 1rem 1.3rem 3rem;
+  --padding-mobile: 1rem 1rem 2rem;
 }

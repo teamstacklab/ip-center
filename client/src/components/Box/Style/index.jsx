@@ -29,3 +29,13 @@ export const BoxGrid = styled.div`
   );
   gap: ${(props) => props.gap || "10px"};
 `;
+
+export const SectionBox = styled(BoxSection)`
+    @media screen and (max-width: 1440px){
+        display: flex;
+        flex-direction: column;
+        padding: var(--padding-mobile);
+        height: auto;
+        gap: 0;
+    }
+`

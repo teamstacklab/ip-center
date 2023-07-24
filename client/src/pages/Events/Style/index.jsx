@@ -23,16 +23,6 @@ export const Calendar = styled(CalendarAgenda)`
     }
 `
 
-export const Section = styled(Box.Section)`
-    @media screen and (max-width: 1440px){
-        display: flex;
-        flex-direction: column;
-        padding: .5rem 1.3rem;
-        height: auto;
-        gap: 0;
-    }
-`
-
 export const Comunidados = styled.span`
     display: flex;
     justify-content: left;

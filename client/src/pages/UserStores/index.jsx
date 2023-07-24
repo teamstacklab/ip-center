@@ -1,10 +1,10 @@
 import React from "react";
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
-import { Plus, Shop } from 'react-bootstrap-icons'
+import { Shop } from 'react-bootstrap-icons'
 
-import { Link } from "react-router-dom";
-import { CriarLojaRoute } from "../CreateStore";
+import { Title } from "@/components/Title";
+import ButtonCriar from "../../components/ButtonCriar";
+import { Container, ContainerLojas, Lojas } from "./Style";
+import { SectionBox } from "../../components/Box/Style";
 
 const MinhasLojasRoute = '/lojas/minhas';
 
@@ -14,45 +14,24 @@ const MinhasLojas = (props) => {
 
   const [lojas, setLojas] = React.useState([]);
 
-  React.useEffect(() => {
 
-    if (accessToken !== null) {
-      api.get(`${ApiLojas.all}/${user.id}`)
-        .then((res) => {
-          setLojas(res.data)
-        })
-        .catch(err => console.log(err))
-    }
-    if (user.isAdmin) {
-      api.get(ApiLojas.all)
-        .then((res) => {
-          setLojas(res.data);
-        })
-        .catch(err => console.log(err))
-    }
-  }, [])
 
   return (
-    <section className="home-lojas">
-      <div className="lojas__navegation">
-        <div className="navegation-lojas">
-          <Shop className="navegation-lojas__icons" />
-          <span className="navegation-lojas__title">{props.individual ? "Minhas" : null} Lojas</span>
-          <Link to={CriarLojaRoute} className="btn navigation__button">Criar <Plus size={26} /></Link>
-        </div>
-        <div className="navegation-actions">
-        </div>
-      </div>
-      <div className="lojas__estabelecimento">
-        <div className="estabelecimento__container">
+    <SectionBox>
+      <Container>
+        <Title icon={<Shop />}>{props.individual ? "Minhas" : null}Lojas</Title>
+        <ButtonCriar/>
+      </Container>
+      <ContainerLojas>
+        <Lojas>
           {lojas.map(loja => {
             return (
               <CardLoja {...loja} />
             );
           })}
-        </div>
-      </div>
-    </section>
+        </Lojas>
+      </ContainerLojas>
+    </SectionBox>
   );
 };
 

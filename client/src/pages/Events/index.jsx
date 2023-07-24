@@ -1,14 +1,15 @@
 import React from "react";
 import { Title } from "@/components/Title";
 import * as Icons from "react-bootstrap-icons";
-import { Calendar, Comunidados, Div, Icon, Section } from "./Style";
+import { Calendar, Comunidados, Div, Icon } from "./Style";
+import { SectionBox } from "../../components/Box/Style";
 
 
 const EventosRoute = "/eventos";
 
 const Eventos = () => {
   return (
-    <Section $row >
+    <SectionBox $row >
       <Div>
         <Title icon={<Icons.CalendarWeek />}>Eventos</Title>
         <Calendar />
@@ -23,7 +24,7 @@ const Eventos = () => {
           {/* <-- Mapeia os comunicados */}
         </div>
       </Div>
-    </Section>
+    </SectionBox>
   );
 };
 
