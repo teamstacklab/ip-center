@@ -9,8 +9,12 @@ export const Container = styled(Box.Flex)`
   overflow: hidden;
   border-radius: 12px !important;
   background-color: var(--orange-tertiary);
-  box-shadow: 1px 2px 15px var(--shadow-primary);
+  box-shadow: 0 0 6px var(--shadow-primary);
   font-size: 1rem;
+  transition: all 300ms;
+  &:hover {
+    box-shadow: 0 0 20px var(--shadow-primary);
+  }
   @media screen and (max-width: 1280px) {
     width: calc(320px - 36px);
   }
@@ -20,13 +24,13 @@ export const Container = styled(Box.Flex)`
   }
 `;
 
-Container.Image = styled(Container)`
+Container.Image = styled(Box.Flex)`
   box-shadow: none !important;
   border-radius: 0 !important;
   height: 230px;
 `;
 
-Container.Buttons = styled(Container)`
+Container.Buttons = styled(Box.Flex)`
   margin-top: auto;
   width: 100%;
   height: fit-content;
@@ -34,7 +38,8 @@ Container.Buttons = styled(Container)`
   box-shadow: none;
 `;
 
-Container.Content = styled(Container)`
+Container.Content = styled(Box.Flex)`
+  gap: 12px;
   padding: 16px;
   width: 100%;
   border-radius: 0 !important;

@@ -7,12 +7,19 @@ export const Container = styled(Box.Flex)`
   background-color: var(--orange-tertiary);
   border-radius: 10px;
   border: 1px solid var(--orange-tertiary-hover);
-  padding: 16px 12px;
+  padding: 18px 14px;
   color: var(--brown-primary);
+  transition: all 300ms;
+  &:hover {
+    scale: 102%;
+    box-shadow: 0 0 20px var(--shadow-secondary);
+  }
 `;
 
 export const Name = styled.h1`
-  font-size: 1.75em;
+  margin: 0 !important;
+  font-weight: 600;
+  font-size: 1.7em;
 `;
 
 export const Description = styled.p`

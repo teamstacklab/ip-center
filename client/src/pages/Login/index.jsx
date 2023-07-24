@@ -1,6 +1,7 @@
 import React from "react";
-import { LoginForm } from "../../components/Forms/Login";
+import { LoginForm } from "@/components/Forms/Login";
 import Logo from "../../assets/images/logo.svg";
+import LogoAlt from "../../assets/images/logo-alternativa.svg";
 import "./CSS/mobile.css";
 import "./CSS/desktop.css";
 

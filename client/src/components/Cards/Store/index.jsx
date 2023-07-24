@@ -24,8 +24,8 @@ export default function Store(props) {
             </Button.Icon>
           </Button>
           <Button
-            width={"25%"}
             as={"a"}
+            width={"25%"}
             variant={"green"}
             href={whatsLink(props.whatsapp)}
             rel={"noopener noreferrer"}
