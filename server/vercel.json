@@ -2,14 +2,6 @@
   "version": 2,
   "builds": [
       {
-        "src": "makemigration migrations/All",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "migrate",
-        "use": "@vercel/node"
-      },
-      {
         "src": "src/main.ts",
         "use": "@vercel/node"
       }
