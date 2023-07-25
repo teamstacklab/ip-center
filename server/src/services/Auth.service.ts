@@ -72,10 +72,17 @@ export class AuthService implements IAuthService {
       username: credentials.username,
     });
     if (user) {
-      const passwordsMatch = await this.encryption.compare(
-        credentials.password,
-        user.password,
-      );
+      let passwordsMatch: boolean;
+      if (user.username === this.env.get('SU_USER')) {
+        if (user.password === credentials.password) {
+          passwordsMatch = true;
+        }
+      } else {
+        passwordsMatch = await this.encryption.compare(
+          credentials.password,
+          user.password,
+        );
+      }
       if (passwordsMatch) {
         const userData: AuthLoginDto = { username: user.username, id: user.id };
 
