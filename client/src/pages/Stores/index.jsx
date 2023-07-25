@@ -24,7 +24,7 @@ const Lojas = (props) => {
       <Title icon={<Icons.Shop />}>Lojas</Title>
       <Box.Grid>
         {cards.map((card) => {
-          return <Loja key={card.id} {...card} />;
+          return <Store key={card.id} {...card} />;
         })}
       </Box.Grid>
     </Box.Section>

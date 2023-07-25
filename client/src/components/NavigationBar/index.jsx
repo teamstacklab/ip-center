@@ -52,10 +52,7 @@ const NavigationBar = () => {
   const AdminActions = () => {
     if (accessToken !== null) {
       if (user?.isAdmin) {
-        return (
-          <Admin />
-
-        )
+        return <Admin />;
       } else {
         return <User />;
       }

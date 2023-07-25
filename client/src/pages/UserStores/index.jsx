@@ -14,30 +14,13 @@ const MinhasLojas = (props) => {
 
   const [lojas, setLojas] = React.useState([]);
 
-  React.useEffect(() => {
-
-    if (accessToken !== null) {
-      api.get(`${ApiLojas.all}/${user.id}`)
-        .then((res) => {
-          setLojas(res.data)
-        })
-        .catch(err => console.log(err))
-    }
-    if (user.isAdmin) {
-      api.get(ApiLojas.all)
-        .then((res) => {
-          setLojas(res.data);
-        })
-        .catch(err => console.log(err))
-    }
-  }, [])
 
 
   return (
     <SectionBox>
       <Container>
         <Title icon={<Shop />}>{props.individual ? "Minhas" : null}Lojas</Title>
-        <ButtonCriar />
+        <ButtonCriar/>
       </Container>
       <ContainerLojas>
         <Lojas>

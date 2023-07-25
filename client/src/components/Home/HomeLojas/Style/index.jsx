@@ -41,20 +41,14 @@ export const LinkLojas = styled(Link)`
   color: var(--orange-tertiary);
   gap: 11px;
   margin-top: -10px;
-  &:hover {
-    color: var(--orange-tertiary-hover);
-  }
-
 `;
 
 export const SpanTitle = styled.span`
   font-size: 1.1em;
   font-weight: 600;
   border-bottom: 1px solid var(--orange-tertiary);
-
   @media screen and (max-width: 1440px) {
     font-size: 16px;
-    
   }
 `;
 

@@ -21,7 +21,7 @@ const User = styled.p`
 `
 
 const Icon = styled(Person)`
-    font-size: 2rem;
+    font-size: 2.3em;
 `
 
 function NavigationUser(user) {

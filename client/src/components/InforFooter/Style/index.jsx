@@ -53,19 +53,10 @@ export const LinkLocal = styled(Link)`
     text-decoration: none;
     color: var(--orange-tertiary);
     font-size: 1rem;
-    transition: color  .2s;
-
-    &:hover {
-        color: var(--orange-tertiary-hover);
-    }
 `
 
 export const LinkInfo = styled(LinkLocal)`
     border-bottom: 1px solid var(--orange-tertiary);
-    transition: color  .2s;
-    &:hover {
-        color: var(--orange-tertiary-hover);
-    }
 `
 
 export const List = styled.ul`

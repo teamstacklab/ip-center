@@ -3,7 +3,6 @@ import * as Box from "@/components/Box";
 import * as Icons from "react-bootstrap-icons";
 import { Title } from "@/components/Title";
 import { Demand } from "@/components/Demand";
-import { styled } from "styled-components";
 
 const DemandasRoute = "/demandas";
 

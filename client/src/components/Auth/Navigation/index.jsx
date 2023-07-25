@@ -6,16 +6,14 @@ import { Button } from "../../Button";
 
 const Container = styled.div`
     display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    gap: 16px;
-    background-color: var(--cor-begue);
-    border-radius: 12px;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 16px;
+        background-color: var(--cor-begue);
+        border-radius: 12px;
 
-    @media screen and (max-width: 360px) {
-        display: flex;
-        justify-content: center;
-        margin: 0;
+    @media screen and (max-width: 1279px) {
+        margin-left: 16px;
     }
 `
 
@@ -25,8 +23,8 @@ const Text = styled.p`
     font-weight: 600;
     color: var(--marrom);
     font-size: 18px;
-    @media screen and (max-width: 360px) {
-        display: none;
+    @media screen and (max-width: 1279px) {
+        
     }
 `
 

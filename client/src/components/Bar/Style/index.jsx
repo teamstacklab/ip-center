@@ -28,14 +28,10 @@ export const Link = styled.a`
     display: flex;
     align-items: center;
     font-size: 0.95em;
-    color: var(--orange-secondary);
+    color: var(--cor-texto);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    
-    &:hover {
-        color: var(--orange-secondary-hover);
-    }
 `
 
 export const Arrow = styled(ArrowRight)`
