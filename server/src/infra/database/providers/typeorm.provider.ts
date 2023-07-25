@@ -15,7 +15,7 @@ export class TypeOrmProvider implements TypeOrmOptionsFactory {
       type: 'postgres',
       url: this.env.get('DB_URL'),
       entities: ['dist/**/*.entity.js'],
-      migrations: ['migrations/*.js'],
+      migrations: ['migrations/*.ts'],
       migrationsTableName: 'migrations',
       synchronize: false,
     };
