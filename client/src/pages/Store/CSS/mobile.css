@@ -1,0 +1,141 @@
+
+@import url("../../../assets/styles/config.css");
+
+.content-box {
+    width: 100%;
+}
+
+.loja {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    margin-top: var(--nav-top-mobile) !important;
+}
+
+.loja__sobre {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 12px;
+}
+
+.sobre__title {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.sobre__slogan {
+    margin-bottom: 8px;
+}
+
+.sobre__carousel {
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.carousel__item {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.carousel__image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.sobre__description-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.sobre__description {    
+    font-size: 16px;
+}
+
+
+.loja__data {
+    width: 100%;
+    background-color: var(--brown-dark);
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data__logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--brown-secondary);
+    margin-bottom: 12px;
+}
+
+
+.data__title {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.data__slogan {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--orange-tertiary);
+    margin-bottom: 30px;
+}
+.data__slogan::before,
+.data__slogan::after {
+    content: '"';
+}
+
+.data__item {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.data__item-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--orange-secondary);
+}
+
+.data__icon {
+    color: var(--orange-primary);
+    font-size: 28px;
+    height: auto;
+    width: auto;
+}
+
+.data__list {
+    margin-left: 24px;
+    font-size: 16px;
+    list-style-type: square;
+}
+.data__actions {
+    width: 100%;
+    gap: 16px;
+    display: flex;
+}
+.data__action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border-radius: 8px;
+    width: 100% !important;
+    background-color: var(--green-primary);
+    color: var(--orange-secondary);
+    font-size: 28px;
+}
+
+.data__action.instagram {
+    background-color: var(--orange-primary);
+    color: var(--brown-primary);
+}

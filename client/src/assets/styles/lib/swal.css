@@ -9,6 +9,6 @@
   font-weight: 500 !important;
 }
 .swal2-actions button {
-  background-color: var(--verde) !important;
+  background-color: var(--green-primary) !important;
   padding: 8px 32px !important;
 }

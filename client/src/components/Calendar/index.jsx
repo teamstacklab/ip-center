@@ -6,8 +6,6 @@ import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import ptBR from "date-fns/locale/pt-BR";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './CSS/mobile.css';
-import './CSS/desktop.css';
 
 const locales = {
   'pt-BR': ptBR
