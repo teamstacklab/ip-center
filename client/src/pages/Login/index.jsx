@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm } from "../../components/Forms/Login";
+import { LoginForm } from "@/components/Forms/Login";
 import Logo from "../../assets/images/logo.svg";
 import LogoAltenativa from "../../assets/images/logo-alternativa.svg"
 
@@ -61,7 +61,6 @@ export const LogoImageAltenativa = styled.img`
   width: 220px;
   object-fit: cover;
 `
-
 
 export const LoginRoute = '/login';
 

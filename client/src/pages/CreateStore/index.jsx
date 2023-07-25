@@ -1,107 +1,103 @@
-import React from 'react';
-import { Plus } from 'react-bootstrap-icons'
-import "./CSS/mobile.css"
-import "./CSS/desktop.css"
+import React from "react";
+import { Form, Container } from "./Style";
+import { Title } from "@/components/Title";
+import * as Icons from "react-bootstrap-icons";
+import * as Box from "@/components/Box";
 
-const CriarLojaRoute = '/lojas/criar';
+export const CriarLojaRoute = "/lojas/criar";
+
+const categorias = [
+  {
+    id: 1,
+    name: "Tecnologia",
+  },
+  {
+    id: 2,
+    name: "Alimentício",
+  },
+  {
+    id: 3,
+    name: "Moda",
+  },
+];
 
 const CriarLoja = () => {
-  const categorias = [
-    {
-      id: 1,
-      name: "asdf"
-    }
-  ];
-
-  const [name, setName] = React.useState(null);
-  const [slogan, setSlogan] = React.useState(null);
-  const [location, setLocation] = React.useState(null);
-  const [category, setCategory] = React.useState(null);
-  const [additionalInfo, setAdditionalInfo] = React.useState(null);
-  const [instagram, setInstagram] = React.useState(null);
-  const [whatsapp, setWhatsapp] = React.useState(null);
-  const [description, setDescription] = React.useState(null);
-  const [services, setServices] = React.useState(null);
-  const [images, setImages] = React.useState(null);
-  const [logo, setLogo] = React.useState(null);
-
-  console.log(
-    name, slogan, location, category, additionalInfo, instagram, whatsapp, description, services, images, logo
-  )
-
   return (
-    <section className="loja">
-      <form method="post" className="formulario">
-        <div className="loja--description">
-          <div className="loja--description__title">
-            <Plus className="title__icon" />
-            <h1 className="title__titulo" id="" >Criar loja</h1>
-          </div>
-          <button type="submit" className="formulario--button">
-            <span className="button__title">Criar</span>
-            <Plus className="button__icon" />
-          </button>
-        </div>
-        <fieldset className="formulario__loja">
-          <div className="loja--formulario">
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Nome da loja:</p>
-              <input onChange={(e) => setName(e.target.value)} type="text" id="nome" className="formulario__inputs" placeholder="Nome da loja" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Slogan:</p>
-              <input onChange={(e) => setSlogan(e.target.value)} type="text" id="slogan" className="formulario__inputs" placeholder="Slogan" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Localização:</p>
-              <input onChange={(e) => setLocation(e.target.value)} type="text" id="location" className="formulario__inputs" placeholder="Localização" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Imagens:</p>
-              <input onChange={(e) => setImages(e.target.value)} type="text" id="images" placeholder="Coloque os links separados por espaços" className="formulario__inputs" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Whatsapp:</p>
-              <input onChange={(e) => setWhatsapp(e.target.value)} type="text" id="images" placeholder="Coloque os links separados por espaços" className="formulario__inputs" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Instagram:</p>
-              <input onChange={(e) => setInstagram(e.target.value)} type="text" id="images" placeholder="Coloque os links separados por espaços" className="formulario__inputs" />
-            </fieldset>
-          </div>
-          <div className="loja--formulario">
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Logo:</p>
-              <input onChange={(e) => setLogo(e.target.value)} type="text" id="logo" className="formulario__inputs" placeholder="Categorias" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Categoria:</p>
-              <select onChange={(e) => setCategory(e.target.value)} className='formulario__inputs' id="categoria-filter">
-                {categorias.map(categoria => {
-                  return <option key={categoria.id} className="categoria" value={categoria.id}>{categoria.name}</option>
+    <React.Fragment>
+      <Box.Section>
+        <Form>
+          <Container>
+            <Title icon={<Icons.PlusLg />}>Criar loja</Title>
+            <Container.Button>
+              <Form.Submit top={"0"}>Criar</Form.Submit>
+            </Container.Button>
+          </Container>
+          <Form.Div>
+            <Form.Div $column>
+              <Form.Label>Nome da loja:</Form.Label>
+              <Form.Input
+                controlId={"name"}
+                placeholder={"Digite o nome da loja"}
+                required
+              />
+              <Form.Label>Slogan:</Form.Label>
+              <Form.Input
+                controlId={"slogan"}
+                placeholder={"Digite o seu slogan"}
+                required
+              />
+              <Form.Label>Localização:</Form.Label>
+              <Form.Input
+                controlId={"location"}
+                placeholder={"Digite a Localização"}
+                required
+              />
+              <Form.Label>Logo:</Form.Label>
+              <Form.Input controlId={"logo"} type={"file"} required />
+              <Form.Label>Imagens:</Form.Label>
+              <Form.Input controlId={"image"} type={"file"} required />
+              <Form.Label>Categoria:</Form.Label>
+              <Form.Select controlId={"categoria"}>
+                {categorias.map((categoria) => {
+                  return (
+                    <Form.Option value={categoria.id}>
+                      {categoria.name}
+                    </Form.Option>
+                  );
                 })}
-              </select>
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Produto e/ou serviços:</p>
-              <input onChange={(e) => setServices(e.target.value)} type="text" id="services" className="formulario__inputs" placeholder="Produto e/ou serviços" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Descrição:</p>
-              <input onChange={(e) => setDescription(e.target.value)} type="text" id="description" className="formulario__inputs" placeholder="Descrição" />
-            </fieldset>
-            <fieldset className="formulario--loja">
-              <p className="formulario__title">Outras informações:</p>
-              <textarea onChange={(e) => setAdditionalInfo(e.target.value)} className="formulario__inputs fomulario__text" id="" rows="5" placeholder="Outras informações">
-              </textarea>
-            </fieldset>
-          </div>
-        </fieldset>
-      </form>
-    </section>
+              </Form.Select>
+            </Form.Div>
+            <Form.Div $column>
+              <Form.Label>Whatsapp:</Form.Label>
+              <Form.Input
+                controlId={"whatsapp"}
+                placeholder={"Digite o Whatsapp da loja"}
+                required
+              />
+              <Form.Label>Instagram:</Form.Label>
+              <Form.Input
+                controlId={"instagram"}
+                placeholder={"Digite o Instagram da loja"}
+                required
+              />
+              <Form.Label>Produtos e/ou serviços:</Form.Label>
+              <Form.Input
+                controlId={"services"}
+                placeholder={"O que sua loja oferece?"}
+                required
+              />
+              <Form.Label>Descrição:</Form.Label>
+              <Form.Textarea
+                controlId={"description"}
+                placeholder={"Descreva sua loja aqui"}
+                required
+              />
+            </Form.Div>
+          </Form.Div>
+        </Form>
+      </Box.Section>
+    </React.Fragment>
   );
 };
 
-
 export default CriarLoja;
-export { CriarLojaRoute };

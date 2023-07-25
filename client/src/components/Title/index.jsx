@@ -1,12 +1,12 @@
 import React from "react";
-import { TitleBox, TitleIcon, TitleText } from "./styled";
+import { TitleBox, TitleIcon, TitleText } from "./Style";
 
-export const Title = ({ children, icon, color, iconColor }) => {
+export const Title = ({ children, icon, color, iconColor, iconSize, fw }) => {
   return (
     <React.Fragment>
       <TitleBox color={color}>
-        <TitleIcon iconColor={iconColor}>{icon}</TitleIcon>
-        <TitleText>{children}</TitleText>
+        <TitleIcon iconSize={iconSize} iconColor={iconColor}>{icon}</TitleIcon>
+        <TitleText fw={fw}>{children}</TitleText>
       </TitleBox>
     </React.Fragment>
   );
