@@ -22,14 +22,12 @@ export class ComunicateService implements IComunicateService {
 
   private readonly logger = new Logger(ComunicateService.name);
 
-  //Get all comunicates
   async getAll(): Promise<Comunicate[]> {
     this.logger.log('Get all Comunicates');
 
     return this.comunicateRepo.find();
   }
 
-  //Get a comunicate by id
   async getOneById(id: number): Promise<Comunicate> {
     this.logger.log(`Get a comunicate by id ${id}`);
     const comunicate = await this.comunicateRepo.findOneBy({ id });
@@ -40,7 +38,6 @@ export class ComunicateService implements IComunicateService {
     return comunicate;
   }
 
-  //Create a comunicate
   async create(comunicateDto: CreateComunicateDto): Promise<Comunicate> {
     this.logger.log(`Creating comunicate.`);
     const comunicate = await this.comunicateRepo.findOneBy({
@@ -56,7 +53,6 @@ export class ComunicateService implements IComunicateService {
     return await this.comunicateRepo.save(newComunicate);
   }
 
-  //Update a comunicate
   async update(id: number, update: UpdateComunicateDto): Promise<Comunicate> {
     this.logger.log(`Updating comunicate ${id}.`);
     const comunicate = await this.getOneById(id);
@@ -68,7 +64,6 @@ export class ComunicateService implements IComunicateService {
     return await this.getOneById(id);
   }
 
-  //Delete a comunicate
   async delete(id: number): Promise<Comunicate> {
     this.logger.log(`Deleting comunicate ${id}.`);
     const comunicate = await this.getOneById(id);

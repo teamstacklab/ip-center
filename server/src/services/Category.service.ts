@@ -18,14 +18,12 @@ export class CategoryService implements ICategoryService {
 
   private readonly logger = new Logger(CategoryService.name);
 
-  //Get all categories
   async getAll(): Promise<Category[]> {
     this.logger.log('Find all categories');
 
     return await this.categoryRepo.find();
   }
 
-  //Get one category by filter
   async getOne(
     filter: Partial<Omit<Category, 'tags'>> | Partial<Omit<Category, 'tags'>>[],
   ): Promise<Category> {
@@ -37,7 +35,6 @@ export class CategoryService implements ICategoryService {
     return category;
   }
 
-  //Get a category by id
   async getOneById(id: number): Promise<Category> {
     this.logger.log(`Get category ${id}.`);
     const category = await this.categoryRepo.findOneBy({ id });
@@ -48,7 +45,6 @@ export class CategoryService implements ICategoryService {
     return category;
   }
 
-  //Create a category
   async create(categoryDto: CreateCategoryDto): Promise<Category> {
     this.logger.log(`Creates a category`);
     const category = await this.categoryRepo.findOneBy({
@@ -64,7 +60,6 @@ export class CategoryService implements ICategoryService {
     return await this.categoryRepo.save(newCategory);
   }
 
-  //Update a category
   async update(id: number, update: UpdateCategoryDto): Promise<Category> {
     this.logger.log(`Update category ${id}`);
     const category = await this.getOneById(id);
@@ -76,7 +71,6 @@ export class CategoryService implements ICategoryService {
     return await this.getOneById(id);
   }
 
-  //Delete a category
   async delete(id: number): Promise<Category> {
     this.logger.log(`Delete category ${id}`);
     const category = await this.getOneById(id);

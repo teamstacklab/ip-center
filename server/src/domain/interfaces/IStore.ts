@@ -2,6 +2,7 @@ import { CreateStoreDto, UpdateStoreDto } from 'domain/dto/Store.dto';
 import { Category } from 'domain/entities/Category.entity';
 import { User } from 'domain/entities/User.entity';
 import { Store } from 'domain/entities/Store.entity';
+import { Image } from 'domain/entities/Image.entity';
 
 export interface IStore {
   id: number;
@@ -9,13 +10,13 @@ export interface IStore {
   category: Category;
   name: string;
   slogan: string;
-  images: string[];
+  logo: Image;
+  images: Image[];
   description: string;
   instagram: string;
   whatsapp: string;
   location: string;
   services: string;
-  additionalInfo: string;
   updatedAt: Date;
   createdAt: Date;
 }

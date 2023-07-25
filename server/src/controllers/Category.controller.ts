@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Param } from '@nestjs/common';
 import { CreateCategoryDto, UpdateCategoryDto } from 'domain/dto/Category.dto';
 import { CategoryService } from 'services/Category.service';
 import { Category } from 'domain/entities/Category.entity';
-import { RolesGuard } from 'infra/guards/Roles/roles.guard';
+import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
 import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 
@@ -20,13 +20,13 @@ export class CategoryController {
     return await this.categoryService.getOneById(id);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/create')
   async createCategory(@Body() category: CreateCategoryDto): Promise<Category> {
     return await this.categoryService.create(category);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/update/:id')
   async updateCategory(
     @Param('id') id: string,
@@ -35,7 +35,7 @@ export class CategoryController {
     return await this.categoryService.update(+id, update);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/delete/:id')
   async deleteCategory(@Param('id') id: string): Promise<Category> {
     return await this.categoryService.delete(+id);

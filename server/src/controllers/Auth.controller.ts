@@ -4,14 +4,17 @@ import { AuthLoginDto } from 'domain/dto/Auth.dto';
 import { Request } from 'express';
 import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 import { JwtRefreshAuthGuard } from 'infra/guards/Auth/jwt-refresh.guard';
+import { LocalAuthGuard } from 'infra/guards/Auth/local.guard';
 import { AuthService } from 'services/Auth.service';
 
 @Controller('api/auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Req() req: Request): Promise<any> {
+    console.log(req.user);
     return await this.authService.login(req.user as AuthLoginDto);
   }
 

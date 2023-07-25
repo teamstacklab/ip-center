@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ComunicateService } from 'services/Comunicate.service';
 import { Comunicate } from 'domain/entities/Comunicate.entity';
-import { RolesGuard } from 'infra/guards/Roles/roles.guard';
+import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
 import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 import {
@@ -23,13 +23,13 @@ export class ComunicateController {
     return await this.comunicateService.getOneById(+id);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/create')
   async create(@Body() comunicate: CreateComunicateDto): Promise<Comunicate> {
     return await this.comunicateService.create(comunicate);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/update/:id')
   async update(
     @Param('id') id: string,
@@ -38,7 +38,7 @@ export class ComunicateController {
     return await this.comunicateService.update(+id, update);
   }
 
-  @UseGuards(JwtAccessAuthGuard, RolesGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/delete/:id')
   async delete(@Param('id') id: number): Promise<Comunicate> {
     return await this.comunicateService.delete(+id);
