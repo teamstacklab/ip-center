@@ -1,23 +1,32 @@
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
+import { DataSource, DataSourceOptions } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
-import { User } from 'domain/entities/User.entity';
-import { Store } from 'domain/entities/Store.entity';
-import { Category } from 'domain/entities/Category.entity';
-import { Comunicate } from 'domain/entities/Comunicate.entity';
-import { Demand } from 'domain/entities/Demand.entity';
-import { Image } from 'domain/entities/Image.entity';
+import { config } from 'dotenv';
+
+config();
 
 @Injectable()
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
-  private readonly env: ConfigService = new ConfigService();
+  private env: ConfigService = new ConfigService();
 
-  public createTypeOrmOptions(): TypeOrmModuleOptions {
+  public buildDataSourceOptions(): DataSourceOptions {
     return {
       type: 'postgres',
-      url: this.env.get<string>('DB_URL'),
-      entities: [User, Store, Demand, Category, Comunicate, Event, Image],
-      synchronize: true,
+      url: this.env.get('DB_URL'),
+      entities: ['dist/**/*.entity.js'],
+      migrations: ['migrations/*.js'],
+      migrationsTableName: 'migrations',
+      synchronize: false,
     };
   }
+  public createTypeOrmOptions(): TypeOrmModuleOptions {
+    return this.buildDataSourceOptions() as TypeOrmModuleOptions;
+  }
 }
+
+const dataSource = new DataSource(
+  new TypeOrmProvider().buildDataSourceOptions(),
+);
+
+export default dataSource;

@@ -12,7 +12,7 @@ import { Image } from 'domain/entities/Image.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateImageDto, UpdateImageDto } from 'domain/dto/Image.dto';
-import * as fs from "fs";
+import * as fs from 'fs';
 import { ConfigService } from '@nestjs/config';
 import * as path from 'path';
 
@@ -21,7 +21,7 @@ export class ImageService implements IImageService {
   constructor(
     @InjectRepository(Image) private imageRepo: Repository<Image>,
     private readonly env: ConfigService,
-    ) {}
+  ) {}
 
   private readonly logger = new Logger(ImageService.name);
 
@@ -52,9 +52,13 @@ export class ImageService implements IImageService {
   async create(imageDtoList: CreateImageDto[]): Promise<Image[]> {
     this.logger.log(`Creating a image.`);
     if (imageDtoList.length > 5) {
-      throw new UnauthorizedException(`Você só pode enviar até 5 imagens por vez!`);
+      throw new UnauthorizedException(
+        `Você só pode enviar até 5 imagens por vez!`,
+      );
     }
-    const verifyUser = await this.imageRepo.findBy({ owner: imageDtoList[0].owner });
+    const verifyUser = await this.imageRepo.findBy({
+      owner: imageDtoList[0].owner,
+    });
     if (verifyUser.length >= 12) {
       throw new UnauthorizedException(`Você só pode enviar até 12 imagens!`);
     }
@@ -106,11 +110,11 @@ export class ImageService implements IImageService {
   }
 
   deleteImage(imageName: string): any {
-    const imagesPath: string = this.env.get("IMAGES_DEST")
+    const imagesPath: string = this.env.get('IMAGES_DEST');
     return fs.unlink(path.join(imagesPath, imageName), (err) => {
       if (err) {
         return null;
       }
-    })
+    });
   }
 }
