@@ -1,11 +1,11 @@
 import React from "react";
-import { styled } from "styled-components";
-
+import * as Box from "@/components/Box";
 import * as Icons from "react-bootstrap-icons";
 import { Title } from "@/components/Title";
-import * as Box from "@/components/Box";
+import { Demand } from "@/components/Demand";
+import { styled } from "styled-components";
 
-const DemandasRoute = '/demandas';
+const DemandasRoute = "/demandas";
 
 const Section = styled(Box.Section)`
   @media screen and (max-width: 1440px){
@@ -29,7 +29,6 @@ const Demandas = () => {
     </Section>
   );
 };
-
 
 export default Demandas;
 export { DemandasRoute };

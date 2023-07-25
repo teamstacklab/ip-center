@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm } from "../../components/Forms/Login";
+import { LoginForm } from "@/components/Forms/Login";
 import Logo from "../../assets/images/logo.svg";
 import LogoAltenativa from "../../assets/images/logo-alternativa.svg"
 

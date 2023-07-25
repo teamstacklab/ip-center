@@ -9,20 +9,17 @@ import { HomeRoute } from "../../pages/Home";
 // Router
 import { Link, useNavigate } from "react-router-dom";
 
-
-import Bar from '../Bar'
+import Bar from "../Bar";
 import LogoHeader from "../LogoHeader";
 import MenuNavigation from "../MenuNavigation";
-import Navigation from "../Auth/Navigation"
+import Navigation from "../Auth/Navigation";
 import Admin from "../Auth/Admin";
 import NavigationUser from "../Auth/NavigationUser/index,";
 import User from "../Auth/User";
 
-
-
 const NavigationBar = () => {
-  const accessToken = JSON.parse(sessionStorage.getItem('access_token'));
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const accessToken = JSON.parse(sessionStorage.getItem("access_token"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const [state, setState] = React.useState({ accessToken, user });
 
@@ -30,11 +27,11 @@ const NavigationBar = () => {
 
   const logOut = () => {
     if (accessToken !== null) {
-      sessionStorage.clear()
+      sessionStorage.clear();
       navigate(HomeRoute);
-      setState({ accessToken: null, user: null })
+      setState({ accessToken: null, user: null });
     }
-  }
+  };
 
   const AuthActions = () => {
     if (accessToken !== null) {
@@ -42,15 +39,15 @@ const NavigationBar = () => {
       return (
         <Div>
           <NavigationUser />
-          <LogOut as='button' onClick={logOut}>LogOut</LogOut>
+          <LogOut as="button" onClick={logOut}>
+            LogOut
+          </LogOut>
         </Div>
-      )
+      );
     } else {
-      return (
-        <Navigation />
-      )
+      return <Navigation />;
     }
-  }
+  };
 
   const AdminActions = () => {
     if (accessToken !== null) {
@@ -60,12 +57,10 @@ const NavigationBar = () => {
 
         )
       } else {
-        return (
-          < User />
-        );
+        return <User />;
       }
     }
-  }
+  };
 
   return (
     <React.Fragment>
@@ -74,7 +69,7 @@ const NavigationBar = () => {
         <NavBar expand="lg">
           <LogoHeader />
           <NavBar.Collapse className="menu" id="menuList">
-            <Nav >
+            <Nav>
               <MenuNavigation />
               <AdminActions />
             </Nav>

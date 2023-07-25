@@ -1,29 +1,24 @@
 import { styled } from "styled-components";
-
 import * as Box from "@/components/Box";
 import CalendarAgenda from "../../../components/Calendar";
 import { InfoCircle } from "react-bootstrap-icons";
 
 export const Div = styled.div`
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    @media screen and (max-width: 1440px) {
-        width: auto;
-    }
-`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 export const Calendar = styled(CalendarAgenda)`
-    height: 500px;
-    width: 100%;
-    margin-bottom: 24px;
-    @media screen and (max-width: 1440px){
-        height: 380px;
-    }
-`
+  height: 600px;
+  width: 100%;
+  @media screen and (max-width: 1280px) {
+    height: calc(500px - 40px);
+  }
+`;
 
-export const Comunidados = styled.span`
+export const ComunidadosItem = styled.span`
     display: flex;
     justify-content: left;
     align-items: center;
@@ -32,5 +27,5 @@ export const Comunidados = styled.span`
 `
 
 export const Icon = styled(InfoCircle)`
-    font-size: 1.75rem;
-`
+  font-size: 1.75rem;
+`;
