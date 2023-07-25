@@ -10,13 +10,13 @@ export interface IStore {
   category: Category;
   name: string;
   slogan: string;
+  logo: Image;
   images: Image[];
   description: string;
   instagram: string;
   whatsapp: string;
   location: string;
   services: string;
-  additionalInfo: string;
   updatedAt: Date;
   createdAt: Date;
 }

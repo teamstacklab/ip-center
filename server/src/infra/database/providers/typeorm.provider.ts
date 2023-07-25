@@ -12,9 +12,7 @@ import { Image } from 'domain/entities/Image.entity';
 export class TypeOrmProvider implements TypeOrmOptionsFactory {
   private readonly env: ConfigService = new ConfigService();
 
-  public createTypeOrmOptions():
-    | TypeOrmModuleOptions
-    | Promise<TypeOrmModuleOptions> {
+  public createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: 'postgres',
       url: this.env.get<string>('DB_URL'),
