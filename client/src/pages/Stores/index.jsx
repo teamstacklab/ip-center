@@ -2,8 +2,7 @@ import React from "react";
 import * as Icons from "react-bootstrap-icons";
 import { Title } from "@/components/Title";
 import * as Box from "@/components/Box";
-import { SectionBox } from "../../components/Box/Style";
-import Loja from "../Store";
+import Store from "@/components/Cards/Store";
 
 const LojasRoute = "/lojas";
 const MinhasLojasRoute = "/lojas/minhas";
@@ -21,14 +20,14 @@ const cards = [card, card, card, card, card, card, card];
 
 const Lojas = (props) => {
   return (
-    <SectionBox>
+    <Box.Section>
       <Title icon={<Icons.Shop />}>Lojas</Title>
       <Box.Grid>
         {cards.map((card) => {
           return <Loja key={card.id} {...card} />;
         })}
       </Box.Grid>
-    </SectionBox>
+    </Box.Section>
   );
 };
 

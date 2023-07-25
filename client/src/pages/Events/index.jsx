@@ -1,9 +1,8 @@
 import React from "react";
 import { Title } from "@/components/Title";
 import * as Icons from "react-bootstrap-icons";
-import { Calendar, ComunidadosItem, Div } from "./Style";
-import { SectionBox } from "../../components/Box/Style";
-
+import { Calendar, Div, Section } from "./Style";
+import { Comunicado } from "@/components/Comunicado";
 
 const EventosRoute = "/eventos";
 
@@ -17,7 +16,7 @@ const comunicados = [comunicado, comunicado, comunicado];
 
 const Eventos = () => {
   return (
-    <SectionBox $row >
+    <Section>
       <Div>
         <Title icon={<Icons.CalendarWeek />}>Eventos</Title>
         <Calendar />
@@ -25,12 +24,12 @@ const Eventos = () => {
       <Div>
         <Title icon={<Icons.InfoCircle />}>Comunicados</Title>
         <Div>
-          {comunicados.map(comunicado => {
-            return <ComunidadosItem {...comunicado} />;
+          {comunicados.map((comunicado) => {
+            return <Comunicado {...comunicado} />;
           })}
         </Div>
       </Div>
-    </SectionBox>
+    </Section>
   );
 };
 

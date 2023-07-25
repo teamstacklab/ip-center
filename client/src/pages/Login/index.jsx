@@ -62,7 +62,6 @@ export const LogoImageAltenativa = styled.img`
   object-fit: cover;
 `
 
-
 export const LoginRoute = '/login';
 
 export default function Login() {

@@ -10,7 +10,9 @@ export const Form = styled(BSForm)`
   font-size: 1rem;
   background: var(--orange-tertiary);
   @media screen and (max-width: 425px) {
-    padding: 0;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: transparent;
   }
 `;
 
@@ -24,6 +26,9 @@ Form.Input = styled(BSForm.Control)`
   box-shadow: 0 0 8px var(--shadow-secondary) !important;
   &:focus {
     border: 2px solid var(--orange-primary);
+  }
+  @media screen and (max-width: 425px) {
+    background-color: var(--orange-tertiary);
   }
 `;
 

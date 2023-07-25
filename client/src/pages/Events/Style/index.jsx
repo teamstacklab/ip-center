@@ -18,13 +18,20 @@ export const Calendar = styled(CalendarAgenda)`
   }
 `;
 
-export const ComunidadosItem = styled.span`
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 18px;
-`
+export const Section = styled(Box.Section)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: calc(2 * 2vw);
+  @media screen and (max-width: 1280px) {
+    gap: calc(1.5 * 2vw);
+    flex-direction: column;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem 1.3rem;
+    height: auto;
+  }
+`;
 
 export const Icon = styled(InfoCircle)`
   font-size: 1.75rem;

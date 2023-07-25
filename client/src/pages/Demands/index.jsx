@@ -7,26 +7,28 @@ import { styled } from "styled-components";
 
 const DemandasRoute = "/demandas";
 
-const Section = styled(Box.Section)`
-  @media screen and (max-width: 1440px){
-        padding: .5rem 1.3rem;
-        gap: 1rem;
-  }
-`
-const ContainerDemandas = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  margin-top: 2em;
-`
+const demand = {
+  id: 1,
+  loja: "Renan Store",
+  name: "Renan Alves",
+  cpf: "09890987654",
+  createdAt: "2023-07-22",
+};
+
+const demandas = [demand, demand, demand, demand];
 
 const Demandas = () => {
   return (
-    <Section>
-      <Title icon={<Icons.CheckAll />}>Demandas de Registro</Title>
-      <ContainerDemandas >
-      </ContainerDemandas>
-    </Section>
+    <React.Fragment>
+      <Box.Section>
+        <Title icon={<Icons.Check2All />}>Demandas de Registro</Title>
+        <Box.Flex column>
+          {demandas.map((demanda) => {
+            return <Demand {...demanda} />;
+          })}
+        </Box.Flex>
+      </Box.Section>
+    </React.Fragment>
   );
 };
 
