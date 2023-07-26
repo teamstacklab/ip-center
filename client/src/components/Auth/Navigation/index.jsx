@@ -16,6 +16,9 @@ const Container = styled.div`
   @media screen and (max-width: 1279px) {
     margin-left: 16px;
   }
+  @media screen and (max-width: 1279px) {
+    margin: 0 8px;
+  }
 `;
 
 const Text = styled.p`

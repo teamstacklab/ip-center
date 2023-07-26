@@ -1,94 +1,108 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
-import "./CSS/mobile.css";
-import "./CSS/desktop.css";
-
+import React from "react";
+import { useParams } from "react-router-dom";
+import * as Icons from "react-bootstrap-icons";
 import {
-  BagCheck,
-  GeoAlt,
-  Tag,
-  InfoCircle,
-  Whatsapp,
-  Instagram
-} from 'react-bootstrap-icons';
+  Carousel,
+  Container,
+  Content,
+  Flex,
+  Information,
+  Slide,
+  Slogan,
+  Title,
+  Image,
+  Description,
+  Label,
+  Logo,
+  Meta,
+  Metadata,
+} from "./Style";
 
+const loja = {
+  name: "Renan Store",
+  images: [
+    "https://i.imgur.com/JtnSmuG.jpeg",
+    "https://i.imgur.com/JtnSmuG.jpeg",
+    "https://i.imgur.com/JtnSmuG.jpeg",
+  ],
+  logo: "https://i.imgur.com/oASn9Hu.jpeg",
+  description:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas hic dolorum eius magni non impedit similique laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas hic dolorum eius magni non impedit similique laborum.",
+  whatsapp: "88981179878",
+  instagram: "@lojaderenan",
+  services: "Prestação de Serviços, Moda, Lojas",
+  location: "Piso L1",
+  slogan: "A loja da tecnologia",
+  category: "Moda",
+};
 
 const Loja = ({ match }) => {
   const { id } = useParams();
+
   return (
-    <main className='content-box'>
-      <section className="loja p-0 m-0">
-        <div className="loja__sobre">
-          <div className='sobre__header'>
-            <h2 className="sobre__title">{loja.name}</h2>
-          </div>
-          <p className="sobre__slogan">{loja.slogan}</p>
-          <div className='carousel__container'>
-            <Swiper
-              className="sobre__carousel"
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              navigation={true}
-              pagination={{ clickable: true }}
-            >
-              {loja.images.map(imagem => {
+    <React.Fragment>
+      <Container>
+        <Flex>
+          <Content>
+            <Title>{loja.name}</Title>
+            <Slogan>"{loja.slogan}"</Slogan>
+            <Carousel>
+              {loja.images.map((image) => {
                 return (
-                  <SwiperSlide className="carousel__item">
-                    <img className="carousel__image" src={imagem} alt="Arte do Shopping" />
-                  </SwiperSlide>
+                  <Slide>
+                    <Image src={image} />
+                  </Slide>
                 );
               })}
-            </Swiper>
-          </div>
-          <h3 className="sobre__description-title">Descrição:</h3>
-          <p className="sobre__description">{loja.description}</p>
-        </div>
-        <div className="loja__data">
-          <img className='data__logo' src={loja.logo} alt="logotipo da loja" />
-          <h2 className="data__title">{loja.name}</h2>
-          <p className='data__slogan'>{loja.slogan}</p>
-          <div className='data__item data__services'>
-            <h3 className='data__item-title services__title'><BagCheck className='data__icon' />Produtos e/ou serviços</h3>
-            <ul className='data__list'>
-              <li>{loja.services}</li>
-            </ul>
-          </div>
-          <div className='data__item data__location'>
-            <h3 className='data__item-title  location__title'><GeoAlt className='data__icon' />Localização:</h3>
-            <ul className='data__list'>
-              <li>{loja.location}</li>
-            </ul>
-          </div>
-          <div className='data__item data__category'>
-            <h3 className='data__item-title category__title'><Tag className='data__icon' />Categoria:</h3>
-            <ul className='data__list'>
-              <li>{loja.category}</li>
-            </ul>
-          </div>
-          <div className='data__item data__additional'>
-            <h3 className='data__item-title category__title'><InfoCircle className='data__icon' />Informações adicionais:</h3>
-            <ul className='data__list'>
-              <li>{loja.additionalInfo}</li>
-            </ul>
-          </div>
-          <div className='data__actions'>
-            <a className='data__action whatsapp' href={`https://api.whatsapp.com/send/?phone=%2B55${loja.whatsapp}&text&type=phone_number&app_absent=0`}>
-              <Whatsapp className='action__icon' />
-            </a>
-            <a className='data__action instagram' href={`https://www.instagram.com/${loja.instagram}`}>
-              <Instagram className='action__icon' />
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
+            </Carousel>
+            <Label>Descrição:</Label>
+            <Description>{loja.description}</Description>
+          </Content>
+          <Information>
+            <Logo>
+              <Logo.Image src={loja.logo} />
+              <Logo.Text>{loja.name}</Logo.Text>
+            </Logo>
+            <Metadata>
+              <Meta>
+                <Meta.Container>
+                  <Meta.Icon>
+                    <Icons.Tags />
+                  </Meta.Icon>
+                  <Meta.Title>Categorias:</Meta.Title>
+                </Meta.Container>
+                <Meta.List>
+                  <Meta.Data>{loja.category}</Meta.Data>
+                </Meta.List>
+              </Meta>
+              <Meta>
+                <Meta.Container>
+                  <Meta.Icon>
+                    <Icons.GeoAlt />
+                  </Meta.Icon>
+                  <Meta.Title>Localização:</Meta.Title>
+                </Meta.Container>
+                <Meta.List>
+                  <Meta.Data>{loja.location}</Meta.Data>
+                </Meta.List>
+              </Meta>
+              <Meta>
+                <Meta.Container>
+                  <Meta.Icon>
+                    <Icons.BagCheck />
+                  </Meta.Icon>
+                  <Meta.Title>Produtos e/ou serviços:</Meta.Title>
+                </Meta.Container>
+                <Meta.List>
+                  <Meta.Data>{loja.services}</Meta.Data>
+                </Meta.List>
+              </Meta>
+            </Metadata>
+          </Information>
+        </Flex>
+      </Container>
+    </React.Fragment>
   );
-}
-
+};
 
 export default Loja;

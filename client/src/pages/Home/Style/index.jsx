@@ -21,16 +21,16 @@ export const Main = styled(Box.Main)`
 const SwiperContainer = styled.div`
   width: 100%;
   .swiper {
-    width: ${props => props.width || "100%"};
-    height: ${props => props.height || "65vh"};
+    width: ${(props) => props.width || "100%"};
+    height: ${(props) => props.height || "65vh"};
     overflow: hidden;
     @media screen and (max-width: 768px) {
-      height: ${props => `calc(${props.height} / 1.15)` || "42vh"};
+      height: ${(props) => props.height ? `calc(${props.height} / 1.5)` : "52vh"};
     }
   }
 `;
 
-export const Carousel = ({ children, height, width, ...props}) => {
+export const Carousel = ({ children, height, width, ...props }) => {
   return (
     <React.Fragment>
       <SwiperContainer height={height} width={width}>
