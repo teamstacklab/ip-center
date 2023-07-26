@@ -1,5 +1,5 @@
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
+import React from "react";
+import * as Icons from "react-bootstrap-icons";
 import { LojasRoute } from "../../../pages/Stores";
 
 import "swiper/css";
@@ -7,39 +7,37 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import {
-  Div,
-  IconArrow,
-  LinkLojas,
-  SpanTitle,
-  SlideLojas,
-  ImageSlide,
-  CaroseulLojas,
+import { Div, IconArrow, ImageSlide, LinkLojas, SpanTitle } from "./Style";
 
-} from "./Style";
+import { Carousel, Slide } from "@/pages/Home/Style";
+
+import { Title } from "@/components/Title";
 
 /*Fotos da lojas*/
-import imperio from "../../../assets/images/lojas/imperio.jpg";
-import HotDog from "../../../assets/images/lojas/hotdog.jpg";
-import IconLojas from "../../Icon/IconLojas";
+import imperio from "@/assets/images/lojas/imperio.jpg";
+import HotDog from "@/assets/images/lojas/hotdog.jpg";
 
-const slideLojas = [imperio, HotDog, imperio];
+const slideLojas = [imperio, HotDog, imperio, imperio, HotDog, imperio];
 
 function HomeLojas() {
   return (
     <>
       <Div>
-        <IconLojas />
+        <Title
+          iconColor={"var(--orange-secondary)"}
+          color={"var(--orange-tertiary)"}
+          icon={<Icons.Shop />}
+        >
+          Lojas
+        </Title>
         <LinkLojas to={LojasRoute} alt="Veja todas">
           <SpanTitle>Veja todas</SpanTitle>
           <IconArrow />
         </LinkLojas>
       </Div>
       <div>
-        <CaroseulLojas
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          pagination={{ clickable: true }}
-          navigation={true}
+        <Carousel
+          height={"400px"}
           breakpoints={{
             1280: {
               slidesPerView: 3,
@@ -50,12 +48,12 @@ function HomeLojas() {
         >
           {slideLojas.map((lojas) => {
             return (
-              <SlideLojas>
-                <ImageSlide src={lojas} alt="Lojas do ipê center" />
-              </SlideLojas>
+              <Slide>
+                <ImageSlide src={lojas} />
+              </Slide>
             );
           })}
-        </CaroseulLojas>
+        </Carousel>
       </div>
     </>
   );

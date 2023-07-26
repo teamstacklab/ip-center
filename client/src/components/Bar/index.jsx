@@ -28,7 +28,7 @@ function Bar() {
             </Link>
         </Container>
     )
-};
+}
 
 
 export default Bar

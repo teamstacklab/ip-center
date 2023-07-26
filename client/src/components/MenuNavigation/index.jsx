@@ -6,11 +6,11 @@ import { HomeRoute } from "../../pages/Home";
 import { LojasRoute } from "../../pages/Stores";
 import { EventosRoute } from "../../pages/Events";
 
-import { House, CalendarWeek } from "react-bootstrap-icons";
+import { CalendarWeek, HouseDoor } from "react-bootstrap-icons";
 import { IconShop } from "../Auth/User";
 
 export const LinkMenu = styled(Link)`
-  color: var(--marrom);
+  color: var(--brown-primary);
   border: none;
   gap: 6px;
   display: flex;
@@ -27,7 +27,7 @@ export const LinkMenu = styled(Link)`
   }
 `;
 
-export const IconHouse = styled(House)`
+export const IconHouse = styled(HouseDoor)`
   font-size: 1.15em;
 `;
 

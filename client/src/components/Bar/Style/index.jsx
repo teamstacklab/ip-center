@@ -14,7 +14,7 @@ export const Container = styled.div`
     justify-content: space-between;
     height: 36px;
     padding: 0 20px;
-    background-color: var(--verde);
+    background-color: var(--green-primary);
     width: 100%;
 `
 
@@ -28,7 +28,7 @@ export const Link = styled.a`
     display: flex;
     align-items: center;
     font-size: 0.95em;
-    color: var(--cor-texto);
+    color: var(--orange-secondary);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -40,12 +40,12 @@ export const Arrow = styled(ArrowRight)`
 `
 export const IconWhatsapp = styled(Whatsapp)`
     font-size: 1.35em;
-    color: var(--cor-texto);
+    color: var(--orange-secondary);
 `
 
 export const IconInstagram = styled(Instagram)`
     font-size: 1.35em;
-    color: var(--cor-texto);
+    color: var(--orange-secondary);
     cursor: pointer;
 
 `
@@ -53,7 +53,7 @@ export const IconInstagram = styled(Instagram)`
 export const Text = styled.p`
     margin: 0;
     font-size: 16px;
-    color: var(--cor-texto);
+    color: var(--orange-secondary);
     font-weight: 500;
     display: block;
     @media screen and (max-width: 1279px) {

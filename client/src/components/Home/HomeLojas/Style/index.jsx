@@ -1,12 +1,11 @@
 import { styled } from "styled-components";
-
 import { Shop, ArrowRight } from "react-bootstrap-icons";
-
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 
 export const Div = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  margin-top: 4px;
   display: flex;
   text-align: center;
   justify-content: space-between;
@@ -39,8 +38,7 @@ export const LinkLojas = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: var(--orange-tertiary);
-  gap: 11px;
-  margin-top: -10px;
+  gap: 8px;
 `;
 
 export const SpanTitle = styled.span`
@@ -74,3 +72,4 @@ export const ImageSlide = styled.img`
   object-fit: cover;
   border-radius: 12px;
 `;
+
