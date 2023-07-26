@@ -26,7 +26,7 @@ function HomeEventos() {
     <>
       <ContainerEventos>
         <ContainerTitle>
-          <Title icon={<Icons.CalendarWeek />}>ASDF</Title>
+          <Title icon={<Icons.CalendarWeek />}>Eventos</Title>
         </ContainerTitle>
         <div>
           <Description>
