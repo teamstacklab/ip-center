@@ -9,5 +9,5 @@ export default defineConfig({
       { find: '@', replacement: path.resolve(__dirname, 'src')},
     ]
   },
-  assetsInclude: ["**/*.PNG"]
+  assetsInclude: ["**/*{.PNG,.CSS,.SVG}"]
 })

@@ -16,7 +16,7 @@ const User = styled.p`
     line-height: 1.2em;
     margin-right: 1em;
     font-size: 18px;
-    color: var(--marrom);
+    color: var(--brown-primary);
     font-weight: 500;
 `
 

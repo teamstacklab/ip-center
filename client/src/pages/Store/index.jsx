@@ -20,10 +20,7 @@ import {
 
 
 const Loja = ({ match }) => {
-  const [loja, setLoja] = React.useState(null);
   const { id } = useParams();
-  const route = `${ApiLojas.all}/${id}`;
-
   return (
     <main className='content-box'>
       <section className="loja p-0 m-0">

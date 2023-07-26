@@ -23,7 +23,7 @@ const Button = styled(NavBar.Toggle)`
     margin-left: auto;
 
     &:focus { 
-        background-color: var(--shadow-2);
+        background-color: var(--shadow-primary-2);
         box-shadow: none !important;
         border: 0;
         outline: 0;

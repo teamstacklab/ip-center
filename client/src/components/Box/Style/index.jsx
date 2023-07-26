@@ -1,14 +1,18 @@
 import { styled } from "styled-components";
 
+export const BoxMain = styled.main`
+  width: 100%;
+`;
+
 export const BoxSection = styled.section`
   display: flex;
-  flex-direction: ${props => props.$row ? "roe" : "column"};
+  flex-direction: ${(props) => (props.$row ? "roe" : "column")};
   width: 100%;
   margin-top: var(--nav-top-desktop);
   min-height: calc(100vh - var(--nav-top-desktop) * 3);
   gap: 26px;
   padding: 40px calc(40px * 2.15);
-  justify-content: ${props => props.$row ? "space-between" : 'flex-start'};
+  justify-content: ${(props) => (props.$row ? "space-between" : "flex-start")};
   @media screen and (max-width: 1280px) {
     padding: 28px calc(28px * 2.15);
     gap: 18px;
@@ -28,7 +32,7 @@ export const BoxFlex = styled.div`
   flex-direction: ${(props) => (props.column ? "column" : "row")};
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     flex-direction: column !important;
   }
 `;
@@ -47,11 +51,11 @@ export const BoxGrid = styled.div`
 `;
 
 export const SectionBox = styled(BoxSection)`
-    @media screen and (max-width: 1440px){
-        display: flex;
-        flex-direction: column;
-        padding: var(--padding-mobile);
-        height: auto;
-        gap: 0;
-    }
-`
+  @media screen and (max-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-mobile);
+    height: auto;
+    gap: 0;
+  }
+`;

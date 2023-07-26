@@ -15,9 +15,9 @@ export const Header = styled.header`
     }
 `
 export const NavBar = styled(NavegationBar)`
-    background-color: var(--cor-menu);
+    background-color: var(--orange-light);
     z-index: 999;
-    box-shadow: 0 0 8px var(--shadow);
+    box-shadow: 0 0 8px var(--shadow-primary);
     @media screen and (min-width: 1279px) {
         width: 100%;
         padding: 0 72px;
@@ -31,11 +31,11 @@ export const Div = styled.div`
 `
 
 export const LogOut = styled(Button)`
-    box-shadow: 3px 3px 10px var(--shadow-2);
-    background: var(--cor-icone);
+    box-shadow: 3px 3px 10px var(--shadow-primary-2);
+    background: var(--orange-primary);
     border: none;
     font-weight: 600;
-    color: var(--marrom);
+    color: var(--brown-primary);
 `
 export const Nav = styled(NavReact)`
     @media screen and (min-width: 1279px) {

@@ -1,23 +1,19 @@
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
+import React from "react";
+import * as Icons from "react-bootstrap-icons";
 import {
   ContainerAgenda,
   ContainerEventos,
-  TitleAgenda,
   Description,
   LinkEventos,
-  CarouselEventos,
-  Slide,
   ArrowEventos,
+  TitleAgenda,
+  CarouselContainer,
+  ContainerTitle,
 } from "./Style";
 
+import { Carousel, Slide } from "@/pages/Home/Style";
+import { Title } from "@/components/Title";
 import CalendarAgenda from "../../Calendar";
-import IconEventos from "../../Icon/IconEventos";
 import { ImageSlide } from "../HomeLojas/Style";
 
 import ipe02 from "../../../assets/images/ipecenter/ipe02.jpeg";
@@ -29,7 +25,9 @@ function HomeEventos() {
   return (
     <>
       <ContainerEventos>
-        <IconEventos />
+        <ContainerTitle>
+          <Title icon={<Icons.CalendarWeek />}>ASDF</Title>
+        </ContainerTitle>
         <div>
           <Description>
             O Shopping Ipê Center conta também com um{" "}
@@ -42,19 +40,17 @@ function HomeEventos() {
             <ArrowEventos />
           </LinkEventos>
         </div>
-        <CarouselEventos
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          navigation={false}
-          pagination={{ clickable: true }}
-        >
-          {slideEventos.map((imagens) => {
-            return (
-              <Slide>
-                <ImageSlide src={imagens} alt="Eventos do Shopping" />
-              </Slide>
-            );
-          })}
-        </CarouselEventos>
+        <CarouselContainer>
+          <Carousel height={"350px"}>
+            {slideEventos.map((imagens) => {
+              return (
+                <Slide>
+                  <ImageSlide src={imagens} alt="Eventos do Shopping" />
+                </Slide>
+              );
+            })}
+          </Carousel>
+        </CarouselContainer>
       </ContainerEventos>
       <ContainerAgenda>
         <TitleAgenda>Agenda</TitleAgenda>
