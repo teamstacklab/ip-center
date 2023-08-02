@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ComunicateService } from 'services/Comunicate.service';
-import { Comunicate } from 'domain/entities/Comunicate.entity';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
+import { ComunicateService } from '../services/Comunicate.service';
+import { Comunicate } from '../domain/entities/Comunicate.entity';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 import {
   CreateComunicateDto,
   UpdateComunicateDto,

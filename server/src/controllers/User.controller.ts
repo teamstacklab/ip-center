@@ -1,9 +1,9 @@
 import { Controller, Param, Get, Post, Body, UseGuards } from '@nestjs/common';
-import { CreateUserDto, UpdateUserDto } from 'domain/dto/User.dto';
-import { UserService } from 'services/User.service';
-import { User } from 'domain/entities/User.entity';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
+import { CreateUserDto, UpdateUserDto } from '../domain/dto/User.dto';
+import { UserService } from '../services/User.service';
+import { User } from '../domain/entities/User.entity';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/users')
 export class UserControler {

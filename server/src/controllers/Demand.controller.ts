@@ -1,9 +1,9 @@
 import { Controller, Param, Post } from '@nestjs/common';
-import { Demand } from 'domain/entities/Demand.entity';
-import { DemandService } from 'services/Demand.service';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
+import { Demand } from '../domain/entities/Demand.entity';
+import { DemandService } from '../services/Demand.service';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/demands')
 export class DemandController {

@@ -14,11 +14,11 @@ import {
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
-import { ImageService } from 'services/Image.service';
-import { Image } from 'domain/entities/Image.entity';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
+import { ImageService } from '../services/Image.service';
+import { Image } from '../domain/entities/Image.entity';
 import {
   CreateImageDto,
   UpdateImageDto,
@@ -28,7 +28,7 @@ import { Request, Response } from 'express';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { ConfigService } from '@nestjs/config';
-import { generateRandomFileName } from 'utils/files.util';
+import { generateRandomFileName } from '../utils/files.util';
 
 const env: ConfigService = new ConfigService();
 

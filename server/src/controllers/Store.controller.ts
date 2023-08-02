@@ -1,6 +1,6 @@
-import { StoreService } from 'services/Store.service';
-import { CreateStoreDto, UpdateStoreDto } from 'domain/dto/Store.dto';
-import { Store } from 'domain/entities/Store.entity';
+import { StoreService } from '../services/Store.service';
+import { CreateStoreDto, UpdateStoreDto } from '../domain/dto/Store.dto';
+import { Store } from '../domain/entities/Store.entity';
 import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
 import { Req } from '@nestjs/common';
 import { Request } from 'express';

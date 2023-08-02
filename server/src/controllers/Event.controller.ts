@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateEventDto, UpdateEventDto } from 'domain/dto/Event.dto';
-import { EventService } from 'services/Event.service';
-import { Event } from 'domain/entities/Event.entity';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
+import { CreateEventDto, UpdateEventDto } from '../domain/dto/Event.dto';
+import { EventService } from '../services/Event.service';
+import { Event } from '../domain/entities/Event.entity';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/events')
 export class EventController {

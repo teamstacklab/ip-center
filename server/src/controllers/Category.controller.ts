@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Post, Param } from '@nestjs/common';
-import { CreateCategoryDto, UpdateCategoryDto } from 'domain/dto/Category.dto';
-import { CategoryService } from 'services/Category.service';
-import { Category } from 'domain/entities/Category.entity';
-import { IsAdminGuard } from 'infra/guards/Roles/is-admin.guard';
+import { CreateCategoryDto, UpdateCategoryDto } from '../domain/dto/Category.dto';
+import { CategoryService } from '../services/Category.service';
+import { Category } from '../domain/entities/Category.entity';
+import { IsAdminGuard } from '../infra/guards/Roles/is-admin.guard';
 import { UseGuards } from '@nestjs/common';
-import { JwtAccessAuthGuard } from 'infra/guards/Auth/jwt-access.guard';
+import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 
 @Controller('api/categories')
 export class CategoryController {
