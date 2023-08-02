@@ -39,7 +39,7 @@ export class UserControler {
     return await this.userService.getOneById(+id);
   }
 
-  // @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
+  @UseGuards(JwtAccessAuthGuard, IsAdminGuard)
   @Post('/create')
   async create(@Body() userDto: CreateUserDto): Promise<Partial<User>> {
     return await this.userService.create(userDto);
