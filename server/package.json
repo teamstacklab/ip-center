@@ -7,8 +7,6 @@
    "license": "UNLICENSED",
    "scripts": {
       "build": "nest build",
-      "vercel-build": "nest build",
-      "vercel-start": "node dist/main",
       "format": "prettier --write \"src/**/*.ts\"",
       "start": "ts-node src/index.ts",
       "start:dev": "nest start --watch",
