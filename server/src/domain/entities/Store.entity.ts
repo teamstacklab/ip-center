@@ -9,6 +9,7 @@ import {
   JoinColumn,
   ManyToOne,
   ManyToMany,
+  OneToOne,
 } from 'typeorm';
 import { Category } from './Category.entity';
 import { Image } from './Image.entity';
@@ -34,6 +35,10 @@ export class Store implements IStore {
 
   @Column('varchar', { nullable: false, length: 500 })
   slogan: string;
+
+  @OneToOne(() => Image, (image) => image.id, { cascade: true })
+  @JoinColumn()
+  logo: Image;
 
   @ManyToMany(() => Image, (image) => image.id, { cascade: true })
   @JoinColumn()

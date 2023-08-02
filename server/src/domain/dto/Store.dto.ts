@@ -8,18 +8,19 @@ export class CreateStoreDto {
   category: Category;
   @IsNotEmpty() name: string;
   @IsNotEmpty() slogan: string;
-  @IsArray() images: Image[];
+  @IsNotEmpty() logo: Image;
+  @IsNotEmpty() @IsArray() images: Image[];
   @IsNotEmpty() description: string;
   @IsNotEmpty() instagram: string;
   @IsNotEmpty() whatsapp: string;
   @IsNotEmpty() location: string;
   @IsNotEmpty() services: string;
-  additionalInfo: string;
 }
 
 export class UpdateStoreDto {
   @IsNotEmpty() @IsOptional() name?: string;
   @IsNotEmpty() @IsOptional() slogan?: string;
+  @IsNotEmpty() @IsOptional() logo: Image;
   @IsOptional() @IsArray() images?: Image[];
   @IsNotEmpty() @IsOptional() description?: string;
   @IsNotEmpty() @IsOptional() instagram?: string;
@@ -27,17 +28,4 @@ export class UpdateStoreDto {
   @IsNotEmpty() @IsOptional() location?: string;
   @IsNotEmpty() @IsOptional() services?: string;
   @IsNotEmpty() @IsOptional() category?: Category;
-  @IsOptional() additionalInfo?: string;
-}
-
-export class PartialStoreDto {
-  id?: number;
-  name?: string;
-  slogan?: string;
-  description?: string;
-  instagram?: string;
-  whatsapp?: string;
-  location?: string;
-  services?: string;
-  additionalInfo?: string;
 }

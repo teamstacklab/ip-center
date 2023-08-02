@@ -11,7 +11,7 @@ import {
 export class User implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
-
+  
   @Column('varchar', { nullable: false, length: 200 })
   name: string;
 
