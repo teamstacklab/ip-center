@@ -1,7 +1,7 @@
 import { UploadedFiles } from '@nestjs/common';
 import { IsEnum, IsNotEmpty, IsOptional } from 'class-validator';
-import { User } from 'domain/entities/User.entity';
-import { ImagesRole } from 'domain/interfaces/IImage';
+import { User } from '../entities/User.entity';
+import { ImagesRole } from '../interfaces/IImage';
 
 export class CreateImageDto {
   @IsNotEmpty() url: string;

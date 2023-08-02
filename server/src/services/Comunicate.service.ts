@@ -9,7 +9,7 @@ import { Comunicate } from '../domain/entities/Comunicate.entity';
 import {
   CreateComunicateDto,
   UpdateComunicateDto,
-} from 'domain/dto/Comunicate.dto';
+} from '../domain/dto/Comunicate.dto';
 import { Repository } from 'typeorm';
 import { IComunicateService } from '../domain/interfaces/IComunicate';
 
