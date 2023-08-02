@@ -4,11 +4,10 @@ import { AppModule } from './app.module';
 import helmet from 'helmet';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.use(helmet());
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.enableCors();
 
   const PORT = +process.env.PORT;
 
