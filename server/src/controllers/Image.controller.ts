@@ -23,7 +23,7 @@ import {
   CreateImageDto,
   UpdateImageDto,
   UploadImageDto,
-} from 'domain/dto/Image.dto';
+} from '../domain/dto/Image.dto';
 import { Request, Response } from 'express';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';

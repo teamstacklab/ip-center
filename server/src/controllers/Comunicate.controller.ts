@@ -7,7 +7,7 @@ import { JwtAccessAuthGuard } from '../infra/guards/Auth/jwt-access.guard';
 import {
   CreateComunicateDto,
   UpdateComunicateDto,
-} from 'domain/dto/Comunicate.dto';
+} from '../domain/dto/Comunicate.dto';
 
 @Controller('api/comunicates')
 export class ComunicateController {
