@@ -1,4 +1,4 @@
-import { IEvent } from 'domain/interfaces/IEvent';
+import { IEvent } from '../interfaces/IEvent';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('events')

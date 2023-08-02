@@ -2,7 +2,7 @@ import {
   AuthLoginDto,
   AuthRegisterDto,
   AuthValidateDto,
-} from 'domain/dto/Auth.dto';
+} from '../dto/Auth.dto';
 
 export interface IAuthPayload {
   sub: number;

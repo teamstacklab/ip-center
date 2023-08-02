@@ -4,14 +4,14 @@ import {
   Injectable,
   Logger,
 } from '@nestjs/common';
-import { IAuthPayload, IAuthService } from 'domain/interfaces/IAuth';
+import { IAuthPayload, IAuthService } from '../domain/interfaces/IAuth';
 import { UserService } from './User.service';
 import {
   AuthLoginDto,
   AuthAccessPayloadDto,
   AuthRegisterDto,
   AuthValidateDto,
-} from 'domain/dto/Auth.dto';
+} from '../domain/dto/Auth.dto';
 import { JwtService } from '@nestjs/jwt';
 import { EncryptionService } from './Encription.service';
 import { ConfigService } from '@nestjs/config';

@@ -1,4 +1,4 @@
-import { IImage, ImagesRole } from 'domain/interfaces/IImage';
+import { IImage, ImagesRole } from '../interfaces/IImage';
 import {
   Column,
   Entity,

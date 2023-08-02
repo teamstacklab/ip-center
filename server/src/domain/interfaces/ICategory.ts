@@ -1,5 +1,5 @@
-import { CreateCategoryDto, UpdateCategoryDto } from 'domain/dto/Category.dto';
-import { Category } from 'domain/entities/Category.entity';
+import { CreateCategoryDto, UpdateCategoryDto } from '../dto/Category.dto';
+import { Category } from '../entities/Category.entity';
 
 export interface ICategory {
   id: number;

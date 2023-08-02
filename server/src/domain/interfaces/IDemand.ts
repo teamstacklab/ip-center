@@ -1,5 +1,5 @@
-import { CreateDemandDto } from 'domain/dto/Demand.dto';
-import { Demand } from 'domain/entities/Demand.entity';
+import { CreateDemandDto } from '../dto/Demand.dto';
+import { Demand } from '../entities/Demand.entity';
 import { IUser } from './IUser';
 
 export interface IDemand extends Omit<IUser, 'refreshToken' | 'updatedAt'> {

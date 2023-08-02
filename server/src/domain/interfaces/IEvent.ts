@@ -1,5 +1,5 @@
-import { CreateEventDto, UpdateEventDto } from 'domain/dto/Event.dto';
-import { Event } from 'domain/entities/Event.entity';
+import { CreateEventDto, UpdateEventDto } from '../dto/Event.dto';
+import { Event } from '../entities/Event.entity';
 
 export interface IEvent {
   id: number;

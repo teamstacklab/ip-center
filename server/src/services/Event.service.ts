@@ -5,9 +5,9 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateEventDto, UpdateEventDto } from 'domain/dto/Event.dto';
-import { Event } from 'domain/entities/Event.entity';
-import { IEventService } from 'domain/interfaces/IEvent';
+import { CreateEventDto, UpdateEventDto } from '../domain/dto/Event.dto';
+import { Event } from '../domain/entities/Event.entity';
+import { IEventService } from '../domain/interfaces/IEvent';
 import { Repository } from 'typeorm';
 
 @Injectable()

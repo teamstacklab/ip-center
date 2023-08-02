@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ImageService } from 'services/Image.service';
+import { ImageService } from '../services/Image.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ImageController } from 'controllers/Image.controller';
-import { Image } from 'domain/entities/Image.entity';
+import { ImageController } from '../controllers/Image.controller';
+import { Image } from '../domain/entities/Image.entity';
 import { MulterModule } from '@nestjs/platform-express';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 

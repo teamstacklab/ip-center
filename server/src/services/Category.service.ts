@@ -5,10 +5,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Category } from 'domain/entities/Category.entity';
+import { Category } from '../domain/entities/Category.entity';
 import { Repository } from 'typeorm';
-import { CreateCategoryDto, UpdateCategoryDto } from 'domain/dto/Category.dto';
-import { ICategoryService } from 'domain/interfaces/ICategory';
+import { CreateCategoryDto, UpdateCategoryDto } from '../domain/dto/Category.dto';
+import { ICategoryService } from '../domain/interfaces/ICategory';
 
 @Injectable()
 export class CategoryService implements ICategoryService {

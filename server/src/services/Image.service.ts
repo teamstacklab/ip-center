@@ -7,11 +7,11 @@ import {
   HttpStatus,
   UnauthorizedException,
 } from '@nestjs/common';
-import { IImageService } from 'domain/interfaces/IImage';
-import { Image } from 'domain/entities/Image.entity';
+import { IImageService } from '../domain/interfaces/IImage';
+import { Image } from '../domain/entities/Image.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateImageDto, UpdateImageDto } from 'domain/dto/Image.dto';
+import { CreateImageDto, UpdateImageDto } from '../domain/dto/Image.dto';
 import * as fs from 'fs';
 import { ConfigService } from '@nestjs/config';
 import * as path from 'path';

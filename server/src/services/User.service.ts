@@ -1,4 +1,4 @@
-import { IUserService } from 'domain/interfaces/IUser';
+import { IUserService } from '../domain/interfaces/IUser';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
@@ -7,8 +7,8 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { User } from 'domain/entities/User.entity';
-import { CreateUserDto, UpdateUserDto } from 'domain/dto/User.dto';
+import { User } from '../domain/entities/User.entity';
+import { CreateUserDto, UpdateUserDto } from '../domain/dto/User.dto';
 import { EncryptionService } from './Encription.service';
 
 @Injectable()

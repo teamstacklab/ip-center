@@ -7,11 +7,11 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CreateStoreDto, UpdateStoreDto } from 'domain/dto/Store.dto';
+import { CreateStoreDto, UpdateStoreDto } from '../domain/dto/Store.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Store } from 'domain/entities/Store.entity';
+import { Store } from '../domain/entities/Store.entity';
 import { Repository } from 'typeorm';
-import { IStoreService } from 'domain/interfaces/IStore';
+import { IStoreService } from '../domain/interfaces/IStore';
 
 @Injectable()
 export class StoreService implements IStoreService {

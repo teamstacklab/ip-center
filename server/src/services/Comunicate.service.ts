@@ -5,13 +5,13 @@ import {
   ConflictException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Comunicate } from 'domain/entities/Comunicate.entity';
+import { Comunicate } from '../domain/entities/Comunicate.entity';
 import {
   CreateComunicateDto,
   UpdateComunicateDto,
 } from 'domain/dto/Comunicate.dto';
 import { Repository } from 'typeorm';
-import { IComunicateService } from 'domain/interfaces/IComunicate';
+import { IComunicateService } from '../domain/interfaces/IComunicate';
 
 @Injectable()
 export class ComunicateService implements IComunicateService {

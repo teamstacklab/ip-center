@@ -1,4 +1,4 @@
-import { IUser } from 'domain/interfaces/IUser';
+import { IUser } from '../interfaces/IUser';
 import {
   Entity,
   Column,

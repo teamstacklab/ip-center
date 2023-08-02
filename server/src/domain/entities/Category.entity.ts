@@ -1,4 +1,4 @@
-import { ICategory } from 'domain/interfaces/ICategory';
+import { ICategory } from '../interfaces/ICategory';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('categories')

@@ -1,4 +1,4 @@
-import { IDemand } from 'domain/interfaces/IDemand';
+import { IDemand } from '../interfaces/IDemand';
 import {
   Column,
   Entity,

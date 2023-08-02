@@ -1,4 +1,4 @@
-import { IComunicate } from 'domain/interfaces/IComunicate';
+import { IComunicate } from '../interfaces/IComunicate';
 import {
   Column,
   CreateDateColumn,

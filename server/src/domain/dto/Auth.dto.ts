@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 import { CreateDemandDto } from './Demand.dto';
-import { IAuthPayload } from 'domain/interfaces/IAuth';
+import { IAuthPayload } from '../interfaces/IAuth';
 
 export class AuthValidateDto {
   @IsNotEmpty() username: string;

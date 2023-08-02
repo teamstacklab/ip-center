@@ -3,8 +3,8 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Request } from 'express';
-import { AuthRefreshPayloadDto } from 'domain/dto/Auth.dto';
-import { UserService } from 'services/User.service';
+import { AuthRefreshPayloadDto } from '../../../domain/dto/Auth.dto';
+import { UserService } from '../../../services/User.service';
 import { NotFoundException } from '@nestjs/common';
 
 @Injectable()

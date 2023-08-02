@@ -3,13 +3,13 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { Demand } from 'domain/entities/Demand.entity';
-import { CreateDemandDto } from 'domain/dto/Demand.dto';
+import { Demand } from '../domain/entities/Demand.entity';
+import { CreateDemandDto } from '../domain/dto/Demand.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Logger } from '@nestjs/common';
-import { UserService } from 'services/User.service';
-import { IDemandService } from 'domain/interfaces/IDemand';
+import { UserService } from '../services/User.service';
+import { IDemandService } from '../domain/interfaces/IDemand';
 
 @Injectable()
 export class DemandService implements IDemandService {

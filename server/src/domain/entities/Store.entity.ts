@@ -1,4 +1,4 @@
-import { IStore } from 'domain/interfaces/IStore';
+import { IStore } from '../interfaces/IStore';
 import { User } from './User.entity';
 import {
   Entity,

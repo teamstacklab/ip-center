@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { AuthAccessPayloadDto } from 'domain/dto/Auth.dto';
-import { UserService } from 'services/User.service';
+import { AuthAccessPayloadDto } from '../../../domain/dto/Auth.dto';
+import { UserService } from '../../../services/User.service';
 
 @Injectable()
 export class JwtAccessStrategy extends PassportStrategy(Strategy, 'jwt') {
